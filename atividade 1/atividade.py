@@ -42,12 +42,14 @@ def bubbleSort(array):
 
 print("Vetor inicial:", dados)
 vetor1 = copy.deepcopy(dados)
+
 inicio1 = time.time()
-numeroComp = bubbleSort(vetor1)
+numeroComp1 = bubbleSort(vetor1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+
 print("Bubble Sort:", vetor1)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp)
+print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp1)
 print("#---------------------------------------------------------------------")
 
 def insertionSort(array):
@@ -64,12 +66,14 @@ def insertionSort(array):
 
 print("Vetor inicial:", dados)
 vetor2 = copy.deepcopy(dados)
+
 inicio1 = time.time()
-numeroComp = insertionSort(vetor2)
+numeroComp2 = insertionSort(vetor2)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+
 print("Insertion Sort:", vetor2)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp)
+print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp2)
 print("#---------------------------------------------------------------------")
 
 def selectionSort(array):
@@ -88,10 +92,12 @@ def selectionSort(array):
 
 print("Vetor inicial:", dados)
 vetor3 = copy.deepcopy(dados)
+
 inicio1 = time.time()
-numeroComp = insertionSort(vetor3)
+numeroComp3 = insertionSort(vetor3)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+
 print("Selection Sort:", vetor3)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp)
+print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp3)
 print("#---------------------------------------------------------------------")
