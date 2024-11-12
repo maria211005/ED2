@@ -4,6 +4,9 @@ import time
 
 with open("input8.txt", "r") as f:
     quant_numeros = f.readline().strip()
+    if type(quant_numeros) != int:
+        print("Erro ao receber variável")
+        exit(1)
     tipo_ord =  f.readline().strip()
     f.close()
         
