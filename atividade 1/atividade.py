@@ -1,3 +1,4 @@
+#teste pra ver se ta enviando certo o cod no git
 from random import randint
 import time
 
