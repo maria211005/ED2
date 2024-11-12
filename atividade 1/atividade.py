@@ -51,6 +51,7 @@ duracao1 = (fim1 - inicio1)*1000
 print("Bubble Sort:", vetor1)
 print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp1)
 print("#---------------------------------------------------------------------")
+#-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
     numeroComparacoes2 = 0
@@ -75,6 +76,7 @@ duracao1 = (fim1 - inicio1)*1000
 print("Insertion Sort:", vetor2)
 print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp2)
 print("#---------------------------------------------------------------------")
+#---------------------------------------------------------------------------------------
 
 def selectionSort(array):
     numeroComparacoes3 = 0
@@ -101,3 +103,44 @@ duracao1 = (fim1 - inicio1)*1000
 print("Selection Sort:", vetor3)
 print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp3)
 print("#---------------------------------------------------------------------")
+#-------------------------------------------------------------------------------------------
+
+def Merge(array, inicio, meio, fim):
+    numeroComp4 = 0
+    vetor_auxiliar = [] #alocando dinamicamente o vetor 
+    P1 = inicio #primeira e segunda metade respectivamente
+    P2 = meio + 1 
+
+    while(P1 <= meio and P2 <= fim):
+        numeroComp4 = numeroComp4 + 1
+        if(array[P1] < array[P2]): #add P1 no vetor aux
+            vetor_auxiliar.append(array[P1])
+        else: #add P2 no vetor aux
+            vetor_auxiliar.append(array[P2])
+    
+    #saiu do while
+    if (P1 == meio):
+        vetor_auxiliar.extend(array[P1])
+    else:
+        vetor_auxiliar.extend(array[P2])
+    
+    array = vetor_auxiliar #copiando o vetor aux pro array
+
+    return numeroComp4
+
+def mergeSort(array, inicio, fim):
+    if(inicio < fim):
+        meio = ((inicio + fim)/2)
+        #agora começa as recursivas 
+        mergeSort(array, inicio, meio) #divide a primeira metade
+        mergeSort(array, meio+1, fim) #divide a segunda metade
+        Merge(array, inicio, meio, fim)
+
+print("Vetor inicial:", dados)
+vetor4 = copy.deepcopy(dados)
+
+inicio1 = time.time()
+#em duvida de como chamar a funcao com o inicio e fim...
+fim1 = time.time()
+duracao1 = (fim1 - inicio1)*1000
+
