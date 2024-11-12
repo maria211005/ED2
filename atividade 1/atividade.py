@@ -141,6 +141,41 @@ vetor4 = copy.deepcopy(dados)
 
 inicio1 = time.time()
 #em duvida de como chamar a funcao com o inicio e fim...
+# --> tentar usar len 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
+#-------------------------------------------------------------
+def Particiona(array, inicio, fim):
+    esquerda = inicio
+    direita = fim 
+    pivo = array[inicio]
+
+    #direcionando para que lado vai cada elemento 
+    while(esquerda < direita):
+        while(array[esquerda] <= pivo and esquerda <= fim):
+            esquerda = esquerda + 1 #movendo o esq
+        
+        while(array[direita] > pivo and direita >= inicio):
+            direita = direita - 1 #movendo o dir 
+
+        if(esquerda < direita):
+            #trocando os dois vetores
+            array[esquerda], array[direita] = array[direita], array[esquerda]
+    array[direita], array[inicio] = array[inicio], array[direita]
+    return(direita)
+
+def QuickSort(array, inicio, fim):
+    if(inicio < fim):
+        pivo = Particiona(array, inicio, fim)
+        QuickSort(array, inicio, pivo-1)
+        QuickSort(array, pivo+1, fim)
+
+
+print("Vetor inicial:", dados)
+vetor5 = copy.deepcopy(dados)
+
+inicio1 = time.time()
+#pensando aqui em como chamar a funcao tb 
+fim1 = time.time()
+duracao1 = (fim1 - inicio1)*1000
