@@ -188,24 +188,42 @@ def esquerda(i):
 def direita(i):
     return 2*i+2
 
-def buildMaxHeap(array):
-    array_tamanhoHeap = len(array)
-    for i in range (len(array)/2, 1):
-        maxHeapify(array, i)
-
+#função que deixa o heap com o valor maximo na raiz
 def maxHeapify(array, i):
-    left = esquerda(i)
+    left = esquerda(i) #chamando as funções p/ calcular a posicao dos filhos
     right = direita(i)
     maior = i
 
-    #em duvida de como conseguir o tamanho do heap
-    if(left <= array.tamanhoHeap and array[left] > array[i]):
+    if(left <= len(array) and array[left] > array[i]):
         maior = left
     
-    if(right <= array.tamanhoHeap and array[right] > array[maior]):
+    if(right <= len(array) and array[right] > array[maior]):
         maior = right
 
     if (maior != i):
+        #corrige se o filho estiver maior que o pai, trocando os dois de lugar
         array[i],array[maior] = array[maior],array[i]
-        maxHeapify(array, maior)
+        maxHeapify(array, maior) 
 
+def buildMaxHeap(array):
+    tamanhoHeap = len(array)
+    for i in range (tamanhoHeap/2, 1):
+        maxHeapify(array, i)
+
+def heapSort(array):
+    numeroComp6 = 0
+    buildMaxHeap(array)
+    for i in range (len(array), 2):
+        numeroComp6 = numeroComp6 + 1
+        array[1],array[i] = array[i],array[1]
+        len(array) = len(array)-1
+        maxHeapify(array, 1)
+
+print("Vetor inicial:", dados)
+vetor6 = copy.deepcopy(dados)
+
+inicio1 = time.time()
+numeroComp6 = heapSort(vetor6)
+fim1 = time.time()
+duracao1 = (fim1 - inicio1)*1000
+#------------------------------------------------------------------------
