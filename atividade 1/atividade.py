@@ -106,13 +106,11 @@ print("#---------------------------------------------------------------------")
 #-------------------------------------------------------------------------------------------
 
 def Merge(array, inicio, meio, fim):
-    numeroComp4 = 0
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
     P2 = meio + 1 
 
     while(P1 <= meio and P2 <= fim):
-        numeroComp4 = numeroComp4 + 1
         if(array[P1] < array[P2]): #add P1 no vetor aux
             vetor_auxiliar.append(array[P1])
         else: #add P2 no vetor aux
@@ -129,7 +127,9 @@ def Merge(array, inicio, meio, fim):
     return numeroComp4
 
 def mergeSort(array, inicio, fim):
+    numeroComp4 = 0
     if(inicio < fim):
+        numeroComp4 = numeroComp4 + 1
         meio = ((inicio + fim)/2)
         #agora começa as recursivas 
         mergeSort(array, inicio, meio) #divide a primeira metade
@@ -140,8 +140,7 @@ print("Vetor inicial:", dados)
 vetor4 = copy.deepcopy(dados)
 
 inicio1 = time.time()
-#em duvida de como chamar a funcao com o inicio e fim...
-# --> tentar usar len 
+numeroComp4 = mergeSort(vetor4, 0, len(vetor4)) 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
@@ -166,7 +165,9 @@ def Particiona(array, inicio, fim):
     return(direita)
 
 def QuickSort(array, inicio, fim):
+    numeroComp5 = 0
     if(inicio < fim):
+        numeroComp5 = numeroComp5 + 1
         pivo = Particiona(array, inicio, fim)
         QuickSort(array, inicio, pivo-1)
         QuickSort(array, pivo+1, fim)
@@ -176,7 +177,7 @@ print("Vetor inicial:", dados)
 vetor5 = copy.deepcopy(dados)
 
 inicio1 = time.time()
-#pensando aqui em como chamar a funcao tb 
+numeroComp5 = QuickSort(vetor5, 0, len(vetor5))
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
