@@ -179,3 +179,32 @@ inicio1 = time.time()
 #pensando aqui em como chamar a funcao tb 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+
+#--------------------------------------------------------------
+def esquerda(i):
+    return 2*i+1
+
+def direita(i):
+    return 2*i+2
+
+def buildMaxHeap(array):
+    array_tamanhoHeap = len(array)
+    for i in range (len(array)/2, 1):
+        maxHeapify(array, i)
+
+def maxHeapify(array, i):
+    left = esquerda(i)
+    right = direita(i)
+    maior = i
+
+    #em duvida de como conseguir o tamanho do heap
+    if(left <= array.tamanhoHeap and array[left] > array[i]):
+        maior = left
+    
+    if(right <= array.tamanhoHeap and array[right] > array[maior]):
+        maior = right
+
+    if (maior != i):
+        array[i],array[maior] = array[maior],array[i]
+        maxHeapify(array, maior)
+
