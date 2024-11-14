@@ -25,7 +25,6 @@ elif tipo_ord == 'r':
 else:
     print("Fora dos padrões: 'c', 'd' ou 'r'\nO programa será finalizado")
     exit(1)
-
 #---------------------------------------------------------------------
 def bubbleSort(array):
     numeroComparacoes1 = 0
@@ -48,7 +47,7 @@ numeroComp1 = bubbleSort(vetor1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Bubble Sort:", vetor1, f"   Tempo de execução:{duracao1:.4f} ms", "|| Número de Comparações:", numeroComp1)
+print("Bubble Sort:", vetor1, f"   Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp1)
 #-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
@@ -94,9 +93,7 @@ numeroComp3 = insertionSort(vetor3)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Selection Sort:", vetor3)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp3)
-print("#---------------------------------------------------------------------")
+print("Selection Sort:", vetor3, f"Tempo de execução:{duracao1:.4f} ms","Número de Comparações:", numeroComp3)
 #-------------------------------------------------------------------------------------------
 
 def Merge(array, inicio, meio, fim):
@@ -149,10 +146,10 @@ def Particiona(array, inicio, fim):
 
     #direcionando para que lado vai cada elemento 
     while(esquerda < direita):
-        while(array[esquerda] <= pivo and esquerda <= fim):
+        while(array[esquerda] <= pivo and esquerda < fim):
             esquerda = esquerda + 1 #movendo o esq
         
-        while(array[direita] > pivo and direita >= inicio):
+        while(array[direita] > pivo and direita > inicio):
             direita = direita - 1 #movendo o dir 
 
         if(esquerda < direita):
@@ -211,7 +208,7 @@ def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
     tamanho = len(array)
-    for i in range (tamanho, 2):
+    for i in range (tamanho, 2, -1):
         numeroComp6 = numeroComp6 + 1
         array[1],array[i] = array[i],array[1]
         tamanho = tamanho - 1
@@ -224,4 +221,5 @@ numeroComp6 = heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
+
 '''
