@@ -1,40 +1,42 @@
-#teste pra ver se ta enviando certo o cod no git
+#Bibliotecas para composição do código
 from random import randint
 import time
 import copy
 import sys
 
+#receber os parâmetros via linha de comando
 if(len(sys.argv) != 3):
 	print("Quantidade de argumentos inválida. Tente novamente")
 else:
-	print(sys.argv[0])
-	print(sys.argv[1])
-	print(sys.argv[2])
+	entrada = sys.argv[1]     
 
-with open(sys.argv[1], "r") as f:
+#adequar o arquivo de entrada para uso dos valores
+with open(entrada, "r") as f:
+    #caso a leitura do arquivo for vazia
     if f.readline() == ' ':
         print("Arquivo vazio")
         exit(1)
-    f.seek(0)
-    quant_numeros = f.readline().strip()
-    tipo_ord =  f.readline().strip()
+    f.seek(0)   #desloca para o inicio do arquivo novamente caso tenha conteúdo 
+    quant_numeros = f.readline().strip()    #assume o primeiro valor para a quantidade de números do vetor
+    tipo_ord =  f.readline().strip()        #assume o segundo valor para o metodo com que seja organizado o vetor
     f.close()
-        
+
+#constroi o vetor inicial de acordo com o tipo de ordenação recebido
 dados = []
-if tipo_ord == 'c':
+if tipo_ord == 'c':                                                             #caso de vetor crescente
     for i in range (1, int(quant_numeros)+1):
         dados.append(i)
-elif tipo_ord == 'd':
+elif tipo_ord == 'd':                                                           #caso de vetor decrescente
     for i in range (int(quant_numeros), 0, -1):
         dados.append(i)
-elif tipo_ord == 'r':
+elif tipo_ord == 'r':                                                           #caso de vetor com valores aleatórios
     for i in range (int(quant_numeros)):
         dados.append(randint(0, 32000))
-else:
+else:                                                                           #caso não tenha nenhum dos métodos aceitos
     print("Fora dos padrões: 'c', 'd' ou 'r'\nO programa será finalizado")
     exit(1)
 #---------------------------------------------------------------------
-'''
+#Bubble Sort
 def bubbleSort(array):
     numeroComparacoes1 = 0
     troca = True
@@ -42,13 +44,14 @@ def bubbleSort(array):
         troca = False
         
         for i in range(0, len(array)-1):
+            numeroComparacoes1 = numeroComparacoes1 + 1
             if(array[i] > array[i+1]):
-                numeroComparacoes1 = numeroComparacoes1 + 1
                 array[i], array[i+1] = array[i+1], array[i]
                 troca = True
     return numeroComparacoes1
 
-print("Vetor inicial:", dados)
+print("Vetor inicial: ", dados)
+print("--------------------------------------------------------------------------------------------------------------------------------------------")
 vetor1 = copy.deepcopy(dados)
 
 inicio1 = time.time()
@@ -56,7 +59,7 @@ numeroComp1 = bubbleSort(vetor1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Bubble Sort:", vetor1, f"   Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp1)
+print("Bubble Sort:   ", vetor1, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp1)
 #-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
@@ -64,6 +67,7 @@ def insertionSort(array):
     for i in range(1, len(array)):
         auxiliar = array[i]
         j = i-1
+        numeroComparacoes2 = numeroComparacoes2 + 1
         while (j >= 0) & (auxiliar < array[j]):
             numeroComparacoes2 = numeroComparacoes2 + 1
             array[j+1] = array[j]
@@ -87,8 +91,8 @@ def selectionSort(array):
         menor = array[N]
         indice = N
         for i in range(N, len(array)):
+            numeroComparacoes3 = numeroComparacoes3 + 1
             if array[i] < menor:
-                numeroComparacoes3 = numeroComparacoes3 + 1
                 menor = array[i]
                 indice = i
         if menor != array[N]:
@@ -146,7 +150,8 @@ inicio1 = time.time()
 mergeSort(vetor4, 0, len(vetor4)-1) 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
-print("Merge Sort:", vetor4)
+
+print("Merge Sort:    ", vetor4, f"Tempo de execução:{duracao1:.4f} ms")
 #-------------------------------------------------------------
 def Particiona(array, inicio, fim):
     esquerda = inicio
@@ -181,8 +186,9 @@ inicio1 = time.time()
 numeroComp5 = QuickSort(vetor5, 0, len(vetor5)-1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
-print("Quick Sort:", vetor5)
+print("Quick Sort:    ", vetor5, f"Tempo de execução:{duracao1:.4f} ms")
 
+'''
 #--------------------------------------------------------------
 def esquerda(i):
     return 2*i+1
