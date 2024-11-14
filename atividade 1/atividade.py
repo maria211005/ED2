@@ -48,9 +48,7 @@ numeroComp1 = bubbleSort(vetor1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Bubble Sort:", vetor1)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp1)
-print("#---------------------------------------------------------------------")
+print("Bubble Sort:", vetor1, f"   Tempo de execução:{duracao1:.4f} ms", "|| Número de Comparações:", numeroComp1)
 #-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
@@ -65,7 +63,6 @@ def insertionSort(array):
         array[j+1] = auxiliar
     return numeroComparacoes2
 
-print("Vetor inicial:", dados)
 vetor2 = copy.deepcopy(dados)
 
 inicio1 = time.time()
@@ -73,9 +70,7 @@ numeroComp2 = insertionSort(vetor2)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Insertion Sort:", vetor2)
-print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp2)
-print("#---------------------------------------------------------------------")
+print("Insertion Sort:", vetor2, f"Tempo de execução:{duracao1:.4f} ms","Número de Comparações:", numeroComp2)
 #---------------------------------------------------------------------------------------
 
 def selectionSort(array):
@@ -92,7 +87,6 @@ def selectionSort(array):
             array[N], array[indice] = array[indice], array[N]
     return numeroComparacoes3
 
-print("Vetor inicial:", dados)
 vetor3 = copy.deepcopy(dados)
 
 inicio1 = time.time()
@@ -104,7 +98,7 @@ print("Selection Sort:", vetor3)
 print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp3)
 print("#---------------------------------------------------------------------")
 #-------------------------------------------------------------------------------------------
-
+'''
 def Merge(array, inicio, meio, fim):
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
@@ -136,14 +130,12 @@ def mergeSort(array, inicio, fim):
         mergeSort(array, meio+1, fim) #divide a segunda metade
         Merge(array, inicio, meio, fim)
 
-print("Vetor inicial:", dados)
 vetor4 = copy.deepcopy(dados)
 
 inicio1 = time.time()
 numeroComp4 = mergeSort(vetor4, 0, len(vetor4)) 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
-
 #-------------------------------------------------------------
 def Particiona(array, inicio, fim):
     esquerda = inicio
@@ -172,8 +164,6 @@ def QuickSort(array, inicio, fim):
         QuickSort(array, inicio, pivo-1)
         QuickSort(array, pivo+1, fim)
 
-
-print("Vetor inicial:", dados)
 vetor5 = copy.deepcopy(dados)
 
 inicio1 = time.time()
@@ -181,6 +171,7 @@ numeroComp5 = QuickSort(vetor5, 0, len(vetor5))
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
+'''
 #--------------------------------------------------------------
 def esquerda(i):
     return 2*i+1
@@ -207,19 +198,19 @@ def maxHeapify(array, i):
 
 def buildMaxHeap(array):
     tamanhoHeap = len(array)
-    for i in range (tamanhoHeap/2, 1):
+    for i in range (tamanhoHeap//2, 1):
         maxHeapify(array, i)
 
 def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
-    for i in range (len(array), 2):
+    tamanho = len(array)
+    for i in range (tamanho, 2):
         numeroComp6 = numeroComp6 + 1
         array[1],array[i] = array[i],array[1]
-        len(array) = len(array)-1
+        tamanho = tamanho - 1
         maxHeapify(array, 1)
 
-print("Vetor inicial:", dados)
 vetor6 = copy.deepcopy(dados)
 
 inicio1 = time.time()
