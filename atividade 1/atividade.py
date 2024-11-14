@@ -26,6 +26,7 @@ else:
     print("Fora dos padrões: 'c', 'd' ou 'r'\nO programa será finalizado")
     exit(1)
 #---------------------------------------------------------------------
+'''
 def bubbleSort(array):
     numeroComparacoes1 = 0
     troca = True
@@ -200,17 +201,17 @@ def maxHeapify(array, i):
         maxHeapify(array, maior) 
 
 def buildMaxHeap(array):
-    tamanhoHeap = len(array)
-    for i in range (tamanhoHeap//2, 1):
+    tamanhoHeap = len(array)-1
+    for i in range (tamanhoHeap//2, 1, -1):
         maxHeapify(array, i)
 
 def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
-    tamanho = len(array)
-    for i in range (tamanho, 2, -1):
+    tamanho = len(array)-1
+    for i in range (tamanho, 1, -1):
         numeroComp6 = numeroComp6 + 1
-        array[1],array[i] = array[i],array[1]
+        array[0],array[i] = array[i],array[0]
         tamanho = tamanho - 1
         maxHeapify(array, 1)
 
@@ -221,5 +222,3 @@ numeroComp6 = heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
-
-'''
