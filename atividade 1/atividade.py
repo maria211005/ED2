@@ -2,8 +2,16 @@
 from random import randint
 import time
 import copy
+import sys
 
-with open("input1.txt", "r") as f:
+if(len(sys.argv) != 3):
+	print("Quantidade de argumentos inválida. Tente novamente")
+else:
+	print(sys.argv[0])
+	print(sys.argv[1])
+	print(sys.argv[2])
+
+with open(sys.argv[1], "r") as f:
     if f.readline() == ' ':
         print("Arquivo vazio")
         exit(1)
@@ -175,7 +183,6 @@ fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 print("Quick Sort:", vetor5)
 
-'''
 #--------------------------------------------------------------
 def esquerda(i):
     return 2*i+1
@@ -222,3 +229,5 @@ numeroComp6 = heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
+
+'''
