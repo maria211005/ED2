@@ -98,7 +98,7 @@ print("Selection Sort:", vetor3)
 print(f"Tempo de execução:{duracao1:.4f} ms","\nNúmero de Comparações:", numeroComp3)
 print("#---------------------------------------------------------------------")
 #-------------------------------------------------------------------------------------------
-'''
+
 def Merge(array, inicio, meio, fim):
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
@@ -107,24 +107,28 @@ def Merge(array, inicio, meio, fim):
     while(P1 <= meio and P2 <= fim):
         if(array[P1] < array[P2]): #add P1 no vetor aux
             vetor_auxiliar.append(array[P1])
+            P1 = P1 + 1
         else: #add P2 no vetor aux
             vetor_auxiliar.append(array[P2])
+            P2 = P2 + 1
     
     #saiu do while
-    if (P1 == meio):
-        vetor_auxiliar.extend(array[P1])
+    if (P1 == meio+1):
+        while P2 <= fim:
+            vetor_auxiliar.append(array[P2])
+            P2 = P2 + 1
     else:
-        vetor_auxiliar.extend(array[P2])
+        while P1 <= fim:
+            vetor_auxiliar.append(array[P1])
+            P1 = P1 + 1
     
-    array = vetor_auxiliar #copiando o vetor aux pro array
+    for i in range (inicio, fim+1):
+        array[i] = vetor_auxiliar[i - inicio]
 
-    return numeroComp4
 
 def mergeSort(array, inicio, fim):
-    numeroComp4 = 0
     if(inicio < fim):
-        numeroComp4 = numeroComp4 + 1
-        meio = ((inicio + fim)/2)
+        meio = ((inicio + fim)//2)
         #agora começa as recursivas 
         mergeSort(array, inicio, meio) #divide a primeira metade
         mergeSort(array, meio+1, fim) #divide a segunda metade
@@ -133,9 +137,10 @@ def mergeSort(array, inicio, fim):
 vetor4 = copy.deepcopy(dados)
 
 inicio1 = time.time()
-numeroComp4 = mergeSort(vetor4, 0, len(vetor4)) 
+mergeSort(vetor4, 0, len(vetor4)-1) 
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+print("Merge Sort:", vetor4)
 #-------------------------------------------------------------
 def Particiona(array, inicio, fim):
     esquerda = inicio
@@ -167,9 +172,10 @@ def QuickSort(array, inicio, fim):
 vetor5 = copy.deepcopy(dados)
 
 inicio1 = time.time()
-numeroComp5 = QuickSort(vetor5, 0, len(vetor5))
+numeroComp5 = QuickSort(vetor5, 0, len(vetor5)-1)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+print("Quick Sort:", vetor5)
 
 '''
 #--------------------------------------------------------------
@@ -218,3 +224,4 @@ numeroComp6 = heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
+'''
