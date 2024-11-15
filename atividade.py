@@ -233,6 +233,7 @@ def direita(i):
 
 #função que deixa o heap com o valor maximo na raiz
 def maxHeapify(array, i, tamArray):
+    numeroComp6 = 0
     left = esquerda(i) #chamando as funções p/ calcular a posicao dos filhos
     right = direita(i)
     maior = i
@@ -279,6 +280,7 @@ print("Heap Sort:     ", vetor6, f"Tempo de execução:{duracao1:.4f} ms", "Núm
 #------------------------------------------------------------------------
 #RADIX SORT ---> pra funcionar precisa do counting sort como auxiliar 
 def countingSort(array, radix):
+    numeroComp7 = 0
     #criar dois vetores 
     tamanho_array = len(array)
 
