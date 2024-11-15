@@ -3,6 +3,7 @@ from random import randint
 import time
 import copy
 import sys
+import math
 
 #receber os parâmetros via linha de comando
 if(len(sys.argv) != 3):
@@ -237,3 +238,42 @@ duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
 
 '''
+
+#RADIX SORT ---> pra funcionar precisa do counting sort como auxiliar 
+def countingSort(array, digito_numero, radix):
+    #criar dois vetores 
+    tamanho_array = len(array)
+
+    lista_organizada = [] 
+    #alocando a lista do tamanho do array
+    for i in range (0, tamanho_array):
+        lista_organizada = lista_organizada.append(0)
+        #amg eu acho que da pra so multiplicar pelo tamanho mas td bem KKKKKKKK
+
+    vetor_auxiliar = []
+    for i in range (0, radix):
+        vetor_auxiliar = vetor_auxiliar.append(0)
+
+    for i in range (0, tamanho_array):
+        digito_array = (array[i]/radix ** digito_numero) % radix
+        vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]+1
+
+    for j in range (1, radix):
+        vetor_auxiliar[j] = vetor_auxiliar[j] + vetor_auxiliar[j-1]
+
+    for k in range (tamanho_array-1, -1, -1):
+        digito_array = (array[k]/radix ** digito_numero) % radix
+        vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]-1
+        lista_organizada[vetor_auxiliar[digito_array]] = array[k]
+
+        return lista_organizada
+    
+def radixSort(array, radix):
+    maior_valor_lista = max(array)
+    output = array
+    digitos = int(math.floor(math.log(maior_valor_lista, radix)+1))
+
+    for i in range (digitos):
+        output = countingSort(output, i, radix)
+
+    return output
