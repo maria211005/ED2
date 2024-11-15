@@ -3,13 +3,13 @@ from random import randint
 import time
 import copy
 import sys
-import math
 
 #receber os parâmetros via linha de comando
 if(len(sys.argv) != 3):
 	print("Quantidade de argumentos inválida. Tente novamente")
 else:
-	entrada = sys.argv[1]     
+	entrada = sys.argv[1]
+    
 
 #adequar o arquivo de entrada para uso dos valores
 with open(entrada, "r") as f:
@@ -37,6 +37,9 @@ else:                                                                           
     print("Fora dos padrões: 'c', 'd' ou 'r'\nO programa será finalizado")
     exit(1)
     
+if int(quant_numeros) < 0:
+    print("Quantidade invalida\nO programa será finalizado")
+    exit(1)
 #vetor inicial para comparar com as ordenações finais
 print("Vetor inicial: ", vetorInicial)
 print("--------------------------------------------------------------------------------------------------------------------------------------------")
@@ -44,18 +47,18 @@ print("-------------------------------------------------------------------------
 
 #Bubble Sort
 def bubbleSort(array):
-    numeroComparacoes1 = 0
+    numeroComp1 = 0
     troca = True
     while(troca):
-        numeroComparacoes1 += 1
+        numeroComp1 += 1
         troca = False
         
         for i in range(len(array)-1):
-            numeroComparacoes1 += 1
+            numeroComp1 += 1
             if(array[i] > array[i+1]):
                 array[i], array[i+1] = array[i+1], array[i]
                 troca = True
-    return numeroComparacoes1
+    return numeroComp1
 
 vetor1 = copy.deepcopy(vetorInicial)
 
@@ -68,21 +71,21 @@ print("Bubble Sort:   ", vetor1, f"Tempo de execução:{duracao1:.4f} ms", "Núm
 #-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
-    numeroComparacoes2 = 0
+    numeroComp2 = 0
     
     for i in range(1, len(array)):
         auxiliar = array[i]
         j = i-1
         
-        numeroComparacoes2 += 1
+        numeroComp2 += 1
         while (j >= 0) & (auxiliar < array[j]):
-            numeroComparacoes2 += 1
+            numeroComp2 += 1
             array[j+1] = array[j]
             j = j-1
             
         array[j+1] = auxiliar
             
-    return numeroComparacoes2
+    return numeroComp2
 
 vetor2 = copy.deepcopy(vetorInicial)
 
@@ -95,14 +98,14 @@ print("Insertion Sort:", vetor2, f"Tempo de execução:{duracao1:.4f} ms","Núme
 #---------------------------------------------------------------------------------------
 
 def selectionSort(array):
-    numeroComparacoes3 = 0
+    numeroComp3 = 0
     
     for N in range(len(array)):
         menor = array[N]
         indice = N
         
         for i in range(N, len(array)):
-            numeroComparacoes3 += 1
+            numeroComp3 += 1
             if array[i] < menor:
                 menor = array[i]
                 indice = i
@@ -110,7 +113,7 @@ def selectionSort(array):
         if menor != array[N]:
             array[N], array[indice] = array[indice], array[N]
             
-    return numeroComparacoes3
+    return numeroComp3
 
 vetor3 = copy.deepcopy(vetorInicial)
 
@@ -123,13 +126,13 @@ print("Selection Sort:", vetor3, f"Tempo de execução:{duracao1:.4f} ms","Núme
 #-------------------------------------------------------------------------------------------
 
 def Merge(array, inicio, meio, fim):
-    numeroComp5 = 0
+    numeroComp4 = 0
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
     P2 = meio + 1 
 
     while(P1 <= meio and P2 <= fim):
-        numeroComp5 += 1
+        numeroComp4 += 1
         if(array[P1] < array[P2]): #add P1 no vetor aux
             vetor_auxiliar.append(array[P1])
             P1 = P1 + 1
@@ -142,29 +145,29 @@ def Merge(array, inicio, meio, fim):
         while P2 <= fim:
             vetor_auxiliar.append(array[P2])
             P2 = P2 + 1
-            numeroComp5 += 1
+            numeroComp4 += 1
     else:
         while P1 <= fim:
             vetor_auxiliar.append(array[P1])
             P1 = P1 + 1
-            numeroComp5 += 1
+            numeroComp4 += 1
     
     for i in range (inicio, fim+1):
         array[i] = vetor_auxiliar[i - inicio]
     
-    return numeroComp5
+    return numeroComp4
 
 
 def mergeSort(array, inicio, fim):
-    numeroComparacoes5 = 0
+    numeroComp4 = 0
     if(inicio < fim):
         meio = ((inicio + fim)//2)
         #agora começa as recursivas 
         mergeSort(array, inicio, meio) #divide a primeira metade
         mergeSort(array, meio+1, fim) #divide a segunda metade
-        numeroComparacoes5 += Merge(array, inicio, meio, fim)
+        numeroComp4 += Merge(array, inicio, meio, fim)
     
-    return numeroComparacoes5
+    return numeroComp4
 
 vetor4 = copy.deepcopy(vetorInicial)
 
@@ -176,7 +179,7 @@ duracao1 = (fim1 - inicio1)*1000
 print("Merge Sort:    ", vetor4, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp)
 #-------------------------------------------------------------
 def Particiona(array, inicio, fim):
-    numeroComparacoes6 = 0
+    numeroComp5 = 0
     esquerda = inicio
     direita = fim 
     pivo = array[inicio]
@@ -184,30 +187,30 @@ def Particiona(array, inicio, fim):
     #direcionando para que lado vai cada elemento 
     while(esquerda < direita):
         while(array[esquerda] <= pivo and esquerda < fim):
-            numeroComparacoes6 += 1
+            numeroComp5 += 1
             esquerda = esquerda + 1 #movendo o esq
         
         while(array[direita] > pivo and direita > inicio):
-            numeroComparacoes6 += 1
+            numeroComp5 += 1
             direita = direita - 1 #movendo o dir 
 
-        numeroComparacoes6 += 1
+        numeroComp5 += 1
         if(esquerda < direita):
             #trocando os dois vetores
             array[esquerda], array[direita] = array[direita], array[esquerda]
             
     array[direita], array[inicio] = array[inicio], array[direita]
     
-    return(direita), numeroComparacoes6
+    return(direita), numeroComp5
 
 def QuickSort(array, inicio, fim):
-    numeroComp = 0
+    numeroComp5 = 0
     if(inicio < fim):
-        pivo, numeroComp = Particiona(array, inicio, fim)
+        pivo, numeroComp5 = Particiona(array, inicio, fim)
         QuickSort(array, inicio, pivo-1)
         QuickSort(array, pivo+1, fim)
         
-    return numeroComp
+    return numeroComp5
 
 vetor5 = copy.deepcopy(vetorInicial)
 
@@ -255,15 +258,17 @@ def heapSort(array):
         (array[0],array[i]) = (array[i],array[0])
         tamanho = tamanho - 1
         maxHeapify(array, 0, tamanho)
+    
+    return numeroComp6
 
 vetor6 = copy.deepcopy(vetorInicial)
 
 inicio1 = time.time()
-heapSort(vetor6)
+numeroComp = heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Heap Sort:     ", vetor6, f"Tempo de execução:{duracao1:.4f} ms")
+print("Heap Sort:     ", vetor6, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp)
 #------------------------------------------------------------------------
 #RADIX SORT ---> pra funcionar precisa do counting sort como auxiliar 
 def countingSort(array, radix):
@@ -289,6 +294,7 @@ def countingSort(array, radix):
         array[a] = lista_organizada[a]
     
 def radixSort(array):
+    numeroComp7 = 0
     maior_valor_lista = max(array)
     radix = 1
 
@@ -300,8 +306,8 @@ def radixSort(array):
 vetor7 = copy.deepcopy(vetorInicial)
 
 inicio1 = time.time()
-radixSort(vetor7)
+numeroComp = radixSort(vetor7)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Radix Sort:    ", vetor7, f"Tempo de execução:{duracao1:.4f} ms")
+print("Radix Sort:    ", vetor7, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp)
