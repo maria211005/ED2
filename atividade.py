@@ -67,11 +67,11 @@ print("Bubble Sort:   ", vetor1, f"Tempo de execução:{duracao1:.4f} ms", "Núm
 #-----------------------------------------------------------------------------------------
 
 def insertionSort(array):
-    numeroComparacoes2 = 1
+    numeroComparacoes2 = 0
     for i in range(1, len(array)):
+        numeroComparacoes2 += 1
         auxiliar = array[i]
         j = i-1
-        numeroComparacoes2 += 1
         while (j >= 0) & (auxiliar < array[j]):
             numeroComparacoes2 += 1
             array[j+1] = array[j]
@@ -95,7 +95,7 @@ def selectionSort(array):
         menor = array[N]
         indice = N
         for i in range(N, len(array)):
-            numeroComparacoes3 = numeroComparacoes3 + 1
+            numeroComparacoes3 += 1
             if array[i] < menor:
                 menor = array[i]
                 indice = i
@@ -120,7 +120,6 @@ def Merge(array, inicio, meio, fim):
     P1 = inicio #primeira e segunda metade respectivamente
     P2 = meio + 1 
 
-    numeroComp5 += 1
     while(P1 <= meio and P2 <= fim):
         numeroComp5 += 1
         if(array[P1] < array[P2]): #add P1 no vetor aux
@@ -129,18 +128,14 @@ def Merge(array, inicio, meio, fim):
         else: #add P2 no vetor aux
             vetor_auxiliar.append(array[P2])
             P2 = P2 + 1
-        numeroComp5 += 1
     
     #saiu do while
-    numeroComp5 += 1
     if (P1 == meio+1):
-        numeroComp5 += 1
         while P2 <= fim:
             vetor_auxiliar.append(array[P2])
             P2 = P2 + 1
             numeroComp5 += 1
     else:
-        numeroComp5 += 1
         while P1 <= fim:
             vetor_auxiliar.append(array[P1])
             P1 = P1 + 1
@@ -154,7 +149,6 @@ def Merge(array, inicio, meio, fim):
 
 def mergeSort(array, inicio, fim):
     numeroComparacoes5 = 0
-    numeroComparacoes5 += 1
     if(inicio < fim):
         meio = ((inicio + fim)//2)
         #agora começa as recursivas 
@@ -256,7 +250,6 @@ fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 #------------------------------------------------------------------------
 
-'''
 
 #RADIX SORT ---> pra funcionar precisa do counting sort como auxiliar 
 def countingSort(array, digito_numero, radix):
@@ -305,3 +298,4 @@ fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
 print("Selection Sort:", vetor7, f"Tempo de execução:{duracao1:.4f} ms")
+'''
