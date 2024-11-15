@@ -302,7 +302,6 @@ def countingSort(array, radix):
 
     for a in range (tamanho_array):
         array[a] = lista_organizada[a]
-        numeroComp7 += 1 
 
     return numeroComp7
     
