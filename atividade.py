@@ -110,6 +110,7 @@ def selectionSort(array):
                 menor = array[i]
                 indice = i
                 
+        numeroComp3 += 1
         if menor != array[N]:
             array[N], array[indice] = array[indice], array[N]
             
@@ -142,6 +143,7 @@ def Merge(array, inicio, meio, fim):
     
     #saiu do while
     if (P1 == meio+1):
+        numeroComp4 += 1
         while P2 <= fim:
             vetor_auxiliar.append(array[P2])
             P2 = P2 + 1
@@ -154,6 +156,7 @@ def Merge(array, inicio, meio, fim):
     
     for i in range (inicio, fim+1):
         array[i] = vetor_auxiliar[i - inicio]
+        numeroComp4 += 1
     
     return numeroComp4
 
@@ -186,6 +189,7 @@ def Particiona(array, inicio, fim):
 
     #direcionando para que lado vai cada elemento 
     while(esquerda < direita):
+        numeroComp5 += 1
         while(array[esquerda] <= pivo and esquerda < fim):
             numeroComp5 += 1
             esquerda = esquerda + 1 #movendo o esq
@@ -233,12 +237,15 @@ def maxHeapify(array, i, tamArray):
     right = direita(i)
     maior = i
 
+    #numerocomp6 += 1
     if(left < tamArray and array[left] > array[i]):
         maior = left
     
+    #numeroComp6 += 1
     if(right < tamArray and array[right] > array[maior]):
         maior = right
 
+    #numeroComp6 += 1
     if (maior != i):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
         (array[i], array[maior]) = (array[maior], array[i])
@@ -281,17 +288,21 @@ def countingSort(array, radix):
     for i in range (tamanho_array):
         digito_array = (array[i]//radix) % 10
         vetor_auxiliar[digito_array] += 1 #contador
+        #numeroComp7 += 1
 
     for j in range (1, 10):
         vetor_auxiliar[j] = vetor_auxiliar[j] + vetor_auxiliar[j-1]
+        #numeroComp7 += 1
 
     for k in range (tamanho_array-1, -1, -1):
         digito_array = (array[k]//radix) % 10
         lista_organizada[vetor_auxiliar[digito_array] - 1] = array[k]
         vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]-1
+        #numeroComp7 += 1
 
     for a in range (tamanho_array):
         array[a] = lista_organizada[a]
+        #numeroComp7 += 1 
     
 def radixSort(array):
     numeroComp7 = 0
@@ -301,6 +312,7 @@ def radixSort(array):
     while maior_valor_lista // radix > 0:
         countingSort(array, radix)
         radix *= 10
+        numeroComp7 += 1
 
 
 vetor7 = copy.deepcopy(vetorInicial)
