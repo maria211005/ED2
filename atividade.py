@@ -238,7 +238,6 @@ def maxHeapify(array, i, tamArray):
     right = direita(i)
     maior = i
 
-    numerocomp6 += 1
     if(left < tamArray and array[left] > array[i]):
         maior = left
     
@@ -251,6 +250,8 @@ def maxHeapify(array, i, tamArray):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
         (array[i], array[maior]) = (array[maior], array[i])
         maxHeapify(array, maior, tamArray) 
+    
+    return numeroComp6
 
 def buildMaxHeap(array):
     tamanhoHeap = len(array)
@@ -317,6 +318,7 @@ def radixSort(array):
         numeroComp7 += countingSort(array, radix)
         radix *= 10
 
+    return numeroComp7
 
 vetor7 = copy.deepcopy(vetorInicial)
 
