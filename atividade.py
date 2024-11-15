@@ -217,7 +217,6 @@ fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 print("Quick Sort:    ", vetor5, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp)
 
-'''
 #--------------------------------------------------------------
 def esquerda(i):
     return 2*i+1
@@ -226,84 +225,77 @@ def direita(i):
     return 2*i+2
 
 #função que deixa o heap com o valor maximo na raiz
-def maxHeapify(array, i):
+def maxHeapify(array, i, tamArray):
     left = esquerda(i) #chamando as funções p/ calcular a posicao dos filhos
     right = direita(i)
     maior = i
 
-    if(left <= len(array) and array[left] > array[i]):
+    if(left < tamArray and array[left] > array[i]):
         maior = left
     
-    if(right <= len(array) and array[right] > array[maior]):
+    if(right < tamArray and array[right] > array[maior]):
         maior = right
 
     if (maior != i):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
-        array[i],array[maior] = array[maior],array[i]
-        maxHeapify(array, maior) 
+        (array[i],array[maior]) = (array[maior],array[i])
+        maxHeapify(array, maior, tamArray) 
 
 def buildMaxHeap(array):
-    tamanhoHeap = len(array)-1
-    for i in range (tamanhoHeap//2, 1, -1):
-        maxHeapify(array, i)
+    tamanhoHeap = len(array)
+    for i in range (int(len(array)/2), 0, -1):
+        maxHeapify(array, i, tamanhoHeap)
 
 def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
-    tamanho = len(array)-1
-    for i in range (tamanho, 1, -1):
+    tamanho = len(array)
+    for i in range (len(array)-1, 0, -1):
         numeroComp6 = numeroComp6 + 1
-        array[0],array[i] = array[i],array[0]
+        (array[0],array[i]) = (array[i],array[0])
         tamanho = tamanho - 1
-        maxHeapify(array, 1)
+        maxHeapify(array, 0, tamanho)
 
 vetor6 = copy.deepcopy(vetorInicial)
 
 inicio1 = time.time()
-numeroComp6 = heapSort(vetor6)
+heapSort(vetor6)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
+
+print("Heap Sort:     ", vetor6, f"Tempo de execução:{duracao1:.4f} ms")
 #------------------------------------------------------------------------
-
-
 #RADIX SORT ---> pra funcionar precisa do counting sort como auxiliar 
-def countingSort(array, digito_numero, radix):
+def countingSort(array, radix):
     #criar dois vetores 
     tamanho_array = len(array)
 
-    lista_organizada = [] 
-    #alocando a lista do tamanho do array
-    for i in range (0, tamanho_array):
-        lista_organizada[i] = 0
-        #amg eu acho que da pra so multiplicar pelo tamanho mas td bem KKKKKKKK
+    lista_organizada = [0] * tamanho_array
+    vetor_auxiliar = [0] * 10 
 
-    vetor_auxiliar = []
-    for i in range (0, radix):
-        vetor_auxiliar[i] = 0
+    for i in range (tamanho_array):
+        digito_array = (array[i]//radix) % 10
+        vetor_auxiliar[digito_array] += 1 #contador
 
-    for i in range (0, tamanho_array):
-        digito_array = (array[i]/radix ** digito_numero) % radix
-        vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]+1
-
-    for j in range (1, radix):
+    for j in range (1, 10):
         vetor_auxiliar[j] = vetor_auxiliar[j] + vetor_auxiliar[j-1]
 
     for k in range (tamanho_array-1, -1, -1):
-        digito_array = (array[k]/radix ** digito_numero) % radix
+        digito_array = (array[k]//radix) % 10
+        lista_organizada[vetor_auxiliar[digito_array] - 1] = array[k]
         vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]-1
-        lista_organizada[vetor_auxiliar[digito_array]] = array[k]
 
-        return lista_organizada
+    for a in range (tamanho_array):
+        array[a] = lista_organizada[a]
     
-def radixSort(array, radix):
+def radixSort(array):
     maior_valor_lista = max(array)
-    output = array
-    digitos = int(math.floor(math.log(maior_valor_lista, radix)+1))
+    radix = 1
 
-    for i in range (digitos):
-        output = countingSort(output, i, radix)
+    while maior_valor_lista // radix > 0:
+        countingSort(array, radix)
+        radix *= 10
 
-    return output
 
 vetor7 = copy.deepcopy(vetorInicial)
 
@@ -312,5 +304,4 @@ radixSort(vetor7)
 fim1 = time.time()
 duracao1 = (fim1 - inicio1)*1000
 
-print("Selection Sort:", vetor7, f"Tempo de execução:{duracao1:.4f} ms")
-'''
+print("Radix Sort:    ", vetor7, f"Tempo de execução:{duracao1:.4f} ms")
