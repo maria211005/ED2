@@ -1,0 +1,17 @@
+MELHOR CASO
+
+Bubble Sort O(n)
+Insertion Sort O(n)
+Selection Sort O(n2)
+Merge Sort O(nlogn)
+Quick Sort	O(nlogn)
+Heap Sort O(nlogn)
+
+PIOR CASO
+
+Bubble Sort O(n2) 
+Insertion Sort O(n2)
+Selection Sort O(n2)
+Merge Sort O(nlogn)
+Quick Sort O(n2)
+Heap Sort O(nlogn)
