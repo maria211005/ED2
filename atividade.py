@@ -237,15 +237,15 @@ def maxHeapify(array, i, tamArray):
     right = direita(i)
     maior = i
 
-    #numerocomp6 += 1
+    numerocomp6 += 1
     if(left < tamArray and array[left] > array[i]):
         maior = left
     
-    #numeroComp6 += 1
+    numeroComp6 += 1
     if(right < tamArray and array[right] > array[maior]):
         maior = right
 
-    #numeroComp6 += 1
+    numeroComp6 += 1
     if (maior != i):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
         (array[i], array[maior]) = (array[maior], array[i])
@@ -264,7 +264,7 @@ def heapSort(array):
         numeroComp6 = numeroComp6 + 1
         (array[0],array[i]) = (array[i],array[0])
         tamanho = tamanho - 1
-        maxHeapify(array, 0, tamanho)
+        numeroComp6 += maxHeapify(array, 0, tamanho)
     
     return numeroComp6
 
@@ -288,21 +288,23 @@ def countingSort(array, radix):
     for i in range (tamanho_array):
         digito_array = (array[i]//radix) % 10
         vetor_auxiliar[digito_array] += 1 #contador
-        #numeroComp7 += 1
+        numeroComp7 += 1
 
     for j in range (1, 10):
         vetor_auxiliar[j] = vetor_auxiliar[j] + vetor_auxiliar[j-1]
-        #numeroComp7 += 1
+        numeroComp7 += 1
 
     for k in range (tamanho_array-1, -1, -1):
         digito_array = (array[k]//radix) % 10
         lista_organizada[vetor_auxiliar[digito_array] - 1] = array[k]
         vetor_auxiliar[digito_array] = vetor_auxiliar[digito_array]-1
-        #numeroComp7 += 1
+        numeroComp7 += 1
 
     for a in range (tamanho_array):
         array[a] = lista_organizada[a]
-        #numeroComp7 += 1 
+        numeroComp7 += 1 
+
+    return numeroComp7
     
 def radixSort(array):
     numeroComp7 = 0
@@ -310,9 +312,9 @@ def radixSort(array):
     radix = 1
 
     while maior_valor_lista // radix > 0:
-        countingSort(array, radix)
-        radix *= 10
         numeroComp7 += 1
+        numeroComp7 += countingSort(array, radix)
+        radix *= 10
 
 
 vetor7 = copy.deepcopy(vetorInicial)
