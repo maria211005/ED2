@@ -241,7 +241,7 @@ def maxHeapify(array, i, tamArray):
 
     if (maior != i):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
-        (array[i],array[maior]) = (array[maior],array[i])
+        (array[i], array[maior]) = (array[maior], array[i])
         maxHeapify(array, maior, tamArray) 
 
 def buildMaxHeap(array):
