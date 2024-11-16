@@ -110,7 +110,6 @@ def selectionSort(array):
                 menor = array[i]
                 indice = i
                 
-        numeroComp3 += 1
         if menor != array[N]:
             array[N], array[indice] = array[indice], array[N] #encontrou um valor menor, troca de lugar
             
@@ -296,7 +295,6 @@ def countingSort(array, radix):
 
     for j in range (1, 10):
         vetor_auxiliar[j] = vetor_auxiliar[j] + vetor_auxiliar[j-1]
-        numeroComp7 += 1
 
     for k in range (tamanho_array-1, -1, -1):
         digito_array = (array[k]//radix) % 10
