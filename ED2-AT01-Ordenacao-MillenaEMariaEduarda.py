@@ -262,7 +262,7 @@ def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
     tamanho = len(array)
-    for i in range (len(array)-1, 0, -1): #troca o primeiro valor com o da ultima posicao livre
+    for i in range (len(array)-1, -1, -1): #troca o primeiro valor com o da ultima posicao livre
         numeroComp6 = numeroComp6 + 1
         (array[0],array[i]) = (array[i],array[0])
         tamanho = tamanho - 1
