@@ -53,11 +53,11 @@ def bubbleSort(array):
         numeroComp1 += 1
         troca = False
         
-        for i in range(len(array)-1):
+        for i in range(len(array)-1): #percorre o vetor todo
             numeroComp1 += 1
-            if(array[i] > array[i+1]):
+            if(array[i] > array[i+1]): #caso o elemento anterior for maior que o proximo, troca ambos de posicao
                 array[i], array[i+1] = array[i+1], array[i]
-                troca = True
+                troca = True #o processo se repete enquanto rolar trocas
     return numeroComp1
 
 vetor1 = copy.deepcopy(vetorInicial)
@@ -73,12 +73,12 @@ print("Bubble Sort:   ", vetor1, f"Tempo de execução:{duracao1:.4f} ms", "Núm
 def insertionSort(array):
     numeroComp2 = 0
     
-    for i in range(1, len(array)):
+    for i in range(1, len(array)): #percorrendo vetor 
         auxiliar = array[i]
-        j = i-1
+        j = i-1 #contador auxiliar
         
         numeroComp2 += 1
-        while (j >= 0) & (auxiliar < array[j]):
+        while (j >= 0) & (auxiliar < array[j]): #procura o menor elemento e joga na primeira posicao livre
             numeroComp2 += 1
             array[j+1] = array[j]
             j = j-1
@@ -104,7 +104,7 @@ def selectionSort(array):
         menor = array[N]
         indice = N
         
-        for i in range(N, len(array)):
+        for i in range(N, len(array)): #encontra o menor valor do array e coloca na primeira pos. n ordenada
             numeroComp3 += 1
             if array[i] < menor:
                 menor = array[i]
@@ -112,7 +112,7 @@ def selectionSort(array):
                 
         numeroComp3 += 1
         if menor != array[N]:
-            array[N], array[indice] = array[indice], array[N]
+            array[N], array[indice] = array[indice], array[N] #encontrou um valor menor, troca de lugar
             
     return numeroComp3
 
@@ -126,13 +126,13 @@ duracao1 = (fim1 - inicio1)*1000
 print("Selection Sort:", vetor3, f"Tempo de execução:{duracao1:.4f} ms","Número de Comparações:", numeroComp)
 #-------------------------------------------------------------------------------------------
 
-def Merge(array, inicio, meio, fim):
+def Merge(array, inicio, meio, fim): #func. auxiliar 
     numeroComp4 = 0
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
     P2 = meio + 1 
 
-    while(P1 <= meio and P2 <= fim):
+    while(P1 <= meio and P2 <= fim): #voltando da recursao e reagrupando 
         numeroComp4 += 1
         if(array[P1] < array[P2]): #add P1 no vetor aux
             vetor_auxiliar.append(array[P1])
@@ -161,13 +161,13 @@ def Merge(array, inicio, meio, fim):
     return numeroComp4
 
 
-def mergeSort(array, inicio, fim):
+def mergeSort(array, inicio, fim): #func. principal
     numeroComp4 = 0
     if(inicio < fim):
         meio = ((inicio + fim)//2)
         #agora começa as recursivas 
-        mergeSort(array, inicio, meio) #divide a primeira metade
-        mergeSort(array, meio+1, fim) #divide a segunda metade
+        mergeSort(array, inicio, meio) #dividindo recursivamente
+        mergeSort(array, meio+1, fim)
         numeroComp4 += Merge(array, inicio, meio, fim)
     
     return numeroComp4
@@ -181,7 +181,7 @@ duracao1 = (fim1 - inicio1)*1000
 
 print("Merge Sort:    ", vetor4, f"Tempo de execução:{duracao1:.4f} ms", "Número de Comparações:", numeroComp)
 #-------------------------------------------------------------
-def Particiona(array, inicio, fim):
+def Particiona(array, inicio, fim): #funcao auxiliar 
     numeroComp5 = 0
     esquerda = inicio
     direita = fim 
@@ -207,7 +207,7 @@ def Particiona(array, inicio, fim):
     
     return(direita), numeroComp5
 
-def QuickSort(array, inicio, fim):
+def QuickSort(array, inicio, fim): #funcao principal
     numeroComp5 = 0
     if(inicio < fim):
         pivo, numeroComp5 = Particiona(array, inicio, fim)
@@ -253,7 +253,7 @@ def maxHeapify(array, i, tamArray):
     
     return numeroComp6
 
-def buildMaxHeap(array):
+def buildMaxHeap(array): #constroi o heap
     tamanhoHeap = len(array)
     for i in range (int(len(array)/2), 0, -1):
         maxHeapify(array, i, tamanhoHeap)
@@ -262,7 +262,7 @@ def heapSort(array):
     numeroComp6 = 0
     buildMaxHeap(array)
     tamanho = len(array)
-    for i in range (len(array)-1, 0, -1):
+    for i in range (len(array)-1, 0, -1): #troca o primeiro valor com o da ultima posicao livre
         numeroComp6 = numeroComp6 + 1
         (array[0],array[i]) = (array[i],array[0])
         tamanho = tamanho - 1
@@ -288,6 +288,7 @@ def countingSort(array, radix):
     lista_organizada = [0] * tamanho_array
     vetor_auxiliar = [0] * 10 
 
+    #analisando as "casas" do numero --> digitos 
     for i in range (tamanho_array):
         digito_array = (array[i]//radix) % 10
         vetor_auxiliar[digito_array] += 1 #contador
@@ -310,7 +311,7 @@ def countingSort(array, radix):
     
 def radixSort(array):
     numeroComp7 = 0
-    maior_valor_lista = max(array)
+    maior_valor_lista = max(array) #pega o maior valor do vetor 
     radix = 1
 
     while maior_valor_lista // radix > 0:
