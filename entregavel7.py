@@ -10,8 +10,7 @@ def AbreArquivo():
     return registros 
     
 
-def escritaTamanhoFixo(arquivo, dataset): #passar o registros pra ca 
-    AbreArquivo()
+def escritaTamanhoFixo(registros): #passar o registros pra ca 
     tamanhos = []
     for linha in range(len(registros)): #lendo as linhas e pegando o tamanho de cada uma 
         contaBytes = 0
@@ -40,7 +39,7 @@ def escritaTamanhoFixo(arquivo, dataset): #passar o registros pra ca
 
 #--------------------------------------------------------
 #METODO 2 - QTDD FIXA DE CAMPOS 
-def escritaQtdeCampos(arquivo, dataset):
+def escritaQtdeCampos(registros):
     #41 campos formam um registro ---> fazer um contador de pipe 
     #a cada 41 campos, concatenar 
 
@@ -50,8 +49,8 @@ def escritaQtdeCampos(arquivo, dataset):
             output.write(newStr[:len(newStr-2)]) 
 #----------------------------------------------------------------
 #METODO 3 - QTTD BYTES
-def escritaQtdeBytes(arquivo, dataset):
-    with open('metodo2.txt', 'w') as output:
+def escritaQtdeBytes(registros):
+    with open('metodo3.txt', 'w') as output:
         contadorBytes = 0
         for linha in range(len(registros)): #percorrendo o arquivo todo 
             newStr = linha
@@ -61,9 +60,15 @@ def escritaQtdeBytes(arquivo, dataset):
 
 #------------------------------------------------------------
 #METODO 4 - ARQUIVO DE INDEX 
+def escritaArqIndex(registros):
+    contadorBytes = 0
+    with open('metodo4.txt', 'w') as output:
+        for linha in range(len(registros)):
+                    
 
-            
 
-
-
-
+if __name__ == "__main__":
+    registro = AbreArquivo()
+    escritaTamanhoFixo(registro)
+    escritaQtdeCampos(registro)
+    escritaQtdeBytes(registro)
