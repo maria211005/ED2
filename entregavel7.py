@@ -40,19 +40,26 @@ def escritaTamanhoFixo(arquivo, dataset): #passar o registros pra ca
 
 #--------------------------------------------------------
 #METODO 2 - QTDD FIXA DE CAMPOS 
-def escritaQtdeCampos():
+def escritaQtdeCampos(arquivo, dataset):
     #41 campos formam um registro ---> fazer um contador de pipe 
     #a cada 41 campos, concatenar 
 
     with open('metodo2.txt', 'w') as output:
         for linha in range(len(registros)): #percorrendo o arquivo todo 
-            contador_pipe = 0 #sempre que avança pra outra linha, ele zera 
-            while(contador_pipe != 41):
-                while (linha.seek(1) != '\n'):
-                    if(linha.seek(1) == '|'):
-                        contador_pipe = contador_pipe + 1
-            if(contador_pipe == 41):
-                newStr = linha
-                output.write(newStr[:len(newStr-2)]) 
+            newStr = linha
+            output.write(newStr[:len(newStr-2)]) 
+#----------------------------------------------------------------
+#METODO 3 - 
+def escritaQtdeBytes(arquivo, dataset):
+    with open('metodo2.txt', 'w') as output:
+        contadorBytes = 0
+        for linha in range(len(registros)): #percorrendo o arquivo todo 
+            newStr = linha
+            while (linha.seek(1) != '\n'):
+                contadorBytes = contadorBytes + 1 
+            output.write(contadorBytes + newStr[:len(newStr-2)])
+            
+
+
 
 
