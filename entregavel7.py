@@ -49,7 +49,7 @@ def escritaQtdeCampos(arquivo, dataset):
             newStr = linha
             output.write(newStr[:len(newStr-2)]) 
 #----------------------------------------------------------------
-#METODO 3 - 
+#METODO 3 - QTTD BYTES
 def escritaQtdeBytes(arquivo, dataset):
     with open('metodo2.txt', 'w') as output:
         contadorBytes = 0
@@ -58,6 +58,10 @@ def escritaQtdeBytes(arquivo, dataset):
             while (linha.seek(1) != '\n'):
                 contadorBytes = contadorBytes + 1 
             output.write(contadorBytes + newStr[:len(newStr-2)])
+
+#------------------------------------------------------------
+#METODO 4 - ARQUIVO DE INDEX 
+
             
 
 
