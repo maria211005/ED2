@@ -44,14 +44,15 @@ def escritaQtdeCampos():
     #41 campos formam um registro ---> fazer um contador de pipe 
     #a cada 41 campos, concatenar 
 
-    for linha in range(len(registros)): #percorrendo o arquivo todo 
-        contador_pipe = 0 #sempre que avança pra outra linha, ele zera 
-        while(contador_pipe != 41):
-            while (linha.seek(1) != '\n'):
-                if(linha.seek(1) == '|'):
-                    contador_pipe = contador_pipe + 1
-        if(contador_pipe == 41):
-            #if linha 1 ---> n fazer nada pq eh so a partir da segunda que concatena nela 
-            #concatenar essa linha na anterior 
+    with open('metodo2.txt', 'w') as output:
+        for linha in range(len(registros)): #percorrendo o arquivo todo 
+            contador_pipe = 0 #sempre que avança pra outra linha, ele zera 
+            while(contador_pipe != 41):
+                while (linha.seek(1) != '\n'):
+                    if(linha.seek(1) == '|'):
+                        contador_pipe = contador_pipe + 1
+            if(contador_pipe == 41):
+                newStr = linha
+                output.write(newStr[:len(newStr-2)]) 
 
 
