@@ -59,7 +59,7 @@ def escritaDelimitadores(registros):
 #-------------------------------------------------------------
 #função principal
 if __name__ == "__main__":
-    with open("teste.txt", 'r') as f:
+    with open("animes.csv", 'r') as f:
         registros = f.readlines()
         if registros == '':
             print('O arquivo está vazio\n')

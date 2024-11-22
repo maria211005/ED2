@@ -22,8 +22,8 @@ def grepSimulation(arquivo, palavra):
     else:
         return lista_indice, linha_encontrada
         
-        
-resultado, registros = grepSimulation("teste.txt", "Arapongas")
+palavra = input("Digite a palavra que deseja encontrar:")        
+resultado, registros = grepSimulation("teste.txt", palavra)
 
 if type(resultado) == str:
     print(resultado)

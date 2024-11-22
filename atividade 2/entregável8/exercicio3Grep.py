@@ -35,13 +35,13 @@ def readRecordByRRN(saida, RRN):
         return registros[RRN]
             
 if __name__ == "__main__":
-    with open("teste.txt", "r") as f:
+    with open("animes.csv", "r") as f:
         registros = f.readlines()
         if registros == '':
             print('O arquivo está vazio\n')
             exit(1)
-        #else:
-            #registros.pop(0)
+        else:
+            registros.pop(0)
             
     escreveOutput(registros, "RRN.txt")
     

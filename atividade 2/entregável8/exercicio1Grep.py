@@ -20,8 +20,8 @@ def grepSimulation(arquivo, palavra):
     else:
         return linha_encontrada
         
-        
-registros = grepSimulation("teste.txt", "Arapongas")
+palavra = input("Digite a palavra que deseja encontrar:")   
+registros = grepSimulation("animes.csv", palavra)
 print("Registro encontrado:")
 for i in range(len(registros)):
     print(f"{registros[i]}")
