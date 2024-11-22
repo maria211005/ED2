@@ -1,0 +1,3 @@
+Osvaldo|44|Rua dos Pombos|Arapongas
+Valdenilson|60|Rua dos Patos|Rolândia
+Claudia|37|Rua das Gaivotas|Arapongas
