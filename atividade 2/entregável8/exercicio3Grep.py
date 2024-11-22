@@ -1,5 +1,5 @@
-def readRecordByRRN(registros, saida): #passar o registros pra ca
-    with open(saida, 'r+') as output:
+def escreveOutput(registros, saida): #passar o registros pra ca
+    with open(saida, 'w+') as output:
         TamReg = 0
         tam = []
         
@@ -23,17 +23,28 @@ def readRecordByRRN(registros, saida): #passar o registros pra ca
             
             output.write(newStr)
         
-        
-        
-if __name__ == "__main__":
-    with open("teste.txt", "r") as f:
+def readRecordByRRN(saida, RRN):
+    with open(saida, "r") as f:
         registros = f.readlines()
         if registros == '':
             print('O arquivo está vazio\n')
             exit(1)
         else:
             f.close()
+        
+        return registros[RRN]
             
-    readRecordByRRN(registros, saida="grepRRN.txt")
-    resultado = 
-    print(resultado)
+if __name__ == "__main__":
+    with open("teste.txt", "r") as f:
+        registros = f.readlines()
+        if registros == '':
+            print('O arquivo está vazio\n')
+            exit(1)
+        #else:
+            #registros.pop(0)
+            
+    escreveOutput(registros, "RRN.txt")
+    
+    valorRRN = int(input("Digite a posição que deseja encontrar o anime:"))
+    resultado = readRecordByRRN("RRN.txt", valorRRN)
+    print(f"Encontrado:\n{resultado}")
