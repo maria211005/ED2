@@ -11,14 +11,11 @@ def AbreArquivo():
     return registros 
 #------------------------------------------------------------------    
 #METODO 1 - ESCRITA DE TAMANHO FIXO
-def escritaTamanhoFixo(registros): #passar o registros pra ca 
-    for linha in range(len(registros)): #lendo as linhas e pegando o tamanho de cada uma 
-        linha = linha.strip('\n')
-    
+def escritaTamanhoFixo(registros): #passar o registros pra ca    
     TamReg = max(registros)
-    
     with open('metodo1.txt', 'w') as output:
         for linha in registros:
+            linha = linha.strip('\n')
             str.replace(",","|")
         
             if len(linha) < TamReg:
@@ -41,6 +38,7 @@ def escritaQtdeBytes(registros):
     with open('metodo3.txt', 'w') as output:
         contadorBytes = 0
         for linha in range(len(registros)): #percorrendo o arquivo todo 
+            str.replace(",","|")
             newStr = linha
             while (linha.seek(1) != '\n'):
                 contadorBytes = contadorBytes + 1 
@@ -63,6 +61,7 @@ def escritaArqIndex(registros):
 def escritaDelimitadores(registros):
     with open('metodo5.txt', 'w') as output:
         for linha in range(len(registros)):
+            str.replace(",","|")
             linha = linha.strip('\n')
             output.write(linha + '#')
 #-------------------------------------------------------------
