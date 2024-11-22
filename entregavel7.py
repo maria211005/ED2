@@ -1,3 +1,6 @@
+import sys
+import os
+
 #METODO 1 - TAMANHO FIXO COM CAMPOS VARIADOS
 def AbreArquivo(): 
     with open("animes.csv", 'r') as f: #da pra tirar da função 1 isso aqui 
@@ -12,7 +15,7 @@ def AbreArquivo():
 #------------------------------------------------------------------    
 #METODO 1 - ESCRITA DE TAMANHO FIXO
 def escritaTamanhoFixo(registros): #passar o registros pra ca    
-    TamReg = max(registros)
+    TamReg = len(max(registros))
     with open('metodo1.txt', 'w') as output:
         for linha in registros:
             linha = linha.strip('\n')

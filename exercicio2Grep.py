@@ -27,5 +27,7 @@ resultado, registros = grepSimulation("teste.txt", "Arapongas")
 
 if type(resultado) == str:
     print(resultado)
-else:
-    print(f"Registros encontrados:\n{registros}\nLinha: {resultado}")
+else:    
+    print("Registro encontrado:")
+    for i in range(len(registros)):
+        print(f"Linha {resultado[i]}:{registros[i]}")

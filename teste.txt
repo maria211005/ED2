@@ -1,3 +1,6 @@
-Osvaldo|44|Rua dos Pombos|Arapongas
-Valdenilson|60|Rua dos Patos|Rolândia
-Claudia|37|Rua das Gaivotas|Arapongas
+João Silva,25,Rua das Flores 123,São Paulo
+Maria Oliveira,30,Avenida Brasil 456,Rio de Janeiro
+Pedro Santos,40,Rua Central 789,Belo Horizonte
+Ana Costa,22,Rua do Sol 321,Curitiba
+Lucas Ferreira,35,Avenida Paulista 987,São Paulo
+Carla Souza,28,Rua Verde 654,Porto Alegre
