@@ -23,12 +23,10 @@ def readRecordByRRN(registros, RRN): #passar o registros pra ca
             
             output.write(newStr)
         
-        resultado = output.readlines()
-             
-    return resultado
-
+        
+        
 if __name__ == "__main__":
-    with open("teste.txt", "r") as f: #da pra tirar da função 1 isso aqui 
+    with open("teste.txt", "r") as f:
         registros = f.readlines()
         if registros == '':
             print('O arquivo está vazio\n')

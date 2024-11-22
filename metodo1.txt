@@ -1,4 +1,3 @@
-Joao Silva|25|Rua das Flores 123|Sao Paulo*********
 Maria Oliveira|30|Avenida Brasil 456|Rio de Janeiro
 Pedro Santos|40|Rua Central 789|Belo Horizonte*****
 Ana Costa|22|Rua do Sol 321|Curitiba***************

@@ -15,56 +15,59 @@ def AbreArquivo():
 #------------------------------------------------------------------    
 #METODO 1 - ESCRITA DE TAMANHO FIXO
 def escritaTamanhoFixo(registros): #passar o registros pra ca    
-    TamReg = len(max(registros))
     with open('metodo1.txt', 'w') as output:
+        TamReg = 0
+        tam = []
+        
+        for linha in registros:
+            tam.append(len(linha))
+            
+        TamReg = tam[0]
+        for i in range(len(tam)):
+            if tam[i] > TamReg:
+                TamReg = tam[i]
+        
         for linha in registros:
             linha = linha.strip('\n')
-            str.replace(",","|")
+            linha = linha.replace(",", "|")
         
             if len(linha) < TamReg:
-                newStr = linha + '*'*(TamReg - len(linha)-1) + '\n'
+                dif = TamReg - len(linha) -1
+                newStr = linha + '*' * dif + '\n'
             else:
-                newStr = linha
+                newStr = linha + '\n'
             
             output.write(newStr)
 #--------------------------------------------------------
 #METODO 2 - QTDD FIXA DE CAMPOS 
 def escritaQtdeCampos(registros):
     with open('metodo2.txt', 'w') as output:
-        for linha in range(len(registros)): #percorrendo o arquivo todo 
-            str.replace(",", "|")
-            newStr = linha
-            output.write(newStr[:len(newStr)-1]) 
+        for linha in registro: #percorrendo o arquivo todo 
+            linha = linha.replace(",", "|")
+            linha_concatenada = linha.strip('\n')
+            output.write(linha_concatenada) 
 #----------------------------------------------------------
 #METODO 3 - QTTD BYTES
 def escritaQtdeBytes(registros):
     with open('metodo3.txt', 'w') as output:
-        contadorBytes = 0
-        for linha in range(len(registros)): #percorrendo o arquivo todo 
-            str.replace(",","|")
-            newStr = linha
-            while (linha.seek(1) != '\n'):
-                contadorBytes = contadorBytes + 1 
-            output.write(contadorBytes + newStr[:len(newStr-1)])
+        for linha in registros: #percorrendo o arquivo todo 
+            linha = linha.replace(",","|")
+            linha = linha.strip('\n')
+            output.write(str(len(linha)) + linha)
 #------------------------------------------------------------
 #METODO 4 - ARQUIVO DE INDEX 
 def escritaArqIndex(registros):
     somador = 0
     with open('metodo4.txt', 'w') as output:
-        output.write(somador)
-        for linha in range(len(registros)):
-            linha = linha.strip('\n') #tirando \n de tudo
-            while (linha.seek(1) != ''):
-                somador = somador + 1
-            if linha.seek(0) != None:
-                valorPosicao = somador + 1
-                output.write(valorPosicao + '')
+        for linha in registros:
+            output.write(str(somador) + '\n')
+            somador += len(linha)
 #-------------------------------------------------------------
 #METODO 5 - DELIMITADORES 
 def escritaDelimitadores(registros):
     with open('metodo5.txt', 'w') as output:
-        for linha in range(len(registros)):
-            str.replace(",","|")
+        for linha in registros:
+            linha = linha.replace(",","|")
             linha = linha.strip('\n')
             output.write(linha + '#')
 #-------------------------------------------------------------
