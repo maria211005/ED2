@@ -1,3 +1,11 @@
+import sys
+entrada = ''
+#receber os parâmetros via linha de comando
+if(len(sys.argv) != 3):
+	print("Quantidade de argumentos inválida. Tente novamente")
+else:
+	entrada = sys.argv[1]
+
 '''
 def Remoção de registro com Reuso( )
     encontrar o registro que será invalidado usando o RRN
@@ -26,39 +34,40 @@ def Inserção de registro com reuso( )
             sobrescreve o valor da linha
             
         incrementa a quantidade de registros validos
-'''    
 
-#def removeRegistro():
+'''    
+def removeRegistro(registro, tamRegistro):
+    RRN = int(input("qual o indice que deseja remover?")) 
 #def insereNovoRegistro():
 
 def escritaTamanhoFixo(registros):
-    TamReg = 0
-    tam = []
-    
-    for linha in registros:
-        tam.append(len(linha))
+    with open('saida.txt', 'w') as f:
+        TamReg = 0
+        tam = []
         
-    TamReg = tam[0]
-    for i in range(len(tam)):
-        if tam[i] > TamReg:
-            TamReg = tam[i]
-    i = 0
-    for linha in registros:
-        linha = linha.strip('\n')
-        linha = linha.replace(",", "|")
-    
-        if len(linha) < TamReg:
-            dif = TamReg - len(linha) -1
-            linha = linha + '*' * dif + '\n'
-        else:
-            linha = linha + '\n'
+        for linha in registros:
+            tam.append(len(linha))
+            
+        TamReg = tam[0]
+        for i in range(len(tam)):
+            if tam[i] > TamReg:
+                TamReg = tam[i]
+        i = 0
+        for linha in registros:
+            linha = linha.strip('\n')
+            linha = linha.replace(",", "|")
         
-        registros[i] = linha
-        i += 1
-    return TamReg
+            if len(linha) < TamReg:
+                dif = TamReg - len(linha) -1
+                linha = linha + '*' * dif + '\n'
+            else:
+                linha = linha + '\n'
+            
+            f.write(linha)
+    return TamReg, f.name
 
 if __name__ == "__main__":
-    with open("animes.txt", 'r') as f:
+    with open(entrada, 'r') as f:
         registros = f.readlines()
         if registros == '':
             print('O arquivo está vazio\n')
@@ -66,4 +75,8 @@ if __name__ == "__main__":
         else:
             registros.pop(0)
 
-    tamanhoRegistro = escritaTamanhoFixo(registros)
+    tamanhoRegistro, arqLenght = escritaTamanhoFixo(registros)
+    print(tamanhoRegistro, arqLenght)
+    
+    
+    #removeRegistro(registros, tamanhoRegistro)
