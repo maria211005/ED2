@@ -1,10 +1,14 @@
 import sys
+
 entrada = ''
+saida = ''
 #receber os parâmetros via linha de comando
 if(len(sys.argv) != 3):
-	print("Quantidade de argumentos inválida. Tente novamente")
+    print("Quantidade de argumentos inválida. Tente novamente")
+    exit(1)
 else:
-	entrada = sys.argv[1]
+    entrada = sys.argv[1]
+    saida = sys.argv[2]
 
 '''
 def Remoção de registro com Reuso( )
@@ -36,20 +40,30 @@ def Inserção de registro com reuso( )
         incrementa a quantidade de registros validos
 
 '''    
-def removeRegistro(registro, tamRegistro):
-    RRN = int(input("qual o indice que deseja remover?")) 
+def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
+    RRN = int(input("qual o indice que deseja remover?"))
+    deslocamento = tamHeader + (RRN-1)*tamRegistro
+
+    with open(arquivoSaida, 'r+') as output:
+        output.seek(deslocamento)
+        linha = output.readline()
+        linha = "*|" + linha[2:]
+        output.seek(deslocamento)
+        output.write(linha)
+
 #def insereNovoRegistro():
 
 def escritaTamanhoFixo(registros):
-    with open('saida.txt', 'w') as f:
+    with open(saida, 'w') as output:
         TamReg = 0
         tam = []
         
         for linha in registros:
             tam.append(len(linha))
-            
-        TamReg = tam[0]
-        for i in range(len(tam)):
+        
+        tamHeader = tam[0]
+        TamReg = tam[1]
+        for i in range(1, len(tam)):
             if tam[i] > TamReg:
                 TamReg = tam[i]
         i = 0
@@ -63,8 +77,8 @@ def escritaTamanhoFixo(registros):
             else:
                 linha = linha + '\n'
             
-            f.write(linha)
-    return TamReg, f.name
+            output.write(linha)
+    return tamHeader, TamReg
 
 if __name__ == "__main__":
     with open(entrada, 'r') as f:
@@ -72,11 +86,7 @@ if __name__ == "__main__":
         if registros == '':
             print('O arquivo está vazio\n')
             exit(1)
-        else:
-            registros.pop(0)
 
-    tamanhoRegistro, arqLenght = escritaTamanhoFixo(registros)
-    print(tamanhoRegistro, arqLenght)
+    tamanhoHeader, tamanhoRegistro = escritaTamanhoFixo(registros)
     
-    
-    #removeRegistro(registros, tamanhoRegistro)
+    removeRegistro(saida, tamanhoHeader, tamanhoRegistro)
