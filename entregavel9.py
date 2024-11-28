@@ -40,7 +40,7 @@ def Inserção de registro com reuso( )
         incrementa a quantidade de registros validos
 
 '''    
-def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
+def removeRegistro(arquivoSaida, tamHeader, tamRegistro, maiorLinha):
     recebe = 1
     while recebe == 1:
         RRN = int(input("qual o indice que deseja remover?\n"))
@@ -62,10 +62,17 @@ def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
 
                 output.seek(deslocamento)
                 linha = output.readline()
+                
                 if int(last) < 0 or int(last) > 9:
-                    linha = f"*{last}" + linha[2:-2]
+                    if RRN == maiorLinha:
+                        linha = f"*{last}" + linha[3:-2]
+                    else:
+                        linha = f"*{last}" + linha[2:-2]
                 else:
-                    linha = f"*{last}" + linha[2:-3]
+                    if RRN == maiorLinha:
+                        linha = f"*{last}" + linha[3:-2]
+                    else:
+                        linha = f"*{last}" + linha[2:-3]
                 output.seek(deslocamento)
                 output.write(linha)
 
@@ -86,10 +93,12 @@ def escritaTamanhoFixo(registros):
         
         tamHeader = tam[0]
         TamReg = tam[1]
+        maiorLinha = 0
         for i in range(1, len(tam)):
             if tam[i] > TamReg:
                 TamReg = tam[i]
-        i = 0
+                maiorLinha = i
+        
         for linha in registros:
             linha = linha.strip('\n')
             linha = linha.replace(",", "|")
@@ -101,7 +110,7 @@ def escritaTamanhoFixo(registros):
                 linha = linha + '\n'
             
             output.write(linha)
-    return tamHeader, TamReg
+    return tamHeader, TamReg, maiorLinha
 
 if __name__ == "__main__":
     with open(entrada, 'r') as f:
@@ -110,12 +119,12 @@ if __name__ == "__main__":
             print('O arquivo está vazio\n')
             exit(1)
 
-    tamanhoHeader, tamanhoRegistro = escritaTamanhoFixo(registros)
+    tamanhoHeader, tamanhoRegistro, maiorLinha = escritaTamanhoFixo(registros)
     menu = 1
     while menu != 0:
         menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
         if menu == 1:
-            removeRegistro(saida, tamanhoHeader, tamanhoRegistro)
+            removeRegistro(saida, tamanhoHeader, tamanhoRegistro, maiorLinha)
         #if menu == 2:
             #inserirRegistro
         if menu != 0 and menu != 1 and menu != 2:
