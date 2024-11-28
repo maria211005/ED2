@@ -41,23 +41,38 @@ def Inserção de registro com reuso( )
 
 '''    
 def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
+    recebe = 1
+    while recebe == 1:
+        RRN = int(input("qual o indice que deseja remover?\n"))
+        deslocamento = tamHeader + (RRN-1)*tamRegistro
 
-    RRN = int(input("qual o indice que deseja remover?"))
-    deslocamento = tamHeader + (RRN-1)*tamRegistro
+        with open(arquivoSaida, 'r+') as output:
+            output.seek(deslocamento)
+            if output.read(1) == '*':
+                print("Elemento já removido\nTente Novamente\n")
+            else:
+                output.seek(tamHeader -3)
+                last = output.readline()
+                last = last.strip('\n')
+                output.seek(tamHeader -3)
+                if RRN < 10:
+                    output.write(str(RRN) + " ")  
+                else:
+                    output.write(str(RRN))
 
-    with open(arquivoSaida, 'r+') as output:
-        output.seek(tamHeader -3)
-        last = output.readline()
-        print(last)
-        output.seek(tamHeader -3)
-        output.write(str(RRN) + " ")  
+                output.seek(deslocamento)
+                linha = output.readline()
+                if int(last) < 0 or int(last) > 9:
+                    linha = f"*{last}" + linha[2:-2]
+                else:
+                    linha = f"*{last}" + linha[2:-3]
+                output.seek(deslocamento)
+                output.write(linha)
 
-        output.seek(deslocamento)
-        linha = output.readline()
-        linha = "*" + linha[2:]
-        output.seek(deslocamento)
-        output.write(linha)
-
+                recebe = int(input("Anime Removido\nGostaria de remover mais algum anime?\n1- Sim\n0-Não\n"))
+                if recebe == 0:
+                    return 
+    
 #def insereNovoRegistro():
 
 def escritaTamanhoFixo(registros):
@@ -96,5 +111,16 @@ if __name__ == "__main__":
             exit(1)
 
     tamanhoHeader, tamanhoRegistro = escritaTamanhoFixo(registros)
+    menu = 1
+    while menu != 0:
+        menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
+        if menu == 1:
+            removeRegistro(saida, tamanhoHeader, tamanhoRegistro)
+        #if menu == 2:
+            #inserirRegistro
+        if menu != 0 and menu != 1 and menu != 2:
+            print("valor incorreto\nTente novamente:\n")
     
-    removeRegistro(saida, tamanhoHeader, tamanhoRegistro)
+    if menu == 0:
+        print("o programa será finalizado\n")
+        exit()
