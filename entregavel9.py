@@ -41,13 +41,20 @@ def Inserção de registro com reuso( )
 
 '''    
 def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
+
     RRN = int(input("qual o indice que deseja remover?"))
     deslocamento = tamHeader + (RRN-1)*tamRegistro
 
     with open(arquivoSaida, 'r+') as output:
+        output.seek(tamHeader -3)
+        last = output.readline()
+        print(last)
+        output.seek(tamHeader -3)
+        output.write(str(RRN) + " ")  
+
         output.seek(deslocamento)
         linha = output.readline()
-        linha = "*|" + linha[2:]
+        linha = "*" + linha[2:]
         output.seek(deslocamento)
         output.write(linha)
 
@@ -55,6 +62,7 @@ def removeRegistro(arquivoSaida, tamHeader, tamRegistro):
 
 def escritaTamanhoFixo(registros):
     with open(saida, 'w') as output:
+        registros[0] = registros[0].strip('\n') + ",last:-1\n"
         TamReg = 0
         tam = []
         
