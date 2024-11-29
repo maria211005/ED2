@@ -58,7 +58,8 @@ def removeRegistro(arquivoSaida, tamHeader, tamRegistro, maiorLinha):
 
                 recebe = int(input("Registro Removido\nGostaria de remover mais algum registro?\n1- Sim\n0-Não\n"))
                 if recebe == 0:
-                    return 
+                    return
+    return int(last)
     
 '''        
 def Inserção de registro com reuso( ) 
@@ -73,7 +74,19 @@ def Inserção de registro com reuso( )
             sobrescreve o valor da linha
         incrementa a quantidade de registros validos
 '''    
-#def insereNovoRegistro():
+def insereNovoRegistro(arquivosaida, tamHeader, tamRegistro, maiorLinha, last): 
+    novoRegistro = input("Insira o novo registro a ser inserido:\n")
+
+    with open(arquivosaida, 'r+') as saida:
+        #significa que nao temos posicoes disponiveis 
+        if(last == -1):
+            print("Registro sendo inserido no final do arquivo...")
+            saida = saida.append(novoRegistro)
+        else:
+            #atualizando valor do last
+            saida.seek(tamHeader -3) #chegando aonde ta o numero do last
+            #last = id ---> essa id ta indexada pelo last
+
 
 def escritaTamanhoFixo(registros):
     #abre o arquivo de saida
