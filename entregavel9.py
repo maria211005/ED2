@@ -97,7 +97,7 @@ def insereNovoRegistro(tamHeader, tamRegistro):
     with open(saida, 'r+') as output:
         novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
         novoregistro_sep = novoRegistro.split(sep=',')
-
+        #eu vou fazer alguma coisa com esse novoregistro_sep mas eu n lembro
         novoRegistro = novoRegistro.strip('\n')
         novoRegistro = novoRegistro.replace(",", "|")
                 
@@ -132,7 +132,7 @@ def insereNovoRegistro(tamHeader, tamRegistro):
             output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
             output.write(newLast + "\n")                        #atualiza o valor do last
 
-        return tamRegistro
+        return tamRegistro  #retorna tamanho 
 
 if __name__ == "__main__":
     #abre o arquivo de entrada
