@@ -20,13 +20,13 @@ def Remoção de registro com Reuso( )
     atualizar o last, ele recebe o valor do registro que foi invalidado
         - escrever novamente o cabeçalho atualizando o valor da variável
 '''        
-def removeRegistro(arquivoSaida, tamHeader, tamRegistro, maiorLinha):
+def removeRegistro(tamHeader, tamRegistro, maiorLinha):
     recebe = 1
     while recebe == 1:
         RRN = int(input("qual o indice que deseja remover?\n"))
         deslocamento = tamHeader + (RRN-1)*tamRegistro
 
-        with open(arquivoSaida, 'r+') as output:
+        with open(saida, 'r+') as output:
             output.seek(deslocamento)
             if output.read(1) == '*':
                 print("Registro já removido\nTente Novamente\n")
@@ -58,8 +58,7 @@ def removeRegistro(arquivoSaida, tamHeader, tamRegistro, maiorLinha):
 
                 recebe = int(input("Registro Removido\nGostaria de remover mais algum registro?\n1- Sim\n0-Não\n"))
                 if recebe == 0:
-                    return
-    return int(last)
+                    return int(last)
     
 '''        
 def Inserção de registro com reuso( ) 
@@ -74,17 +73,23 @@ def Inserção de registro com reuso( )
             sobrescreve o valor da linha
         incrementa a quantidade de registros validos
 '''    
-def insereNovoRegistro(arquivosaida, tamHeader, tamRegistro, maiorLinha, last): 
-    novoRegistro = input("Insira o novo registro a ser inserido:\n")
+def insereNovoRegistro(tamHeader, tamRegistro, maiorLinha, last): 
+    novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
 
-    with open(arquivosaida, 'r+') as saida:
+    with open(saida, 'r+') as output:
         #significa que nao temos posicoes disponiveis 
         if(last == -1):
-            print("Registro sendo inserido no final do arquivo...")
-            saida = saida.append(novoRegistro)
+            print("Registro sendo inserido no final do arquivo...\n")
+            output.seek(0, 2)
+            output.write(novoRegistro)
         else:
             #atualizando valor do last
-            saida.seek(tamHeader -3) #chegando aonde ta o numero do last
+            output.seek(tamHeader + (last-1)*tamRegistro + 1) #chegando aonde ta o numero do last
+            newLast = output.read(2)
+            output.seek(tamHeader + (last-1)*tamRegistro)
+            output.write(novoRegistro)
+            output.seek(tamHeader -3)
+            output.write(newLast + " ")
             #last = id ---> essa id ta indexada pelo last
 
 
@@ -137,12 +142,13 @@ if __name__ == "__main__":
 
     #menu de opções
     menu = 1
+    last = -1
     while menu != 0:#enquanto não quiser sair do código
         menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
         if menu == 1:#caso queira remover algum registro
-            removeRegistro(saida, tamanhoHeader, tamanhoRegistro, maiorLinha)
-        #if menu == 2:#caso queira inserir algum registro
-            #inserirRegistro
+            last = removeRegistro(tamanhoHeader, tamanhoRegistro, maiorLinha)
+        if menu == 2:#caso queira inserir algum registro
+            insereNovoRegistro(tamanhoHeader, tamanhoRegistro, maiorLinha, last)
         if menu != 0 and menu != 1 and menu != 2:#caso insira algum valor fora das opções
             print("valor incorreto\nTente novamente:\n")
     
