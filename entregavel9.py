@@ -15,7 +15,6 @@ def escritaTamanhoFixo(registros):
     with open(saida, 'w') as output:
         #adiciona o last no cabeçalho
         registros[0] = registros[0].strip('\n') + ",last:-1\n"
-        TamReg = 0
         tam = []
         #guarda o tamanho de cada linha pra encontrar a maior registro e alinhar os outros
         for linha in registros:
@@ -24,11 +23,11 @@ def escritaTamanhoFixo(registros):
         tamHeader = tam[0] #tamanho do cabeçalho
 
         #define a maior linha e guarda seu índice
-        TamReg = tam[1]
+        tamRegistro = tam[1]
         maiorLinha = 0
         for i in range(1, len(tam)):
-            if tam[i] > TamReg:
-                TamReg = tam[i]
+            if tam[i] > tamRegistro:
+                tamRegistro = tam[i]
                 maiorLinha = i
         
         #adiciona caracteres especiais para completar as linhas que tem menos que a maior linha
@@ -36,16 +35,16 @@ def escritaTamanhoFixo(registros):
             linha = linha.strip('\n')
             linha = linha.replace(",", "|")
         
-            if len(linha) < TamReg:
-                dif = TamReg - len(linha) -1
+            if len(linha) < tamRegistro:
+                dif = tamRegistro - len(linha) -1
                 linha = linha + '*' * dif + '\n'
             else:
                 linha = linha + '\n'
             
             #escreve a linha no arquivo de saida
             output.write(linha)
-    return tamHeader, TamReg, maiorLinha    #retorna para a main
-      
+    return tamHeader, tamRegistro, maiorLinha    #retorna para a main
+
 def removeRegistro(tamHeader, tamRegistro, maiorLinha):
     recebe = 1
     while recebe == 1:#enquanto quiser remover registros
@@ -94,39 +93,46 @@ def removeRegistro(tamHeader, tamRegistro, maiorLinha):
                 if recebe == 0:
                     return    #sai da função
     
-'''        
-def Inserção de registro com reuso( ) 
-    descobrir se é possível fazer reuso de posições
-        ler o cabeçalho e verificar o valor do last
-        se last = -1, não tem valor para reuso 
-            append no fim do arquivo
-        senao, há posições para ser usadas 
-            atualizar o valor do last
-            no começo da linha indexada pelo last há (* id)
-            last = id
-            sobrescreve o valor da linha
-        incrementa a quantidade de registros validos
-'''    
-def insereNovoRegistro(tamHeader, tamRegistro, maiorLinha): 
-    novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
-
+def insereNovoRegistro(tamHeader, tamRegistro): 
     with open(saida, 'r+') as output:
+        novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
+        novoregistro_sep = novoRegistro.split(sep=',')
+
+        novoRegistro = novoRegistro.strip('\n')
+        novoRegistro = novoRegistro.replace(",", "|")
+                
+        if len(novoRegistro) < tamRegistro:
+            dif = tamRegistro - len(novoRegistro) -1
+            novoRegistro = novoRegistro + '*' * dif + '\n'
+        else:
+            tamRegistro = len(novoRegistro)
+            output.seek(tamHeader)
+            regs = output.readlines()
+            output.seek(tamHeader)
+            for linha in regs:
+                linha = linha.strip('\n')
+                newDif = tamRegistro - len(linha)
+                linha = linha + '*' * newDif + '\n'
+                output.write(linha)
+            
         output.seek(tamHeader -3)
-        last = output.readline().strip('\n')
+        last = int(output.readline().strip('\n'))
         #significa que nao temos posicoes disponiveis 
         if(last == -1):
-            print("Registro sendo inserido no final do arquivo...\n")
+            print("Registro sendo inserido no final do arquivo\n")
             output.seek(0, 2)
             output.write(novoRegistro)
         else:
             #atualizando valor do last
-            output.seek(tamHeader + (last-1)*tamRegistro + 1) #chegando aonde ta o numero do last
-            newLast = output.read(2)
-            output.seek(tamHeader + (last-1)*tamRegistro)
-            output.write(novoRegistro)
-            output.seek(tamHeader -3)
-            output.write(newLast + " ")
-            #last = id ---> essa id ta indexada pelo last
+            output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
+            newLast = output.read(2)                            #recebe o novo valor de last
+            print(f"Registro sendo inserido na linha {last}\n")
+            output.seek(tamHeader + (last-1)*tamRegistro)       #desloca novamente para o inicio dessa linha
+            output.write(novoRegistro)                          #escreve o novo registro
+            output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
+            output.write(newLast + "\n")                        #atualiza o valor do last
+
+        return tamRegistro
 
 if __name__ == "__main__":
     #abre o arquivo de entrada
@@ -138,16 +144,17 @@ if __name__ == "__main__":
 
     #alinha os registros
     #retorna o tamanho do cabeçalho, o tamanho de cada registro e o índice da maior linha
-    tamanhoHeader, tamanhoRegistro, maiorLinha = escritaTamanhoFixo(registros)
+    tamRegistro = 0
+    tamanhoHeader, tamRegistro, maiorLinha = escritaTamanhoFixo(registros)
 
     menu = 1
     #menu de opções
     while menu != 0:#enquanto não quiser sair do código
         menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
         if menu == 1:#caso queira remover algum registro
-            removeRegistro(tamanhoHeader, tamanhoRegistro, maiorLinha)
+            removeRegistro(tamanhoHeader, tamRegistro, maiorLinha)
         if menu == 2:#caso queira inserir algum registro
-            insereNovoRegistro(tamanhoHeader, tamanhoRegistro, maiorLinha)
+            tamRegistro = insereNovoRegistro(tamanhoHeader, tamRegistro)
         if menu != 0 and menu != 1 and menu != 2:#caso insira algum valor fora das opções
             print("valor incorreto\nTente novamente:\n")
     
