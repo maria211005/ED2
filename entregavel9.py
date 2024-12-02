@@ -118,38 +118,60 @@ def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
 
 def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros): 
     with open(saida, 'r+') as output:
-        novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
-        novoregistro_sep = novoRegistro.split(sep=',')
-        #eu vou fazer alguma coisa com esse novoregistro_sep mas eu n lembro
-        novoRegistro = novoRegistro.replace(",", "|")
-            
-        tamRegistro, maior = reorganizaArquivo(novoRegistro, tamHeader, tamRegistro)
+        output.seek(tamHeader)
+        linha = output.readline()
+        num = 0
+        for i in range(len(linha)):
+            if linha[i] == "|":
+                num += 1
+        print(num)
+        num2 = 0
+        while (num > num2 and ):
+            novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
+            num2 = 0
+            for i in range(len(novoRegistro)):
+                if novoRegistro[i] == ",":
+                    num2 += 1
+            print(num2)
+            if num2 < num:
+                print("Registro inválido\nTente Novamente\n")
+            else:
+                registro_sep = novoRegistro.split(sep=",")
+                output.seek(0)
+                arq = output.readlines()
+                for linha in arq:
+                    if registro_sep[0] == linha[0]:
+                        print("Registro já inserido\nTente novamente\n")
+                novoRegistro = novoRegistro.replace(",", "|")
+                    
+                tamRegistro, maior = reorganizaArquivo(novoRegistro, tamHeader, tamRegistro)
 
-        output.seek(tamHeader -3)
-        last = int(output.readline().strip('\n'))
-        #significa que nao temos posicoes disponiveis 
-        if(last == -1):
-            print("Registro sendo inserido no final do arquivo\n")
-            output.seek(0, 2)
-            output.write(novoRegistro + "\n")
-            if maior == True:
-                maiorLinha = quantRegistros + 1
-        else:
-            #atualizando valor do last
-            output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
-            newLast = output.read(2)                            #recebe o novo valor de last
-            print(newLast)
-            print(f"Registro sendo inserido na linha {last}\n")
-            output.seek(tamHeader + (last-1)*tamRegistro)   #desloca novamente para o inicio dessa linha
-            output.write(novoRegistro)                   #escreve o novo registro
-            output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
-            output.write(newLast)                        #atualiza o valor do last
-            if maior == True:
-                maiorLinha = last
+                output.seek(tamHeader -3)
+                last = int(output.readline().strip('\n'))
+                #significa que nao temos posicoes disponiveis 
+                if(last == -1):
+                    print("Registro sendo inserido no final do arquivo\n")
+                    output.seek(0, 2)
+                    output.write(novoRegistro + "\n")
+                    if maior == True:
+                        maiorLinha = quantRegistros + 1
+                else:
+                    #atualizando valor do last
+                    output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
+                    newLast = output.read(2)                            #recebe o novo valor de last
+                    print(newLast)
+                    print(f"Registro sendo inserido na linha {last}\n")
+                    output.seek(tamHeader + (last-1)*tamRegistro)   #desloca novamente para o inicio dessa linha
+                    output.write(novoRegistro)                   #escreve o novo registro
+                    output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
+                    output.write(newLast)                        #atualiza o valor do last
+                    if maior == True:
+                        maiorLinha = last
 
-        if maior == False:
-            maiorLinha = 0
-        return tamRegistro, maiorLinha  #retorna tamanho 
+                if maior == False:
+                    maiorLinha = 0
+                return tamRegistro, maiorLinha  #retorna tamanho 
+
 
 if __name__ == "__main__":
     #abre o arquivo de entrada
