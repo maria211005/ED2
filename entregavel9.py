@@ -45,56 +45,63 @@ def escritaTamanhoFixo(registros):
             output.write(linha)
     return tamHeader, tamRegistro, maiorLinha    #retorna para a main
 
-def removeRegistro(tamHeader, tamRegistro, maiorLinha):
+def removeRegistro(tamHeader, tamRegistro, maiorLinha, quantRegistros):
     recebe = 1
     while recebe != 0:#enquanto quiser remover registros
         RRN = int(input("qual o indice que deseja remover?\n"))
-        deslocamento = tamHeader + (RRN-1)*tamRegistro  #valor para ser deslocado e encontrar o registro solicitado
+        if RRN <= 0 or RRN > quantRegistros:
+            print(f"índice inválido, fora do limite de 0 a {quantRegistros} registros\nTente Novamente\n")
+            
+        else:
+            deslocamento = tamHeader + (RRN-1)*tamRegistro  #valor para ser deslocado e encontrar o registro solicitado
 
-        with open(saida, 'r+') as output:
-            output.seek(deslocamento)
-            linha = output.read(2)
-            if '*' in linha:   #se tiver * significa que já foi removido 
-                print("Registro já removido\nTente Novamente\n")
-            else:                       #caso for um registro valido para retirar
-                output.seek(tamHeader -3)   #o valor do last tá no ultimo tópico do cabeçalho
-                
-                #necessário ler o valor do last para colocar na linha removida
-                last = output.readline()
-                last = last.strip('\n')
-                output.seek(tamHeader -3)
-                
-                #caso seja menor que dois digitos
-                if RRN < 10:
-                    output.write(str(RRN) + " ")  
-                else:   #caso contrário
-                    output.write(str(RRN))
-
-                #desloca para a linha que será removida
+            with open(saida, 'r+') as output:
                 output.seek(deslocamento)
-                linha = output.readline()
-                
-                #adequa esteticamente para manter todos os registros alinhados apesar da remoção
-                if int(last) < 0 or int(last) > 9:      #se o last tiver dois dígitos
-                    if RRN == maiorLinha:               #tratar a maior linha diferente das outras
-                        linha = f"*{last}" + linha[3:-2]
-                    else:
-                        linha = f"*{last}" + linha[2:-2]
-                else:                                   #se tiver um dígito
-                    if RRN == maiorLinha:
-                        linha = f"*{last}" + linha[3:-2]
-                    else:
-                        linha = f"*{last}" + linha[2:-3]
-                
-                output.seek(deslocamento)       #desloca novamente para o lugar do registro
-                output.write(linha)             #escreve no arquivo o registro removido
+                linha = output.read(2)
+                if '*' in linha:   #se tiver * significa que já foi removido 
+                    print("Registro já removido\nTente Novamente\n")
+                else:                       #caso for um registro valido para retirar
+                    output.seek(tamHeader -3)   #o valor do last tá no ultimo tópico do cabeçalho
+                    
+                    #necessário ler o valor do last para colocar na linha removida
+                    last = output.readline()
+                    last = last.strip('\n')
+                    output.seek(tamHeader -3)
+                    
+                    #caso seja menor que dois digitos
+                    if RRN < 10:
+                        output.write(str(RRN) + " ")  
+                    else:   #caso contrário
+                        output.write(str(RRN))
 
-                #caso queira remover mais algum registro
-                recebe = int(input("Registro Removido\nGostaria de remover mais algum registro?\n1- Sim\n0-Não\n"))
-                if recebe != 1 and recebe != 0:
-                    print("Número inválido\nTente Novamente:\n")
-                if recebe == 0:
-                    return    #sai da função
+                    #desloca para a linha que será removida
+                    output.seek(deslocamento)
+                    linha = output.readline()
+                    
+                    #adequa esteticamente para manter todos os registros alinhados apesar da remoção
+                    if int(last) < 0 or int(last) > 9:      #se o last tiver dois dígitos
+                        if RRN == maiorLinha:               #tratar a maior linha diferente das outras
+                            linha = f"*{last}" + linha[3:-2]
+                        else:
+                            linha = f"*{last}" + linha[2:-2]
+                    else:                                   #se tiver um dígito
+                        if RRN == maiorLinha:
+                            linha = f"*{last}" + linha[3:-2]
+                        else:
+                            linha = f"*{last}" + linha[2:-3]
+                    
+                    output.seek(deslocamento)       #desloca novamente para o lugar do registro
+                    output.write(linha)             #escreve no arquivo o registro removido
+
+                    print("Registro Removido")
+                    #caso queira remover mais algum registro
+                    recebe = 2
+                    while recebe != 1 and recebe != 0:
+                        recebe = int(input("Gostaria de remover mais algum registro?\n1- Sim\n0-Não\n"))
+                        if recebe != 1 and recebe != 0:
+                            print("Número inválido\nTente Novamente:\n")
+                    if recebe == 0:
+                        return    #sai da função
                 
                 
 def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
@@ -118,59 +125,71 @@ def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
 
 def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros): 
     with open(saida, 'r+') as output:
+        #condições para realmente inserir o novo registro
         output.seek(tamHeader)
         linha = output.readline()
         num = 0
-        for i in range(len(linha)):
-            if linha[i] == "|":
-                num += 1
-        print(num)
         num2 = 0
-        while (num > num2 and ):
-            novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
+        igual = 1
+        for i in range(len(linha)):
+            if linha[i] == "|":     #conta quantos campos tem um registro
+                num += 1
+        
+        while (num > num2 or igual == 1):
+            igual = 0
             num2 = 0
+
+            novoRegistro = str(input("Insira o novo registro a ser inserido:\n"))
+            #verifica quantos campos tem o registro inserido
             for i in range(len(novoRegistro)):
-                if novoRegistro[i] == ",":
+                if novoRegistro[i] == ",":      
                     num2 += 1
-            print(num2)
-            if num2 < num:
+            if num2 < num:#se for menor que o contador de registros, não entra
                 print("Registro inválido\nTente Novamente\n")
+
             else:
+                #verifica se o registro já foi inserido ou não
                 registro_sep = novoRegistro.split(sep=",")
-                output.seek(0)
+                output.seek(tamHeader)
                 arq = output.readlines()
                 for linha in arq:
-                    if registro_sep[0] == linha[0]:
-                        print("Registro já inserido\nTente novamente\n")
-                novoRegistro = novoRegistro.replace(",", "|")
-                    
-                tamRegistro, maior = reorganizaArquivo(novoRegistro, tamHeader, tamRegistro)
+                    linha_sep = linha.split(sep="|")
+                    if registro_sep[0] == linha_sep[0]:
+                        igual = 1
+                if igual == 1:#se já foi inserido, não entra
+                    print("Registro já inserido\nTente novamente\n")
 
-                output.seek(tamHeader -3)
-                last = int(output.readline().strip('\n'))
-                #significa que nao temos posicoes disponiveis 
-                if(last == -1):
-                    print("Registro sendo inserido no final do arquivo\n")
-                    output.seek(0, 2)
-                    output.write(novoRegistro + "\n")
-                    if maior == True:
-                        maiorLinha = quantRegistros + 1
                 else:
-                    #atualizando valor do last
-                    output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
-                    newLast = output.read(2)                            #recebe o novo valor de last
-                    print(newLast)
-                    print(f"Registro sendo inserido na linha {last}\n")
-                    output.seek(tamHeader + (last-1)*tamRegistro)   #desloca novamente para o inicio dessa linha
-                    output.write(novoRegistro)                   #escreve o novo registro
-                    output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
-                    output.write(newLast)                        #atualiza o valor do last
-                    if maior == True:
-                        maiorLinha = last
+                    #insere o registro no arquivo
+                    novoRegistro = novoRegistro.replace(",", "|")
+                        
+                    tamRegistro, maior = reorganizaArquivo(novoRegistro, tamHeader, tamRegistro)
 
-                if maior == False:
-                    maiorLinha = 0
-                return tamRegistro, maiorLinha  #retorna tamanho 
+                    output.seek(tamHeader -3)
+                    last = int(output.readline().strip('\n'))
+                    if(last == -1):
+                        #significa que nao temos posicoes disponiveis para reuso
+                        print("Registro sendo inserido no final do arquivo\n")
+                        output.seek(0, 2)
+                        output.write(novoRegistro + "\n")
+                        if maior == True:
+                            maiorLinha = quantRegistros + 1
+                    else:
+                        #insere na ultima posição removida
+                        output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
+                        newLast = output.read(2)                            #recebe o novo valor de last
+                        print(newLast)
+                        print(f"Registro sendo inserido na linha {last}\n")
+                        output.seek(tamHeader + (last-1)*tamRegistro)       #desloca novamente para o inicio dessa linha
+                        output.write(novoRegistro)                          #escreve o novo registro
+                        output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
+                        output.write(newLast)                               #atualiza o valor do last
+                        if maior == True:
+                            maiorLinha = last
+
+                    if maior == False:
+                        maiorLinha = 0
+                    return tamRegistro, maiorLinha  #retorna tamanho e o índice da maior linha
 
 
 if __name__ == "__main__":
@@ -192,7 +211,7 @@ if __name__ == "__main__":
     while menu != 0:#enquanto não quiser sair do código
         menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
         if menu == 1:#caso queira remover algum registro
-            removeRegistro(tamanhoHeader, tamRegistro, maiorLinha)
+            removeRegistro(tamanhoHeader, tamRegistro, maiorLinha, quantidadeRegistros)
         if menu == 2:#caso queira inserir algum registro
             tamanhoRegistro, Linha = insereNovoRegistro(tamanhoHeader, tamRegistro, quantidadeRegistros)
             if tamanhoRegistro > tamRegistro:
