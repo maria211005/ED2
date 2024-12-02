@@ -9,7 +9,8 @@ if(len(sys.argv) != 3):
 else:
     entrada = sys.argv[1]
     saida = sys.argv[2]
-
+#------------------------------------------------------------------------------------------------------------------------------------
+#organiza os registros para mesmo tamanho
 def escritaTamanhoFixo(registros):
     #abre o arquivo de saida
     with open(saida, 'w') as output:
@@ -44,7 +45,8 @@ def escritaTamanhoFixo(registros):
             #escreve a linha no arquivo de saida
             output.write(linha)
     return tamHeader, tamRegistro, maiorLinha    #retorna para a main
-
+#----------------------------------------------------------------------------------------------------------------------------------------
+#função para remover o registro
 def removeRegistro(tamHeader, tamRegistro, maiorLinha, quantRegistros):
     recebe = 1
     while recebe != 0:#enquanto quiser remover registros
@@ -102,8 +104,8 @@ def removeRegistro(tamHeader, tamRegistro, maiorLinha, quantRegistros):
                             print("Número inválido\nTente Novamente:\n")
                     if recebe == 0:
                         return    #sai da função
-                
-                
+#--------------------------------------------------------------------------------------------------------------------------------------------
+#função auxiliar da inserção para organizar o arquivo a cada novo registro
 def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
     with open(saida, "r+") as output:
         if len(novoRegistro) < tamRegistro:
@@ -122,7 +124,8 @@ def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
                 linha = linha + '*' * newDif + '\n'
                 output.write(linha)
         return tamRegistro, maior
-
+#-------------------------------------------------------------------------------------------------------------------------------------------
+#insere novo registro
 def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros): 
     with open(saida, 'r+') as output:
         #condições para realmente inserir o novo registro
@@ -190,8 +193,8 @@ def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros):
                     if maior == False:
                         maiorLinha = 0
                     return tamRegistro, maiorLinha  #retorna tamanho e o índice da maior linha
-
-
+#-------------------------------------------------------------------------------------------------------------------------------------------
+#função principal
 if __name__ == "__main__":
     #abre o arquivo de entrada
     with open(entrada, 'r') as f:
