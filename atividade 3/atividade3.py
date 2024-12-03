@@ -91,6 +91,32 @@ def insertionSort(reg):
             
             reg[j+1] = auxiliar
 #----------------------------------------------------------------------------------------------------------------------
+def escreveArquivo():
+    with open(saida, 'w+') as output:
+        output.write(header)
+
+        tam = []
+        for linha in registros:
+            tam.append(len(linha))
+
+        tamRegistro = tam[0]
+        for i in range(len(tam)-1):
+            if tam[i] > tamRegistro:
+                tamRegistro = tam[i]
+
+        for i in range (len(RRN)-1):    
+            for linha in registros:
+                linha_sep = linha.split(sep='|')
+                if RRN[i] == int(linha_sep[0]):
+                    linha = linha.strip('\n')
+                    if len(linha) < tamRegistro:
+                        dif = tamRegistro - len(linha) -1
+                        linha = linha + '*' * dif + '\n'
+                    else:
+                        linha = linha + '\n'
+                        #escreve a linha no arquivo de saida
+                    output.write(linha)
+
 #função principal
 if __name__ == "__main__":
     metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
@@ -104,8 +130,9 @@ if __name__ == "__main__":
         heapSort(RRN)
     if metodoBusca == 'I':
         insertionSort(RRN)
-    #elif metodoBusca == 'M':
+    #if metodoBusca == 'M':
         #mergeSort(registros)
-    #elif metodoBusca == 'Q':
+    #if metodoBusca == 'Q':
         #quickSort(registros)
-    print(RRN)
+
+    escreveArquivo()
