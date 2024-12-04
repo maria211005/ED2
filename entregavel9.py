@@ -104,26 +104,6 @@ def removeRegistro(tamHeader, tamRegistro, maiorLinha, quantRegistros):
                             print("Número inválido\nTente Novamente:\n")
                     if recebe == 0:
                         return    #sai da função
-#--------------------------------------------------------------------------------------------------------------------------------------------
-#função auxiliar da inserção para organizar o arquivo a cada novo registro
-def reorganizaArquivo(novoRegistro, tamHeader, tamRegistro):
-    with open(saida, "r+") as output:
-        if len(novoRegistro) < tamRegistro:
-            dif = tamRegistro - len(novoRegistro) -1
-            novoRegistro = novoRegistro + '*' * dif + '\n'
-            maior = False
-        else:
-            tamRegistro = len(novoRegistro)
-            maior = True
-            output.seek(tamHeader)
-            regs = output.readlines()
-            output.seek(tamHeader)
-            for linha in regs:
-                linha = linha.strip('\n')
-                newDif = tamRegistro - len(linha)
-                linha = linha + '*' * newDif + '\n'
-                output.write(linha)
-        return tamRegistro, maior
 #-------------------------------------------------------------------------------------------------------------------------------------------
 #insere novo registro
 def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros): 
@@ -148,6 +128,7 @@ def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros):
                 if novoRegistro[i] == ",":      
                     num2 += 1
             if num2 < num:#se for menor que o contador de registros, não entra
+                print(num2, num)
                 print("Registro inválido\nTente Novamente\n")
 
             else:
@@ -165,8 +146,8 @@ def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros):
                 else:
                     #insere o registro no arquivo
                     novoRegistro = novoRegistro.replace(",", "|")
-                        
-                    tamRegistro, maior = reorganizaArquivo(novoRegistro, tamHeader, tamRegistro)
+                    dif = tamRegistro - len(novoRegistro) -1
+                    novoRegistro = novoRegistro + '*' * dif + '\n'
 
                     output.seek(tamHeader -3)
                     last = int(output.readline().strip('\n'))
@@ -175,24 +156,16 @@ def insereNovoRegistro(tamHeader, tamRegistro, quantRegistros):
                         print("Registro sendo inserido no final do arquivo\n")
                         output.seek(0, 2)
                         output.write(novoRegistro + "\n")
-                        if maior == True:
-                            maiorLinha = quantRegistros + 1
                     else:
                         #insere na ultima posição removida
                         output.seek(tamHeader + (last-1)*tamRegistro + 1)   #chegando aonde ta o numero do last, +1 para pular o *
                         newLast = output.read(2)                            #recebe o novo valor de last
-                        print(newLast)
                         print(f"Registro sendo inserido na linha {last}\n")
                         output.seek(tamHeader + (last-1)*tamRegistro)       #desloca novamente para o inicio dessa linha
                         output.write(novoRegistro)                          #escreve o novo registro
                         output.seek(tamHeader -3)                           #desloca para o lugar que está escrito o valor do last
                         output.write(newLast)                               #atualiza o valor do last
-                        if maior == True:
-                            maiorLinha = last
-
-                    if maior == False:
-                        maiorLinha = 0
-                    return tamRegistro, maiorLinha  #retorna tamanho e o índice da maior linha
+                        
 #-------------------------------------------------------------------------------------------------------------------------------------------
 #função principal
 if __name__ == "__main__":
@@ -210,17 +183,12 @@ if __name__ == "__main__":
 
     menu = 1
     #menu de opções
-    tamanhoRegistro = 0
     while menu != 0:#enquanto não quiser sair do código
         menu = int(input("O que gostaria de fazer?\n1- Remover\n2- Inserir\n0- Sair\n"))
         if menu == 1:#caso queira remover algum registro
             removeRegistro(tamanhoHeader, tamRegistro, maiorLinha, quantidadeRegistros)
         if menu == 2:#caso queira inserir algum registro
-            tamanhoRegistro, Linha = insereNovoRegistro(tamanhoHeader, tamRegistro, quantidadeRegistros)
-            if tamanhoRegistro > tamRegistro:
-                tamRegistro = tamanhoRegistro
-            if Linha != 0:
-                maiorLinha = Linha
+            insereNovoRegistro(tamanhoHeader, tamRegistro, quantidadeRegistros)
 
         if menu != 0 and menu != 1 and menu != 2:#caso insira algum valor fora das opções
             print("valor incorreto\nTente novamente:\n")
