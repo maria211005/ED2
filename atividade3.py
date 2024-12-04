@@ -50,46 +50,61 @@ def direita(i):
     return 2*i+2
 
 #função que deixa o heap com o valor maximo na raiz
-def maxHeapify(reg, i, tamReg):
+def maxHeapify(reg, i, tamReg, ord):
     left = esquerda(i) #chamando as funções p/ calcular a posicao dos filhos
     right = direita(i)
     maior = i
 
-    if(left < tamReg and reg[left] > reg[i]):
-        maior = left
-    
-    if(right < tamReg and reg[right] > reg[maior]):
-        maior = right
+    if ord == 'C':
+        if(left < tamReg and reg[left] > reg[maior]):
+            maior = left
+        
+        if(right < tamReg and reg[right] > reg[maior]):
+            maior = right
+
+    if ord == 'D':
+        if(left < tamReg and reg[left] < reg[maior]):
+            maior = left
+        
+        if(right < tamReg and reg[right] < reg[maior]):
+            maior = right
 
     if (maior != i):
         #corrige se o filho estiver maior que o pai, trocando os dois de lugar
-        (reg[i], reg[maior]) = (reg[maior], reg[i])
-        maxHeapify(reg, maior, tamReg) 
+        reg[i], reg[maior] = reg[maior], reg[i]
+        maxHeapify(reg, maior, tamReg, ord)
 
-def buildMaxHeap(reg): #constroi o heap
+def buildMaxHeap(reg, ord): #constroi o heap
     tamanhoHeap = len(reg)
-    for i in range (int(len(reg)/2), 0, -1):
-        maxHeapify(reg, i, tamanhoHeap)
+    for i in range (len(reg)//2 - 1, -1, -1):
+        maxHeapify(reg, i, tamanhoHeap, ord)
 
-def heapSort(reg):
-    buildMaxHeap(reg)
+def heapSort(reg, ord):
+    buildMaxHeap(reg, ord)
     tamanho = len(reg)
-    for i in range (len(reg)-1, -1, -1): #troca o primeiro valor com o da ultima posicao livre
+    for i in range (len(reg)-1, 0, -1): #troca o primeiro valor com o da ultima posicao livre
         (reg[0],reg[i]) = (reg[i],reg[0])
-        tamanho = tamanho - 1
-        maxHeapify(reg, 0, tamanho)
+        tamanho -= 1
+        maxHeapify(reg, 0, tamanho, ord)
 #---------------------------------------------------------------------------------------------------------------------
 #função de insertion sort
-def insertionSort(reg):
-   for i in range(1, len(reg)): #percorrendo vetor 
-        auxiliar = reg[i]
-        j = i-1 #contador auxiliar
-        
-        while (j >= 0) & (auxiliar < reg[j]): #procura o menor elemento e joga na primeira posicao livre
-            reg[j+1] = reg[j]
-            j = j-1
+def insertionSort(reg, ord):
+        for i in range(1, len(reg)): #percorrendo vetor 
+            auxiliar = reg[i]
+            j = i-1 #contador auxiliar
             
-            reg[j+1] = auxiliar
+            if ord == 'C':
+                while (j >= 0) & (auxiliar < reg[j]): #procura o menor elemento e joga na primeira posicao livre
+                    reg[j+1] = reg[j]
+                    j = j-1
+                    
+                    reg[j+1] = auxiliar
+            if ord == 'D':
+                while (j >= 0) & (auxiliar > reg[j]): #procura o maior elemento e joga na primeira posicao livre
+                    reg[j+1] = reg[j]
+                    j = j-1
+                    
+                    reg[j+1] = auxiliar
 #----------------------------------------------------------------------------------------------------------------------
 def escreveArquivo():
     with open(saida, 'w+') as output:
@@ -127,9 +142,9 @@ if __name__ == "__main__":
         RRN.append(int(linha_sep[0]))
 
     if metodoBusca == 'H':
-        heapSort(RRN)
+        heapSort(RRN, ordenacao)
     if metodoBusca == 'I':
-        insertionSort(RRN)
+        insertionSort(RRN, ordenacao)
     #if metodoBusca == 'M':
         #mergeSort(registros)
     #if metodoBusca == 'Q':
