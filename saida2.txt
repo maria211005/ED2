@@ -1,0 +1,589 @@
+key,Name,Alignment,Gender,EyeColor,Race,HairColor,Publisher,SkinColor,Height,Weight,Intelligence,Strength,Speed,Durability,Power,Combat,Total
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+365|A-Bomb|good|Male|yellow|Human|No Hair|Marvel Comics|-|203|441|38|100|17|80|17|64|316***************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+509|Abin Sur|good|Male|blue|Ungaran|No Hair|DC Comics|red|185|90|50|90|53|64|84|65|406*****************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+560|Agent Zero|good|Male|-|-|-|Marvel Comics|-|191|104|75|28|38|80|72|95|388***************************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+573|Atlas|good|Male|brown|Mutant|Red|Marvel Comics|-|183|101|50|80|23|99|69|42|363*********************************
+577|Atom II|good|Male|brown|Human|Auburn|DC Comics|-|183|81|1|1|1|1|0|1|5******************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+587|Batgirl V|good|Female|-|-|-|DC Comics|-|-99|-99|1|1|1|1|0|1|5**************************************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************
+589|Shang-Chi|good|Male|brown|Human|Black|Marvel Comics|-|178|79|63|12|30|50|25|100|280****************************

@@ -42,7 +42,6 @@ def defineTipoOrdenacao(arquivo):
     return sort, order, cabecalho, registro
 #---------------------------------------------------------------------------------------
 #def quickSort():
-#def mergeSort():
 def esquerda(i):
     return 2*i+1
 
@@ -106,8 +105,7 @@ def insertionSort(reg, ord):
                     
                     reg[j+1] = auxiliar
 #----------------------------------------------------------------------------------------------------------------------
-#função de merge sort 
-#func aux.
+#função de merge sort
 def merge(reg, inicio, meio, fim, ord):
     aux = []
     p1 = inicio
@@ -142,16 +140,12 @@ def merge(reg, inicio, meio, fim, ord):
     for i in range (inicio, fim+1):
         reg[i] = aux[i-inicio]
     
-        
-
-
-#funcao principal
-def mergeSort(reg, inicio, fim):
+def mergeSort(reg, inicio, fim, ord):
     if(inicio < fim):
         meio = (inicio + fim) // 2
-        mergeSort(reg, inicio, meio)
-        mergeSort(reg, meio+1, fim)
-
+        mergeSort(reg, inicio, meio, ord)
+        mergeSort(reg, meio+1, fim, ord)
+        merge(reg, inicio, meio, fim, ord)
 #----------------------------------------------------------------------------------------------------------------------
 def escreveArquivo():
     with open(saida, 'w+') as output:
@@ -192,8 +186,8 @@ if __name__ == "__main__":
         heapSort(RRN, ordenacao)
     if metodoBusca == 'I':
         insertionSort(RRN, ordenacao)
-    #if metodoBusca == 'M':
-        #mergeSort(registros)
+    if metodoBusca == 'M':
+        mergeSort(RRN, 0, len(RRN) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
 
