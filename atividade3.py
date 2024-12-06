@@ -108,39 +108,49 @@ def insertionSort(reg, ord):
 #----------------------------------------------------------------------------------------------------------------------
 #função de merge sort 
 #func aux.
-def merge(reg, inicio, meio, fim):
+def merge(reg, inicio, meio, fim, ord):
     aux = []
     p1 = inicio
     p2 = meio+1
 
-    while(p1 <= meio and p2 <= fim):
-        if(reg[p1] < reg[p2]):
-            aux.append(reg[p1])
-            p1 = p1 + 1
-        else: 
-            aux.append(reg[p1])
-            p2 = p2 + 1
-    
+    if ord == 'C':
+        while(p1 <= meio and p2 <= fim):
+            if(reg[p1] < reg[p2]):
+                aux.append(reg[p1])
+                p1 = p1 + 1
+            else: 
+                aux.append(reg[p1])
+                p2 = p2 + 1
+    if ord == 'D':
+         while(p1 <= meio and p2 <= fim):
+            if(reg[p1] > reg[p2]):
+                aux.append(reg[p1])
+                p1 = p1 + 1
+            else: 
+                aux.append(reg[p1])
+                p2 = p2 + 1
+
     if(p1 == meio+1):
         while(p2 <= fim):
             aux.append(reg[p2])
             p2 = p2 + 1
     else:
-        while(p1 <= fim):
+       while(p1 <= fim):
             aux.append(reg[p1])
             p1 = p1 + 1
     
     for i in range (inicio, fim+1):
         reg[i] = aux[i-inicio]
+    
+        
+
 
 #funcao principal
-def mergeSort(reg, inicio, fim, ord):
+def mergeSort(reg, inicio, fim):
     if(inicio < fim):
         meio = (inicio + fim) // 2
         mergeSort(reg, inicio, meio)
         mergeSort(reg, meio+1, fim)
-
-        #fazer o if para D ou C 
 
 #----------------------------------------------------------------------------------------------------------------------
 def escreveArquivo():
