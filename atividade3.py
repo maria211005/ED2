@@ -106,6 +106,90 @@ def insertionSort(reg, ord):
                     
                     reg[j+1] = auxiliar
 #----------------------------------------------------------------------------------------------------------------------
+#função de merge sort 
+'''
+def Merge(array, inicio, meio, fim): #func. auxiliar 
+    numeroComp4 = 0
+    vetor_auxiliar = [] #alocando dinamicamente o vetor 
+    P1 = inicio #primeira e segunda metade respectivamente
+    P2 = meio + 1 
+
+    while(P1 <= meio and P2 <= fim): #voltando da recursao e reagrupando 
+        numeroComp4 += 1
+        if(array[P1] < array[P2]): #add P1 no vetor aux
+            vetor_auxiliar.append(array[P1])
+            P1 = P1 + 1
+        else: #add P2 no vetor aux
+            vetor_auxiliar.append(array[P2])
+            P2 = P2 + 1
+    
+    #saiu do while
+    if (P1 == meio+1):
+        numeroComp4 += 1
+        while P2 <= fim:
+            vetor_auxiliar.append(array[P2])
+            P2 = P2 + 1
+            numeroComp4 += 1
+    else:
+        while P1 <= fim:
+            vetor_auxiliar.append(array[P1])
+            P1 = P1 + 1
+            numeroComp4 += 1
+    
+    for i in range (inicio, fim+1):
+        array[i] = vetor_auxiliar[i - inicio]
+        numeroComp4 += 1
+    
+    return numeroComp4
+
+
+def mergeSort(array, inicio, fim): #func. principal
+    numeroComp4 = 0
+    if(inicio < fim):
+        meio = ((inicio + fim)//2)
+        #agora começa as recursivas 
+        mergeSort(array, inicio, meio) #dividindo recursivamente
+        mergeSort(array, meio+1, fim)
+        numeroComp4 += Merge(array, inicio, meio, fim)
+    
+    return numeroComp4
+'''
+#func aux.
+def merge(reg, inicio, meio, fim):
+    aux = []
+    p1 = inicio
+    p2 = meio+1
+
+    while(p1 <= meio and p2 <= fim):
+        if(reg[p1] < reg[p2]):
+            aux.append(reg[p1])
+            p1 = p1 + 1
+        else: 
+            aux.append(reg[p1])
+            p2 = p2 + 1
+    
+    if(p1 == meio+1):
+        while(p2 <= fim):
+            aux.append(reg[p2])
+            p2 = p2 + 1
+    else:
+        while(p1 <= fim):
+            aux.append(reg[p1])
+            p1 = p1 + 1
+    
+    for i in range (inicio, fim+1):
+        reg[i] = aux[i-inicio]
+
+#funcao principal
+def mergeSort(reg, inicio, fim, ord):
+    if(inicio < fim):
+        meio = (inicio + fim) // 2
+        mergeSort(reg, inicio, meio)
+        mergeSort(reg, meio+1, fim)
+
+        #fazer o if para D ou C 
+
+#----------------------------------------------------------------------------------------------------------------------
 def escreveArquivo():
     with open(saida, 'w+') as output:
         output.write(header)
