@@ -587,3 +587,4 @@ key,Name,Alignment,Gender,EyeColor,Race,HairColor,Publisher,SkinColor,Height,Wei
 586|Hellcat|good|Female|blue|Human|Red|Marvel Comics|-|173|61|50|10|23|42|18|70|213********************************
 587|Cyborg Superman|bad|Male|blue|Cyborg|Black|DC Comics|-|-99|-99|75|93|92|100|100|80|540*************************
 588|Thunderbird|good|Male|brown|-|Black|Marvel Comics|-|185|101|50|32|27|32|14|70|225******************************
+589|Ben 10|good|Male|-|-|-|DC Comics|-|-99|-99|10|7|8|10|90|40|165*************************************************

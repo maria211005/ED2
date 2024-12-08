@@ -41,7 +41,7 @@ def defineTipoOrdenacao(arquivo):
             
     return sort, order, cabecalho, registro
 #---------------------------------------------------------------------------------------
-#def quickSort():
+#função de heap sort
 def esquerda(i):
     return 2*i+1
 
@@ -106,48 +106,50 @@ def insertionSort(reg, ord):
                     reg[j+1] = auxiliar
 #----------------------------------------------------------------------------------------------------------------------
 #função de merge sort
-def merge(reg, inicio, meio, fim, ord):
-    aux = []
-    p1 = inicio
-    p2 = meio+1
+def Merge(array, inicio, meio, fim, ord): #func. auxiliar 
+    vetor_auxiliar = [] #alocando dinamicamente o vetor 
+    P1 = inicio #primeira e segunda metade respectivamente
+    P2 = meio + 1 
 
     if ord == 'C':
-        while(p1 <= meio and p2 <= fim):
-            if(reg[p1] < reg[p2]):
-                aux.append(reg[p1])
-                p1 = p1 + 1
-            else: 
-                aux.append(reg[p1])
-                p2 = p2 + 1
+        while(P1 <= meio and P2 <= fim): #voltando da recursao e reagrupando 
+            if(array[P1] < array[P2]): #add P1 no vetor aux
+                vetor_auxiliar.append(array[P1])
+                P1 = P1 + 1
+            else: #add P2 no vetor aux
+                vetor_auxiliar.append(array[P2])
+                P2 = P2 + 1
+    
     if ord == 'D':
-         while(p1 <= meio and p2 <= fim):
-            if(reg[p1] > reg[p2]):
-                aux.append(reg[p1])
-                p1 = p1 + 1
-            else: 
-                aux.append(reg[p1])
-                p2 = p2 + 1
-
-    if(p1 == meio+1):
-        while(p2 <= fim):
-            aux.append(reg[p2])
-            p2 = p2 + 1
+        while(P1 <= meio and P2 <= fim): #voltando da recursao e reagrupando 
+            if(array[P1] > array[P2]): #add P1 no vetor aux
+                vetor_auxiliar.append(array[P1])
+                P1 = P1 + 1
+            else: #add P2 no vetor aux
+                vetor_auxiliar.append(array[P2])
+                P2 = P2 + 1
+    #saiu do while
+    if (P1 == meio+1):
+        while P2 <= fim:
+            vetor_auxiliar.append(array[P2])
+            P2 = P2 + 1
     else:
-       while(p1 <= fim):
-            aux.append(reg[p1])
-            p1 = p1 + 1
+        while P1 <= fim:
+            vetor_auxiliar.append(array[P1])
+            P1 = P1 + 1
     
     for i in range (inicio, fim+1):
-        reg[i] = aux[i-inicio]
-    
-def mergeSort(reg, inicio, fim, ord):
+        array[i] = vetor_auxiliar[i - inicio]
+
+def mergeSort(array, inicio, fim, ord): #func. principal
     if(inicio < fim):
-        meio = (inicio + fim) // 2
-        mergeSort(reg, inicio, meio, ord)
-        mergeSort(reg, meio+1, fim, ord)
-        merge(reg, inicio, meio, fim, ord)
+        meio = ((inicio + fim)//2)
+        #agora começa as recursivas 
+        mergeSort(array, inicio, meio, ord) #dividindo recursivamente
+        mergeSort(array, meio+1, fim, ord)
+        Merge(array, inicio, meio, fim, ord)
 #----------------------------------------------------------------------------------------------------------------------
-def escreveArquivo():
+def escreveArquivo(RRN):
     with open(saida, 'w+') as output:
         output.write(header)
 
@@ -160,7 +162,7 @@ def escreveArquivo():
             if tam[i] > tamRegistro:
                 tamRegistro = tam[i]
 
-        for i in range (len(RRN)-1):    
+        for i in range (len(RRN)):    
             for linha in registros:
                 linha_sep = linha.split(sep='|')
                 if RRN[i] == int(linha_sep[0]):
@@ -190,5 +192,6 @@ if __name__ == "__main__":
         mergeSort(RRN, 0, len(RRN) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
-
-    escreveArquivo()
+    print(RRN)
+    print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
+    escreveArquivo(RRN)
