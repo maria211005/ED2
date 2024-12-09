@@ -14,6 +14,9 @@ else:
 def defineTipoOrdenacao(arquivo):
     with open(arquivo, "r") as f:
         linha1 = f.readlines(200)           #verifica se tem algo no arquivo
+        if linha1[0] == '\n':
+            print("arquivo vazio\nO programa será finalizado")
+            exit(1)
         if len(linha1) < 3:
             print("arquivo inválido\nO programa será finalizado")
             exit(1)
@@ -178,7 +181,8 @@ def escreveArquivo(RRN):
 #função principal
 if __name__ == "__main__":
     metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
-
+    print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
+'''
     RRN = []
     for linha in registros:
         linha_sep = linha.split(sep='|')
@@ -192,5 +196,5 @@ if __name__ == "__main__":
         mergeSort(RRN, 0, len(RRN) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
-    print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
     escreveArquivo(RRN)
+'''
