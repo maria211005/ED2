@@ -192,6 +192,5 @@ if __name__ == "__main__":
         mergeSort(RRN, 0, len(RRN) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
-    print(RRN)
     print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
     escreveArquivo(RRN)
