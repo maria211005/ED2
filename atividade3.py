@@ -172,7 +172,7 @@ def escreveArquivo(RRN):
                     linha = linha.strip('\n')
                     if len(linha) < tamRegistro:
                         dif = tamRegistro - len(linha) -1
-                        linha = linha + '*' * dif + '\n'
+                        linha = linha + '|' +'*' * dif + '\n'
                     else:
                         linha = linha + '\n'
                         #escreve a linha no arquivo de saida
@@ -182,19 +182,18 @@ def escreveArquivo(RRN):
 if __name__ == "__main__":
     metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
     print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
-'''
-    RRN = []
+
+    key = []
     for linha in registros:
         linha_sep = linha.split(sep='|')
-        RRN.append(int(linha_sep[0]))
+        key.append(int(linha_sep[0]))
 
     if metodoBusca == 'H':
-        heapSort(RRN, ordenacao)
+        heapSort(key, ordenacao)
     if metodoBusca == 'I':
-        insertionSort(RRN, ordenacao)
+        insertionSort(key, ordenacao)
     if metodoBusca == 'M':
-        mergeSort(RRN, 0, len(RRN) -1, ordenacao)
+        mergeSort(key, 0, len(key) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
-    escreveArquivo(RRN)
-'''
+    escreveArquivo(key)
