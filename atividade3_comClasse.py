@@ -173,10 +173,18 @@ def mergeSort(array, inicio, fim, ord): #func. principal
         mergeSort(array, meio+1, fim, ord)
         Merge(array, inicio, meio, fim, ord)
 #----------------------------------------------------------------------------------------------------------------------
-def escreveArquivo(RRN):
+def escreveArquivo(chave):
     with open(saida, 'w+') as output:
         output.write(header)
+        for i in range(len(arq)):
+            if '\n' in arq[i]:
+                output.write(arq[i])
+            else:
+                output.write(arq[i] + "|")
 
+        output.seek(len(header))
+        registros = output.readlines()
+        output.seek(len(header))
         tam = []
         for linha in registros:
             tam.append(len(linha))
@@ -186,10 +194,10 @@ def escreveArquivo(RRN):
             if tam[i] > tamRegistro:
                 tamRegistro = tam[i]
 
-        for i in range (len(RRN)):    
+        for i in range (len(chave)):    
             for linha in registros:
                 linha_sep = linha.split(sep='|')
-                if RRN[i] == int(linha_sep[0]):
+                if chave[i] == int(linha_sep[0]):
                     linha = linha.strip('\n')
                     if len(linha) < tamRegistro:
                         dif = tamRegistro - len(linha) -1
@@ -198,8 +206,9 @@ def escreveArquivo(RRN):
                         linha = linha + '\n'
                         #escreve a linha no arquivo de saida
                     output.write(linha)
+                    print(linha)
 #---------------------------------------------------------------------------------------------------
-def defineHeroi(registro):
+def defineChave(registro):
     arq = []
     for linha in registro:
         linha_sep = linha.split(sep='|')
@@ -222,25 +231,22 @@ def defineHeroi(registro):
         arq.append(resultado.Power)
         arq.append(resultado.Combat)
         arq.append(resultado.Total)
-    print(arq)
+
+    key = []
+    key.append(int(arq[0]))
+    for i in range(len(arq)):
+        if '\n' in arq[i] and i != len(arq)-1:
+            key.append(int(arq[i+1]))
     
-    return arq
+    return key, arq
 
 #função principal
 if __name__ == "__main__":
     metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
     print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
 
-    arquivo = []
-    arquivo = defineHeroi(registros)
-    key = []
-    key.append(arquivo[0])
-    for i in range(len(arquivo)):
-        if '\n' in arquivo[i]:
-            key.append(arquivo[i+1])
-    
-    print(key)
-'''
+    key, arq = defineChave(registros)
+
     if metodoBusca == 'H':
         heapSort(key, ordenacao)
     if metodoBusca == 'I':
@@ -249,5 +255,5 @@ if __name__ == "__main__":
         mergeSort(key, 0, len(key) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
+
     escreveArquivo(key)
-'''
