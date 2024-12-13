@@ -62,8 +62,18 @@ def defineTipoOrdenacao(arquivo):
 
         cabecalho = f.readline()
         registro = f.readlines()
-            
-    return sort, order, cabecalho, registro
+
+        campos = []
+        for linha in registro:
+            linhaSep = linha.split(sep='|')
+            campos.append(len(linhaSep))
+        
+        quantidadeCampos = campos[0]
+        for i in range(len(campos)-1):
+            if campos[i] > quantidadeCampos:
+                quantidadeCampos = campos[i]
+
+    return sort, order, cabecalho, registro, quantidadeCampos
 #---------------------------------------------------------------------------------------
 #função de heap sort
 def esquerda(i):
@@ -206,12 +216,15 @@ def escreveArquivo(chave):
                         linha = linha + '\n'
                         #escreve a linha no arquivo de saida
                     output.write(linha)
-                    print(linha)
 #---------------------------------------------------------------------------------------------------
-def defineChave(registro):
+def defineChave(registro, quantCampos):
     arq = []
     for linha in registro:
         linha_sep = linha.split(sep='|')
+        if len(linha_sep) < quantCampos:
+            linha_sep[len(linha_sep)-1] = linha_sep[len(linha_sep)-1].strip("\n")
+            linha_sep.append("-\n")
+
         resultado = Heroi(linha_sep)
         arq.append(resultado.key)
         arq.append(resultado.Name)
@@ -235,17 +248,17 @@ def defineChave(registro):
     key = []
     key.append(int(arq[0]))
     for i in range(len(arq)):
-        if '\n' in arq[i] and i != len(arq)-1:
+        if '\n' in arq[i] and i != len(arq) - 1:
             key.append(int(arq[i+1]))
     
     return key, arq
 
 #função principal
 if __name__ == "__main__":
-    metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
+    metodoBusca, ordenacao, header, registros, quantCampos = defineTipoOrdenacao(entrada)
     print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
 
-    key, arq = defineChave(registros)
+    key, arq = defineChave(registros, quantCampos)
 
     if metodoBusca == 'H':
         heapSort(key, ordenacao)
