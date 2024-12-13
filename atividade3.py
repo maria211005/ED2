@@ -1,5 +1,26 @@
 import sys
 
+class Heroi:
+    def __init__(self, linha_sep):
+            self.key = linha_sep[0]
+            self.Name = linha_sep[1]
+            self.Alignment = linha_sep[2]
+            self.Gender = linha_sep[3]
+            self.EyeColor = linha_sep[4]
+            self.Race = linha_sep[5]
+            self.HairColor = linha_sep[6]
+            self.Publisher = linha_sep[7]
+            self.SkinColor = linha_sep[8]
+            self.Height = linha_sep[9]
+            self.Weight = linha_sep[10]
+            self.Intelligence = linha_sep[11]
+            self.Strength = linha_sep[12]
+            self.Speed = linha_sep[13]
+            self.Durability = linha_sep[14]
+            self.Power = linha_sep[15]
+            self.Combat = linha_sep[16]
+            self.Total = linha_sep[17]
+
 #receber os parâmetros via linha de comando
 entrada = ''
 saida = ''
@@ -41,8 +62,18 @@ def defineTipoOrdenacao(arquivo):
 
         cabecalho = f.readline()
         registro = f.readlines()
-            
-    return sort, order, cabecalho, registro
+
+        campos = []
+        for linha in registro:
+            linhaSep = linha.split(sep='|')
+            campos.append(len(linhaSep))
+        
+        quantidadeCampos = campos[0]
+        for i in range(len(campos)-1):
+            if campos[i] > quantidadeCampos:
+                quantidadeCampos = campos[i]
+
+    return sort, order, cabecalho, registro, quantidadeCampos
 #---------------------------------------------------------------------------------------
 #função de heap sort
 def esquerda(i):
@@ -152,10 +183,18 @@ def mergeSort(array, inicio, fim, ord): #func. principal
         mergeSort(array, meio+1, fim, ord)
         Merge(array, inicio, meio, fim, ord)
 #----------------------------------------------------------------------------------------------------------------------
-def escreveArquivo(RRN):
+def escreveArquivo(chave):
     with open(saida, 'w+') as output:
         output.write(header)
+        for i in range(len(arq)):
+            if '\n' in arq[i]:
+                output.write(arq[i])
+            else:
+                output.write(arq[i] + "|")
 
+        output.seek(len(header))
+        registros = output.readlines()
+        output.seek(len(header))
         tam = []
         for linha in registros:
             tam.append(len(linha))
@@ -165,10 +204,10 @@ def escreveArquivo(RRN):
             if tam[i] > tamRegistro:
                 tamRegistro = tam[i]
 
-        for i in range (len(RRN)):    
+        for i in range (len(chave)):    
             for linha in registros:
                 linha_sep = linha.split(sep='|')
-                if RRN[i] == int(linha_sep[0]):
+                if chave[i] == int(linha_sep[0]):
                     linha = linha.strip('\n')
                     if len(linha) < tamRegistro:
                         dif = tamRegistro - len(linha) -1
@@ -177,16 +216,49 @@ def escreveArquivo(RRN):
                         linha = linha + '\n'
                         #escreve a linha no arquivo de saida
                     output.write(linha)
+#---------------------------------------------------------------------------------------------------
+def defineChave(registro, quantCampos):
+    arq = []
+    for linha in registro:
+        linha_sep = linha.split(sep='|')
+        if len(linha_sep) < quantCampos:
+            linha_sep[len(linha_sep)-1] = linha_sep[len(linha_sep)-1].strip("\n")
+            linha_sep.append("-\n")
+
+        resultado = Heroi(linha_sep)
+        arq.append(resultado.key)
+        arq.append(resultado.Name)
+        arq.append(resultado.Alignment)
+        arq.append(resultado.Gender)
+        arq.append(resultado.EyeColor)
+        arq.append(resultado.Race)
+        arq.append(resultado.HairColor)
+        arq.append(resultado.Publisher)
+        arq.append(resultado.SkinColor)
+        arq.append(resultado.Height)
+        arq.append(resultado.Weight)
+        arq.append(resultado.Intelligence)
+        arq.append(resultado.Strength)
+        arq.append(resultado.Speed)
+        arq.append(resultado.Durability)
+        arq.append(resultado.Power)
+        arq.append(resultado.Combat)
+        arq.append(resultado.Total)
+
+    key = []
+    key.append(int(arq[0]))
+    for i in range(len(arq)):
+        if '\n' in arq[i] and i != len(arq) - 1:
+            key.append(int(arq[i+1]))
+    
+    return key, arq
 
 #função principal
 if __name__ == "__main__":
-    metodoBusca, ordenacao, header, registros = defineTipoOrdenacao(entrada)
+    metodoBusca, ordenacao, header, registros, quantCampos = defineTipoOrdenacao(entrada)
     print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
 
-    key = []
-    for linha in registros:
-        linha_sep = linha.split(sep='|')
-        key.append(int(linha_sep[0]))
+    key, arq = defineChave(registros, quantCampos)
 
     if metodoBusca == 'H':
         heapSort(key, ordenacao)
@@ -196,4 +268,5 @@ if __name__ == "__main__":
         mergeSort(key, 0, len(key) -1, ordenacao)
     #if metodoBusca == 'Q':
         #quickSort(registros)
+
     escreveArquivo(key)
