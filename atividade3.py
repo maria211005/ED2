@@ -1,5 +1,7 @@
 import sys
-
+#---------------------------------------------------------------------------------------
+#definido o objeto heroi
+#---------------------------------------------------------------------------------------
 class Heroi:
     def __init__(self, linha_sep):
             self.key = linha_sep[0]
@@ -20,18 +22,21 @@ class Heroi:
             self.Power = linha_sep[15]
             self.Combat = linha_sep[16]
             self.Total = linha_sep[17]
-
+#---------------------------------------------------------------------------------------
 #receber os parâmetros via linha de comando
+#---------------------------------------------------------------------------------------
 entrada = ''
 saida = ''
+#caso não tenha a quantidade de argumentos válida para execução do código
 if(len(sys.argv) != 3):
     print("Quantidade de argumentos inválida. Tente novamente")
     exit(1)
 else:
     entrada = sys.argv[1]
     saida = sys.argv[2]
-#---------------------------------------------------------------------------------------------
-#define a forma com que será organizado os dados
+#---------------------------------------------------------------------------------------
+#define como será o método de ordenação e a forma com que serão ordenados
+#---------------------------------------------------------------------------------------
 def defineTipoOrdenacao(arquivo):
     with open(arquivo, "r") as f:
         linha1 = f.readlines(200)           #verifica se tem algo no arquivo
@@ -60,14 +65,17 @@ def defineTipoOrdenacao(arquivo):
             print(f"opção {order} de order inválida\no programa será finalizado")
             exit(1)
 
+        #leitura do header e dos registros do arquivo
         cabecalho = f.readline()
         registro = f.readlines()
 
+        #encontrar a quantidade de campos do registro
         campos = []
         for linha in registro:
             linhaSep = linha.split(sep='|')
             campos.append(len(linhaSep))
         
+        #quantidade de campos para evitar conflito com quantidades invalidas
         quantidadeCampos = campos[0]
         for i in range(len(campos)-1):
             if campos[i] > quantidadeCampos:
@@ -76,6 +84,7 @@ def defineTipoOrdenacao(arquivo):
     return sort, order, cabecalho, registro, quantidadeCampos
 #---------------------------------------------------------------------------------------
 #função de heap sort
+#---------------------------------------------------------------------------------------
 def esquerda(i):
     return 2*i+1
 
@@ -88,6 +97,7 @@ def maxHeapify(reg, i, tamReg, ord):
     right = direita(i)
     maior = i
 
+    #caso o método escolhido for crescente
     if ord == 'C':
         if(left < tamReg and reg[left] > reg[maior]):
             maior = left
@@ -95,6 +105,7 @@ def maxHeapify(reg, i, tamReg, ord):
         if(right < tamReg and reg[right] > reg[maior]):
             maior = right
 
+    #caso for descrescente
     if ord == 'D':
         if(left < tamReg and reg[left] < reg[maior]):
             maior = left
@@ -119,8 +130,9 @@ def heapSort(reg, ord):
         (reg[0],reg[i]) = (reg[i],reg[0])
         tamanho -= 1
         maxHeapify(reg, 0, tamanho, ord)
-#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------
 #função de insertion sort
+#---------------------------------------------------------------------------------------
 def insertionSort(reg, ord):
         for i in range(1, len(reg)): #percorrendo vetor 
             auxiliar = reg[i]
@@ -138,8 +150,9 @@ def insertionSort(reg, ord):
                     j = j-1
                     
                     reg[j+1] = auxiliar
-#----------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------
 #função de merge sort
+#---------------------------------------------------------------------------------------
 def Merge(array, inicio, meio, fim, ord): #func. auxiliar 
     vetor_auxiliar = [] #alocando dinamicamente o vetor 
     P1 = inicio #primeira e segunda metade respectivamente
@@ -182,41 +195,50 @@ def mergeSort(array, inicio, fim, ord): #func. principal
         mergeSort(array, inicio, meio, ord) #dividindo recursivamente
         mergeSort(array, meio+1, fim, ord)
         Merge(array, inicio, meio, fim, ord)
-#----------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------
+#função de escrita dos registros no arquivo de saída
+#---------------------------------------------------------------------------------------
 def escreveArquivo(chave):
     with open(saida, 'w+') as output:
-        output.write(header)
+        output.write(header)                    #escreve o cabeçalho no arquivo
+        tam = []
+        quantCarac = 0
+        #escreve todos os registros no arquivo de saída e armazena o tamanho de cada um deles em um vetor
         for i in range(len(arq)):
-            if '\n' in arq[i]:
+            if '\n' in arq[i]:                              #verifica se chegou no fim do registro
                 output.write(arq[i])
+                quantCarac = quantCarac + len(arq[i]) + 1
+                tam.append(quantCarac)                      #guarda o tamanho do registro no vetor
+                quantCarac = 0
             else:
                 output.write(arq[i] + "|")
+                quantCarac = quantCarac + len(arq[i]) + 1
 
-        output.seek(len(header))
-        registros = output.readlines()
-        output.seek(len(header))
-        tam = []
-        for linha in registros:
-            tam.append(len(linha))
-
-        tamRegistro = tam[0]
+        #verifica qual o maior registro
+        maxRegistro = tam[0]
         for i in range(len(tam)-1):
-            if tam[i] > tamRegistro:
-                tamRegistro = tam[i]
+            if tam[i] > maxRegistro:
+                maxRegistro = tam[i]
+
+        output.seek(len(header))
+        registros = output.readlines()              #faz a leitura de todos os registros já escritos
+        output.seek(len(header))
 
         for i in range (len(chave)):    
             for linha in registros:
                 linha_sep = linha.split(sep='|')
                 if chave[i] == int(linha_sep[0]):
                     linha = linha.strip('\n')
-                    if len(linha) < tamRegistro:
-                        dif = tamRegistro - len(linha) -1
+                    if len(linha) < maxRegistro:
+                        dif = maxRegistro - len(linha) -1
                         linha = linha + '|' +'*' * dif + '\n'
                     else:
                         linha = linha + '\n'
                         #escreve a linha no arquivo de saida
                     output.write(linha)
-#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------
+#função que define armazena os registros no objeto heroi e guarda as chaves para ordenação
+#---------------------------------------------------------------------------------------
 def defineChave(registro, quantCampos):
     arq = []
     for linha in registro:
@@ -252,11 +274,11 @@ def defineChave(registro, quantCampos):
             key.append(int(arq[i+1]))
     
     return key, arq
-
+#---------------------------------------------------------------------------------------
 #função principal
+#---------------------------------------------------------------------------------------
 if __name__ == "__main__":
     metodoBusca, ordenacao, header, registros, quantCampos = defineTipoOrdenacao(entrada)
-    print(f"metodo = {metodoBusca}, ordenacao = {ordenacao}")
 
     key, arq = defineChave(registros, quantCampos)
 
@@ -270,3 +292,5 @@ if __name__ == "__main__":
         #quickSort(registros)
 
     escreveArquivo(key)
+
+    print("Os herois do professor M estão organizados!!")
