@@ -83,6 +83,46 @@ def defineTipoOrdenacao(arquivo):
 
     return sort, order, cabecalho, registro, quantidadeCampos
 #---------------------------------------------------------------------------------------
+#função que define armazena os registros no objeto heroi e guarda as chaves para ordenação
+#---------------------------------------------------------------------------------------
+def defineChave(registro, quantCampos):
+    arq = []
+    for linha in registro:
+        linha_sep = linha.split(sep='|')
+        #caso a quantidade de campos não estiver na forma correta, os dados não serão recebidos no objeto
+        if len(linha_sep) < quantCampos:
+            linha_sep[len(linha_sep)-1] = linha_sep[len(linha_sep)-1].strip("\n")
+            linha_sep.append("-\n")
+
+        #escreve cada campo em um atributo
+        resultado = Heroi(linha_sep)
+        arq.append(resultado.key)
+        arq.append(resultado.Name)
+        arq.append(resultado.Alignment)
+        arq.append(resultado.Gender)
+        arq.append(resultado.EyeColor)
+        arq.append(resultado.Race)
+        arq.append(resultado.HairColor)
+        arq.append(resultado.Publisher)
+        arq.append(resultado.SkinColor)
+        arq.append(resultado.Height)
+        arq.append(resultado.Weight)
+        arq.append(resultado.Intelligence)
+        arq.append(resultado.Strength)
+        arq.append(resultado.Speed)
+        arq.append(resultado.Durability)
+        arq.append(resultado.Power)
+        arq.append(resultado.Combat)
+        arq.append(resultado.Total)
+
+    key = []                #aloca um vetor de chaves
+    key.append(int(arq[0])) #armazena o primeiro valor referente ao primeiro registro
+    for i in range(len(arq)):
+        if '\n' in arq[i] and i != len(arq) - 1:    #e enquanto for fim do registro mas não fim do arquivo
+            key.append(int(arq[i+1]))               #o próximo elemento é o indice do proximo registro
+    
+    return key, arq
+#---------------------------------------------------------------------------------------
 #função de heap sort
 #---------------------------------------------------------------------------------------
 def esquerda(i):
@@ -191,27 +231,29 @@ def Merge(array, inicio, meio, fim, ord): #func. auxiliar
 def mergeSort(array, inicio, fim, ord): #func. principal
     if(inicio < fim):
         meio = ((inicio + fim)//2)
-        #agora começa as recursivas 
-        mergeSort(array, inicio, meio, ord) #dividindo recursivamente
+
+        #dividindo recursivamente
+        mergeSort(array, inicio, meio, ord)
         mergeSort(array, meio+1, fim, ord)
-        Merge(array, inicio, meio, fim, ord)
+        
+        Merge(array, inicio, meio, fim, ord)                #reorganiza os elementos dos vetores divididos
 #---------------------------------------------------------------------------------------
 #função de escrita dos registros no arquivo de saída
 #---------------------------------------------------------------------------------------
 def escreveArquivo(chave):
     with open(saida, 'w+') as output:
-        output.write(header)                    #escreve o cabeçalho no arquivo
+        output.write(header)                                #escreve o cabeçalho no arquivo
         tam = []
         quantCarac = 0
         #escreve todos os registros no arquivo de saída e armazena o tamanho de cada um deles em um vetor
         for i in range(len(arq)):
-            if '\n' in arq[i]:                              #verifica se chegou no fim do registro
+            if '\n' in arq[i]:                              #verifica se o elemento do vetor é o fim do registro
                 output.write(arq[i])
                 quantCarac = quantCarac + len(arq[i]) + 1
                 tam.append(quantCarac)                      #guarda o tamanho do registro no vetor
                 quantCarac = 0
             else:
-                output.write(arq[i] + "|")
+                output.write(arq[i] + "|")                  #caso contrário, continua escrevendo os elementos do vetor no arquivo
                 quantCarac = quantCarac + len(arq[i]) + 1
 
         #verifica qual o maior registro
@@ -221,67 +263,34 @@ def escreveArquivo(chave):
                 maxRegistro = tam[i]
 
         output.seek(len(header))
-        registros = output.readlines()              #faz a leitura de todos os registros já escritos
+        registros = output.readlines()                      #faz a leitura de todos os registros já escritos
         output.seek(len(header))
 
+        #analisa as chaves dos herois para ordenar o arquivo
         for i in range (len(chave)):    
             for linha in registros:
                 linha_sep = linha.split(sep='|')
-                if chave[i] == int(linha_sep[0]):
+                if chave[i] == int(linha_sep[0]):           #caso a chave indicada for igual ao campo key do registro
                     linha = linha.strip('\n')
-                    if len(linha) < maxRegistro:
+                    if len(linha) < maxRegistro:            #verifica o tamanho da linha pra inserir caracteres especiais ou não
                         dif = maxRegistro - len(linha) -1
                         linha = linha + '|' +'*' * dif + '\n'
-                    else:
+                    else:                                   #caso for a maior linha
                         linha = linha + '\n'
-                        #escreve a linha no arquivo de saida
-                    output.write(linha)
-#---------------------------------------------------------------------------------------
-#função que define armazena os registros no objeto heroi e guarda as chaves para ordenação
-#---------------------------------------------------------------------------------------
-def defineChave(registro, quantCampos):
-    arq = []
-    for linha in registro:
-        linha_sep = linha.split(sep='|')
-        if len(linha_sep) < quantCampos:
-            linha_sep[len(linha_sep)-1] = linha_sep[len(linha_sep)-1].strip("\n")
-            linha_sep.append("-\n")
-
-        resultado = Heroi(linha_sep)
-        arq.append(resultado.key)
-        arq.append(resultado.Name)
-        arq.append(resultado.Alignment)
-        arq.append(resultado.Gender)
-        arq.append(resultado.EyeColor)
-        arq.append(resultado.Race)
-        arq.append(resultado.HairColor)
-        arq.append(resultado.Publisher)
-        arq.append(resultado.SkinColor)
-        arq.append(resultado.Height)
-        arq.append(resultado.Weight)
-        arq.append(resultado.Intelligence)
-        arq.append(resultado.Strength)
-        arq.append(resultado.Speed)
-        arq.append(resultado.Durability)
-        arq.append(resultado.Power)
-        arq.append(resultado.Combat)
-        arq.append(resultado.Total)
-
-    key = []
-    key.append(int(arq[0]))
-    for i in range(len(arq)):
-        if '\n' in arq[i] and i != len(arq) - 1:
-            key.append(int(arq[i+1]))
-    
-    return key, arq
+                    output.write(linha)                     #sobrescreve a linha no arquivo de saida
 #---------------------------------------------------------------------------------------
 #função principal
 #---------------------------------------------------------------------------------------
 if __name__ == "__main__":
+    #abre o arquivo de entrada para receber as informações do arquivo como: metodo com que será ordenado
+    #como será ordenado, cabeçalho do arquivo, cada linha de registro e quantos campos tem um registro
     metodoBusca, ordenacao, header, registros, quantCampos = defineTipoOrdenacao(entrada)
 
+    #separa as chaves do arquivo em um vetor para ordenar
+    #retorna o vetor e o arquivo com os atributos de cada heroi separados
     key, arq = defineChave(registros, quantCampos)
 
+    #métodos de ordenação
     if metodoBusca == 'H':
         heapSort(key, ordenacao)
     if metodoBusca == 'I':
@@ -291,6 +300,7 @@ if __name__ == "__main__":
     #if metodoBusca == 'Q':
         #quickSort(registros)
 
+    #escreve os registros no arquivo de forma ordenada
     escreveArquivo(key)
 
     print("Os herois do professor M estão organizados!!")
