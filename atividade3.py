@@ -238,6 +238,43 @@ def mergeSort(array, inicio, fim, ord): #func. principal
         
         Merge(array, inicio, meio, fim, ord)                #reorganiza os elementos dos vetores divididos
 #---------------------------------------------------------------------------------------
+#função de quick sort
+#---------------------------------------------------------------------------------------
+def particiona(array, inicio, fim, ord):
+    esquerda = inicio
+    direita = fim 
+    pivot = array[inicio]
+
+    if ord == 'C':
+        while(esquerda < direita):
+            while(array[esquerda] <= pivot and esquerda < fim):
+                esquerda = esquerda + 1 #movimentando
+
+        while(direita > esquerda):
+            while(array[direita] > pivot and direita > inicio):
+                direita = direita - 1 #movimentando 
+
+        if(esquerda < direita):
+            array[esquerda], array[direita] = array[direita], array[esquerda]
+
+    if ord == 'D':
+        while(esquerda > direita):
+            while(array[esquerda] <= pivot and esquerda < fim):
+                esquerda = esquerda + 1 #movimentando
+
+        while(direita < esquerda):
+            while(array[direita] > pivot and direita > inicio):
+                direita = direita - 1 #movimentando 
+
+        if(esquerda > direita):
+            array[esquerda], array[direita] = array[direita], array[esquerda]
+
+def quickSort(array, inicio, fim, ord):
+    if(inicio < fim):
+        pivot = particiona(array, inicio, fim)
+        quickSort(array, inicio, pivot-1, ord) 
+        quickSort(array, pivot+1, fim, ord)
+#---------------------------------------------------------------------------------------
 #função de escrita dos registros no arquivo de saída
 #---------------------------------------------------------------------------------------
 def escreveArquivo(chave):

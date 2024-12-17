@@ -1,0 +1,1 @@
+#só abri o arquivo pra dizer q fiz algo agora KKKKKKKKKKKKKKKKKKKKKKKKKKK
