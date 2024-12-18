@@ -32,6 +32,29 @@ def abreArquivo():
             tupla.append(f"{chave}, {offset}")
             tamLinha = len(linha)
             offset += tamLinha
+    return tupla 
 
-        print(tupla)
 abreArquivo()
+
+def ParticionaTupla(tupla, inicio, fim):
+    esquerda = inicio 
+    direita = fim
+    pivo = tupla[inicio]
+
+    while(esquerda < direita):
+        while(tupla[esquerda] <= pivo and esquerda < fim):
+            esquerda = esquerda + 1
+
+    while(direita > esquerda):
+        while(tupla[direita] >= pivo and direita > inicio):
+            direita = direita - 1 
+
+    if(esquerda < direita):
+        tupla[esquerda], tupla[direita] = tupla[direita], tupla[esquerda] 
+
+def OrdenaTupla(tupla, inicio, fim):
+    if(inicio < fim):
+        pivo = ParticionaTupla(tupla, inicio, fim) 
+        OrdenaTupla(tupla, inicio, pivo-1)
+        OrdenaTupla(tupla, pivo+1, fim)
+
