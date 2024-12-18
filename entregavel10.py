@@ -19,3 +19,19 @@
 #    adicionar na tabela de índices (chave, RRN)
 #    ordenar a tabela de índices
 
+def abreArquivo():
+    with open("animes.txt", "r") as file:
+        header = file.readline()
+        registros = file.readlines()
+
+        tupla = []
+        offset = 0
+        for linha in registros:
+            linha_sep = linha.split(",")
+            chave = linha_sep[0]
+            tupla.append(f"{chave}, {offset}")
+            tamLinha = len(linha)
+            offset += tamLinha
+
+        print(tupla)
+abreArquivo()
