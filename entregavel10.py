@@ -1,5 +1,3 @@
-#só abri o arquivo pra dizer q fiz algo agora KKKKKKKKKKKKKKKKKKKKKKKKKKK
-
 #PESQUISA
 #1) Procurar a chave na tabela de índices
 #--> busca binária
@@ -58,3 +56,17 @@ def OrdenaTupla(tupla, inicio, fim):
         OrdenaTupla(tupla, inicio, pivo-1)
         OrdenaTupla(tupla, pivo+1, fim)
 
+def BuscaBinaria(tupla, chave, reg):
+    inicio = 0
+    fim = len(tupla) - 1
+    while(inicio <= fim):
+        meio = (inicio + fim) / 2 
+        reg = tupla.readline(meio)
+        #if chave_reg == chave: 
+        #   return true
+
+        #if chave_reg < chave:
+        #   fim = meio - 1 
+
+        #else
+        #   inicio = meio + 1 
