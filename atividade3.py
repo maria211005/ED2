@@ -44,7 +44,7 @@ def defineTipoOrdenacao(arquivo):
             print("arquivo vazio\nO programa será finalizado")
             exit(1)
         if len(linha1) < 3:
-            print("arquivo inválido\nO programa será finalizado")
+            print("arquivo incompleto\nO programa será finalizado")
             exit(1)
         f.seek(0)                           #se tiver dados no arquivo, desloca para o começo
         
@@ -115,8 +115,8 @@ def defineChave(registro, quantCampos):
         arq.append(resultado.Combat)
         arq.append(resultado.Total)
 
-    key = []                #aloca um vetor de chaves
-    key.append(int(arq[0])) #armazena o primeiro valor referente ao primeiro registro
+    key = []                                        #aloca um vetor de chaves
+    key.append(int(arq[0]))                         #armazena o primeiro valor referente ao primeiro registro
     for i in range(len(arq)):
         if '\n' in arq[i] and i != len(arq) - 1:    #e enquanto for fim do registro mas não fim do arquivo
             key.append(int(arq[i+1]))               #o próximo elemento é o indice do proximo registro
@@ -250,30 +250,32 @@ def particiona(array, inicio, fim, ord):
             while(array[esquerda] <= pivot and esquerda < fim):
                 esquerda = esquerda + 1 #movimentando
 
-        while(direita > esquerda):
             while(array[direita] > pivot and direita > inicio):
                 direita = direita - 1 #movimentando 
 
-        if(esquerda < direita):
-            array[esquerda], array[direita] = array[direita], array[esquerda]
+            if(esquerda < direita):
+                array[esquerda], array[direita] = array[direita], array[esquerda]
 
     if ord == 'D':
         while(esquerda < direita):
             while(array[esquerda] >= pivot and esquerda < fim):
                 esquerda = esquerda + 1 #movimentando
 
-        while(direita < esquerda):
             while(array[direita] < pivot and direita > inicio):
                 direita = direita - 1 #movimentando 
 
-        if(esquerda > direita):
-            array[esquerda], array[direita] = array[direita], array[esquerda]
+            if(esquerda < direita):
+                array[esquerda], array[direita] = array[direita], array[esquerda]
+    
+    array[direita], array[inicio] = array[inicio], array[direita]
+
+    return direita
 
 def quickSort(array, inicio, fim, ord):
     if(inicio < fim):
-        pivot = particiona(array, inicio, fim)
-        quickSort(array, inicio, pivot-1, ord) 
-        quickSort(array, pivot+1, fim, ord)
+        pivo = particiona(array, inicio, fim, ord)
+        quickSort(array, inicio, pivo-1, ord) 
+        quickSort(array, pivo+1, fim, ord)
 #---------------------------------------------------------------------------------------
 #função de escrita dos registros no arquivo de saída
 #---------------------------------------------------------------------------------------
@@ -334,8 +336,8 @@ if __name__ == "__main__":
         insertionSort(key, ordenacao)
     if metodoBusca == 'M':
         mergeSort(key, 0, len(key) -1, ordenacao)
-    #if metodoBusca == 'Q':
-        #quickSort(registros)
+    if metodoBusca == 'Q':
+        quickSort(key, 0, len(key) -1, ordenacao)
 
     #escreve os registros no arquivo de forma ordenada
     escreveArquivo(key)
