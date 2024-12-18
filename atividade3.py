@@ -258,12 +258,12 @@ def particiona(array, inicio, fim, ord):
             array[esquerda], array[direita] = array[direita], array[esquerda]
 
     if ord == 'D':
-        while(esquerda > direita):
-            while(array[esquerda] <= pivot and esquerda < fim):
+        while(esquerda < direita):
+            while(array[esquerda] >= pivot and esquerda < fim):
                 esquerda = esquerda + 1 #movimentando
 
         while(direita < esquerda):
-            while(array[direita] > pivot and direita > inicio):
+            while(array[direita] < pivot and direita > inicio):
                 direita = direita - 1 #movimentando 
 
         if(esquerda > direita):
@@ -340,4 +340,4 @@ if __name__ == "__main__":
     #escreve os registros no arquivo de forma ordenada
     escreveArquivo(key)
 
-    print("Os herois do professor M estão organizados!!")
+    print("Os herois do professor M estão organizados!!") #YUPIIIIIIII
