@@ -91,7 +91,7 @@ def BuscaBinaria(tupla, chave):
         meio = (inicio + fim) // 2 
         chave_reg = tupla[meio]
         chave_reg = chave_reg.split("|")
-        if chave_reg[0] == chave: 
+        if chave in chave_reg[0]: 
            return chave_reg
 
         if chave_reg[0] > chave:
