@@ -28,18 +28,36 @@ else:
 #    ordenar a tabela de índices
 
 def abreArquivo():
-    with open(entrada, "r") as file:
+    with open(entrada, "r+") as file:
         file.seek(len(file.readline()))
         registros = file.readlines()
 
         tupla = []
         offset = 0
+        tam = []
         for linha in registros:
+            tam.append(len(linha))
             linha_sep = linha.split(",")
             chave = linha_sep[0]
-            tupla.append(f"{chave}, {offset}")
+            tupla.append(f"{chave}|{offset}")
             offset += 1
-    return tupla, registros
+
+        maxRegistro = tam[0]
+        for i in range(len(tam)-1):
+            if tam[i] > maxRegistro:
+                maxRegistro = tam[i]
+
+        file.seek(0)
+        file.seek(len(file.readline()))
+        for linha in registros:
+            linha = linha.strip("\n")
+            if len(linha) < maxRegistro:            #verifica o tamanho da linha pra inserir caracteres especiais ou não
+                dif = maxRegistro - len(linha) -1
+                linha = linha + '*' * dif + '\n'
+            else:                                   #caso for a maior linha
+                linha = linha + '\n'
+            file.write(linha)
+    return tupla, registros, maxRegistro
 
 def ParticionaTupla(tupla, inicio, fim):
     esquerda = inicio 
@@ -66,34 +84,50 @@ def OrdenaTupla(tupla, inicio, fim):
         OrdenaTupla(tupla, inicio, pivo-1)
         OrdenaTupla(tupla, pivo+1, fim)
 
-def escreveArquivoIndices(tupla):
-    saida = "arqIndices.txt"
-    with open(saida, "w") as indices:
-        for i in range(len(tupla)):
-            tupla[i] = tupla[i].split(",")
-            tupla[i][1] = tupla[i][1].strip(" ")
-            indices.write(tupla[i][0] + "|" + tupla[i][1] + "\n")
-        
-    return saida
-
-def BuscaBinaria(tupla, chave, reg):
+def BuscaBinaria(tupla, chave):
     inicio = 0
     fim = len(tupla) - 1
     while(inicio <= fim):
         meio = (inicio + fim) // 2 
         chave_reg = tupla[meio]
-        if chave_reg == chave: 
-           return True
+        chave_reg = chave_reg.split("|")
+        if chave_reg[0] == chave: 
+           return chave_reg
 
-        #if chave_reg < chave:
-        #   fim = meio - 1 
+        if chave_reg[0] > chave:
+           fim = meio - 1 
 
-        #else
-        #   inicio = meio + 1 
+        else:
+           inicio = meio + 1
+    
+    if inicio > fim:
+        return "O registro não foi encontrado\n"
+    
+def buscaRegistro(arqEntrada, maxRegistro, chave):
+    rrn = int(chave[1])
 
+    with open(arqEntrada, 'r') as file:
+        file.seek(len(file.readline()) + rrn*maxRegistro)
+        print("Registro Encontrado\n" + file.readline())
+    
 if __name__ == '__main__':
-    tupla, regs = abreArquivo()
+    tupla, regs, tamRegs = abreArquivo()
     OrdenaTupla(tupla, 0, len(tupla) -1)
-    arqIndice = escreveArquivoIndices(tupla)
 
-    BuscaBinaria(tupla, "BLEACH", regs)    
+    menu = 1
+    while menu != 0:
+        menu = int(input("O que deseja fazer:\n1- Pesquisar\n2- Inserir\n0- Sair\n"))
+        if menu == 1:
+            anime = str(input("Qual anime deseja buscar: "))
+            chaveEncontrada = BuscaBinaria(tupla, anime)
+            if chaveEncontrada == 'O registro não foi encontrado\n':
+                print(chaveEncontrada)
+            else:
+                buscaRegistro(entrada, tamRegs, chaveEncontrada)
+        #if menu == 2:
+            #inserir registro
+        if menu == 0:
+            print("Programa finalizado")
+            exit(0)
+        if menu != 1 and menu != 2:
+            print("Valor inválido\nTente novamente\n")
