@@ -115,38 +115,46 @@ def buscaRegistro(arqEntrada, maxRegistro, chave):
 
 #função de pesquisa do registro
 def pesquisa_de_registro(tupla, tamRegs, anime, origem):
-    chaveEncontrada = BuscaBinaria(tupla, anime)
-    if chaveEncontrada == -1:
+    chaveEncontrada = BuscaBinaria(tupla, anime)    #retorna se for encontrado ou não
+    if chaveEncontrada == -1:                       #-1 caso não encontrou
         return chaveEncontrada
-    else:
-        if origem == 0:
+    else:                                           #nome do anime caso encontrou
+        if origem == 0:                             #se a chamada veio do inicio do programa
             buscaRegistro(entrada2, tamRegs, chaveEncontrada)
-        else:
+        else:                                       #se a chamada veio da função de inserção
             return 1
         
 #-----------------------------------------------------------------------------
 #funções de inserção
 #-----------------------------------------------------------------------------
+#insere o novo registro no vetor de tupla
 def insereTupla(novoRegistro_sep, tupla):
     novachave = novoRegistro_sep[0]
     rrn = len(tupla)
-    tupla.append(f"{novachave}|{rrn}")
-    OrdenaTupla(tupla, 0, len(tupla)-1)
+    tupla.append(f"{novachave}|{rrn}")      #adiciona a tupla nova no registro
+    OrdenaTupla(tupla, 0, len(tupla)-1)     #reordena a tupla
 
+#insere o novo registro nos arquivos (original e alinhado)
 def insereArquivo(novoRegistro):
+    #insere no arquivo original
     with open(entrada, 'a') as output:
         output.write("\n"+novoRegistro)
+    #insere no arquivo alinhado
     with open(entrada2, 'a') as output:
-        novoRegistro = organizaLinha(novoRegistro, tamRegs)
+        novoRegistro = organizaLinha(novoRegistro, tamRegs) #reescreve o registro com os caracteres especiais
         output.write("\n"+novoRegistro)
 
+#função de inserção de registro
 def insercao_de_registro(tupla, tamRegs):
+    #recebe o novo registro
     novoRegistro = str(input("Qual o novo registro que deseja inserir:"))
     novoRegistro_sep = novoRegistro.split(",")
+    
+    #verifica na função de pesquisa se o registro já foi inserido ou não
     verificaRegistro = pesquisa_de_registro(tupla, tamRegs, novoRegistro_sep[0], 1)
     if verificaRegistro == 1:
         print("O registro já existe\n")
-    else:
+    else:   #se o registro for novo, insere no fim do arquivo e adiciona na tupla
         insereTupla(novoRegistro_sep, tupla)
         insereArquivo(novoRegistro)
         print("Registro inserido\n")
@@ -163,13 +171,13 @@ if __name__ == '__main__':
         menu = int(input("O que deseja fazer:\n1- Pesquisar\n2- Inserir\n0- Sair\n"))
         if menu == 1:       #pesquisa de registro
             anime = str(input("Qual anime deseja buscar: "))
-            chave = pesquisa_de_registro(tupla, tamRegs, anime, 0)
+            chave = pesquisa_de_registro(tupla, tamRegs, anime, 0)  #vai para a função de pesquisa que retorna -1 ou a chave
             if chave == -1:
                 print('O registro não foi encontrado\n')
         if menu == 2:       #inserção de registro
             insercao_de_registro(tupla, tamRegs)
-        if menu == 0:
+        if menu == 0:       #sair do programa
             print("Programa finalizado")
             exit(0)
-        if menu != 1 and menu != 2:
+        if menu != 1 and menu != 2:     #caso insira valor errado, fora do pedido
             print("Valor inválido\nTente novamente\n")
