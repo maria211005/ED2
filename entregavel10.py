@@ -10,22 +10,14 @@ if(len(sys.argv) != 3):
 else:
     entrada = sys.argv[1]
     entrada2 = sys.argv[2]
-#INSERÇÃO
-#1) gerar una chave para o novo registro
-#2) realizar uma pesquisa (chamar a função anterior)
-#--> verifica se o novo registro ja existe (tem que retornar vazio)
-#3) leitura do cabeçalho (last)
-#--> se for last == -1:         (amiga, o professor falou que não precisa fazer de reuso)
-#    RRN + 1
-#    adicionar o registro no fim do arquivo 
-#    adicionar na tabela de índices (chave, RRN)
-#    ordenar a tabela de índices
 
 #-----------------------------------------------------------------------------
 #funções de abertura e organização
 #-----------------------------------------------------------------------------
+#abre o arquivo para obter as informações dos registros
 def abreArquivo():
-    with open(entrada, "r+") as file:
+    with open(entrada, "r+") as file:           #abre o arquivo inicial
+        #recebe o cabeçalho e os registros
         header = file.readline()
         registros = file.readlines()
 
@@ -33,24 +25,26 @@ def abreArquivo():
         offset = 0
         tam = []
         for linha in registros:
-            tam.append(len(linha))
+            tam.append(len(linha))              #guarda o tamanho de cada linha
             linha_sep = linha.split(",")
-            chave = linha_sep[0]
-            tupla.append(f"{chave}|{offset}")
+            chave = linha_sep[0]                #guarda o nome do registro como chave
+            tupla.append(f"{chave}|{offset}")   #monta a tupla com a chave do registro e o indice da linha
             offset += 1
-
+        
+        #define o maior registro para alinhar os outros
         maxRegistro = tam[0]
         for i in range(len(tam)-1):
             if tam[i] > maxRegistro:
                 maxRegistro = tam[i]
 
-    with open(entrada2, "w") as output:
+    with open(entrada2, "w") as output:     #abre um segundo arquivo para escrever os registros alinhados
         output.write(header)
         for linha in registros:
-            linha = organizaLinha(linha, maxRegistro)
+            linha = organizaLinha(linha, maxRegistro)   #adiciona os caracteres especiais de cada registro
             output.write(linha)
     return tupla, registros, maxRegistro
 
+#função de organizar as linhas do registro
 def organizaLinha(linha, maxRegistro):
     linha = linha.strip("\n")
     linha = linha.replace(",","|")
@@ -61,6 +55,7 @@ def organizaLinha(linha, maxRegistro):
         linha = linha + '\n'
     return linha
 
+#função auxiliar da função de ordenação
 def ParticionaTupla(tupla, inicio, fim):
     esquerda = inicio 
     direita = fim
@@ -80,41 +75,45 @@ def ParticionaTupla(tupla, inicio, fim):
 
     return direita
 
+#função de ordenar a tupla 
 def OrdenaTupla(tupla, inicio, fim):
     if(inicio < fim):
         pivo = ParticionaTupla(tupla, inicio, fim) 
         OrdenaTupla(tupla, inicio, pivo-1)
         OrdenaTupla(tupla, pivo+1, fim)
+
 #-----------------------------------------------------------------------------
 #funções de pesquisa
 #-----------------------------------------------------------------------------
+#realiza a busca para encontrar o registro pesquisado
 def BuscaBinaria(tupla, chave):
     inicio = 0
     fim = len(tupla) - 1
     while(inicio <= fim):
-        meio = (inicio + fim) // 2 
-        chave_reg = tupla[meio]
+        meio = (inicio + fim) // 2          
+        chave_reg = tupla[meio]             #determina o meio do vetor
         chave_reg = chave_reg.split("|")
-        if chave in chave_reg[0]: 
+        if chave in chave_reg[0]:           #caso encontrar a chave
            return chave_reg
 
-        if chave_reg[0] > chave:
+        if chave_reg[0] > chave:            #caso a chave for menor que o meio
            fim = meio - 1 
 
-        else:
+        else:                               #caso a chave for maior que o meio
            inicio = meio + 1
     
-    if inicio > fim:
+    if inicio > fim:                        #caso percorrer todo o vetor de chaves e não encontrar
         return -1
-    
+
+#realiza a localização e exibição do registro encontrado
 def buscaRegistro(arqEntrada, maxRegistro, chave):
     rrn = int(chave[1])
 
     with open(arqEntrada, 'r') as file:
-        file.seek(len(file.readline()) + rrn*maxRegistro)
-        print(file.readline())
-        #print("Registro Encontrado\n" + file.readline())
+        file.seek(len(file.readline()) + rrn*maxRegistro)   #desloca do inicio do arquivo até o registro encontrado
+        print("Registro Encontrado\n" + file.readline())    #exibe o registro
 
+#função de pesquisa do registro
 def pesquisa_de_registro(tupla, tamRegs, anime, origem):
     chaveEncontrada = BuscaBinaria(tupla, anime)
     if chaveEncontrada == -1:
@@ -124,9 +123,23 @@ def pesquisa_de_registro(tupla, tamRegs, anime, origem):
             buscaRegistro(entrada2, tamRegs, chaveEncontrada)
         else:
             return 1
+        
 #-----------------------------------------------------------------------------
 #funções de inserção
 #-----------------------------------------------------------------------------
+def insereTupla(novoRegistro_sep, tupla):
+    novachave = novoRegistro_sep[0]
+    rrn = len(tupla)
+    tupla.append(f"{novachave}|{rrn}")
+    OrdenaTupla(tupla, 0, len(tupla)-1)
+
+def insereArquivo(novoRegistro):
+    with open(entrada, 'a') as output:
+        output.write("\n"+novoRegistro)
+    with open(entrada2, 'a') as output:
+        novoRegistro = organizaLinha(novoRegistro, tamRegs)
+        output.write("\n"+novoRegistro)
+
 def insercao_de_registro(tupla, tamRegs):
     novoRegistro = str(input("Qual o novo registro que deseja inserir:"))
     novoRegistro_sep = novoRegistro.split(",")
@@ -134,32 +147,26 @@ def insercao_de_registro(tupla, tamRegs):
     if verificaRegistro == 1:
         print("O registro já existe\n")
     else:
-        novachave = novoRegistro_sep[0]
-        rrn = len(tupla)
-        tupla.append(f"{novachave}|{rrn}")
-        OrdenaTupla(tupla, 0, len(tupla)-1)
-
-        with open(entrada, 'a') as output:
-            output.write("\n"+novoRegistro)
-        with open(entrada2, 'a') as output:
-
-            novoRegistro = organizaLinha(novoRegistro, tamRegs)
-            output.write("\n"+novoRegistro)
+        insereTupla(novoRegistro_sep, tupla)
+        insereArquivo(novoRegistro)
+        print("Registro inserido\n")
 #-----------------------------------------------------------------------------
 #função principal
 #-----------------------------------------------------------------------------
 if __name__ == '__main__':
+    #abre o arquivo e retorna o vetor de tuplas, os registros e o tamanho dos registros
     tupla, regs, tamRegs = abreArquivo()
-    OrdenaTupla(tupla, 0, len(tupla) -1)
+    OrdenaTupla(tupla, 0, len(tupla) -1)    #ordena as tuplas para busca binaria
+
     menu = 1
     while menu != 0:
         menu = int(input("O que deseja fazer:\n1- Pesquisar\n2- Inserir\n0- Sair\n"))
-        if menu == 1:
+        if menu == 1:       #pesquisa de registro
             anime = str(input("Qual anime deseja buscar: "))
             chave = pesquisa_de_registro(tupla, tamRegs, anime, 0)
             if chave == -1:
                 print('O registro não foi encontrado\n')
-        if menu == 2:
+        if menu == 2:       #inserção de registro
             insercao_de_registro(tupla, tamRegs)
         if menu == 0:
             print("Programa finalizado")
