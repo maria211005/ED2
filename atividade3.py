@@ -19,7 +19,6 @@ with open(entrada, 'r') as arq:
     maxRegistro = 0
     for i in range(len(arquivo)):
         arquivo[i] = arquivo[i].strip('\n')
-        arquivo[i] = arquivo[i].replace(",","|")
 
         tam.append(len(arquivo[i]))
 
@@ -27,8 +26,9 @@ with open(entrada, 'r') as arq:
             maxRegistro = tam[i]
 
     for i in range (len(arquivo)):
+        arquivo[i] = arquivo[i].replace(",","|")
         if len(arquivo[i]) < maxRegistro:
-            arquivo[i] = arquivo[i] + "|" + "*"*(maxRegistro-len(arquivo[i])) + "\n"
+            arquivo[i] = arquivo[i] + "|" + "*"*(maxRegistro-len(arquivo[i])-2) + "\n"
         else:
             arquivo[i] = arquivo[i] + "\n"
 
