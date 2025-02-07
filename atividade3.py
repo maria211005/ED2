@@ -10,7 +10,7 @@ else:
     entrada = sys.argv[1]
     consulta = sys.argv[2]
     saida = sys.argv[3]
-'''
+
 with open(entrada, 'r') as arq:
     header = arq.readline()
     arquivo = arq.readlines()
@@ -25,7 +25,13 @@ with open(entrada, 'r') as arq:
 
         if tam[i] > maxRegistro:
             maxRegistro = tam[i]
-'''
+
+    for i in range (len(arquivo)):
+        if len(arquivo[i]) < maxRegistro:
+            arquivo[i] = arquivo[i] + "|" + "*"*(maxRegistro-len(arquivo[i])) + "\n"
+        else:
+            arquivo[i] = arquivo[i] + "\n"
+
 with open(consulta, 'r') as query:
     condicao = query.readline().strip("\n")
     valor = query.readline()
@@ -34,11 +40,8 @@ with open(consulta, 'r') as query:
         print("consulta booleana")
     else:
         print("consulta simples")
-'''
+
 with open(saida, 'w') as output:
     output.write(header)
     for i in range (len(arquivo)):
-        if len(arquivo[i]) < maxRegistro:
-            arquivo[i] = arquivo[i] + "|" + "*"*(maxRegistro-len(arquivo[i])) + "\n"
         output.write(arquivo[i])
-'''
