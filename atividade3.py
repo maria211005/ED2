@@ -66,4 +66,5 @@ with open(saida, 'w') as output:
 
 if __name__ == '__main__':
     arqRegistros, cabecalho = recebeRegistro()
+    #tem que fazer as tuplas pra mandar na pesquisa
     consultaRegistro(arqRegistros, cabecalho)
