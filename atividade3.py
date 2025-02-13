@@ -14,7 +14,7 @@ else:
 #recebe o arquivo de entrada com todos os registros e organiza-os
 def recebeRegistro():
     with open(entrada, 'r') as arq:
-        header = arq.readline().split(',')
+        header = arq.readline()
         arquivo = arq.readlines()
 
         #organizando o arquivo para alinhar os registros para procura
@@ -22,7 +22,6 @@ def recebeRegistro():
         maxRegistro = 0
         for i in range(len(arquivo)):
             arquivo[i] = arquivo[i].strip('\n')
-            arquivo[i] = arquivo[i].replace(",","|")
 
             tam.append(len(arquivo[i]))
 
@@ -31,10 +30,9 @@ def recebeRegistro():
 
         for i in range (len(arquivo)):
             if len(arquivo[i]) < maxRegistro:
-                arquivo[i] = arquivo[i] + "|" + "*"*(maxRegistro-len(arquivo[i])-2) + "\n"
+                arquivo[i] = arquivo[i] + "," + "*"*(maxRegistro-len(arquivo[i])-2) + "\n"
             else:
                 arquivo[i] = arquivo[i] + "\n"
-        
     return arquivo, header
 #----------------------------------------------------------------------------------------
 #recebe o arquivo com as condições de consulta e o registro que deseja procurar
@@ -54,7 +52,7 @@ def consultaRegistro(arquivo, cabecalho):
                     coluna = i
             #aqui não ta dando certo 
             for i in range(len(arquivo)):
-                arquivo[i] = arquivo[i].split("|")
+                arquivo[i] = arquivo[i].split("\"")
                 print(arquivo[i][coluna])
 #---------------------------------------------------------------------------------------
 #arquivo de saída com os registros pesquisados
@@ -66,5 +64,17 @@ with open(saida, 'w') as output:
 
 if __name__ == '__main__':
     arqRegistros, cabecalho = recebeRegistro()
+    for i in range(len(arqRegistros)):
+        j = 0
+        while j < len(arqRegistros[i]):
+            if arqRegistros[i][j] == '[':
+                    while arqRegistros[i][j] != ']':
+                        j+=1
+            else:
+                if arqRegistros[i][j] == ',':
+                    arqRegistros[i][j] = arqRegistros[i][j].replace(",","|")
+                j+=1
+    
+    print(arqRegistros)
     #tem que fazer as tuplas pra mandar na pesquisa
-    consultaRegistro(arqRegistros, cabecalho)
+    #consultaRegistro(arqRegistros, cabecalho)
