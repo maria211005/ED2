@@ -1,4 +1,4 @@
-import sys
+import sys, csv
 
 entrada = ''
 saida = ''
@@ -36,7 +36,7 @@ def recebeRegistro():
     return arquivo, header
 #----------------------------------------------------------------------------------------
 #recebe o arquivo com as condições de consulta e o registro que deseja procurar
-def consultaRegistro(arquivo, cabecalho):
+def consultaRegistro(reader):
     with open(consulta, 'r') as query:
         #name, album, artists, track_number, disc_number, explicit, key, mode, year
         condicao = query.readline().strip("\n")
@@ -44,16 +44,26 @@ def consultaRegistro(arquivo, cabecalho):
 
         if '&' in condicao:
             print("consulta booleana com &")
-        if '||' in condicao:
+        elif '||' in condicao:
             print("consulta booleana com ||")
         else:
-            for i in range(len(cabecalho)):
-                if cabecalho[i] == condicao:
-                    coluna = i
-            #aqui não ta dando certo 
-            for i in range(len(arquivo)):
-                arquivo[i] = arquivo[i].split("\"")
-                print(arquivo[i][coluna])
+            i = 0
+            '''
+            encontrou = 0
+            for linha in reader:
+                i+=1
+                if valor in linha[f"{condicao}"]:
+                    print(i, linha[f"{condicao}"])
+                    encontrou+=1
+            
+            if encontrou ==0:
+                print("não encontramos o que deseja procurar")
+        '''
+        with open(saida, 'w') as output:
+            for linha in reader:
+                i+=1
+                output.write(str(i) + " " + linha[f"{condicao}"] + "\n")
+
 #---------------------------------------------------------------------------------------
 #arquivo de saída com os registros pesquisados
 '''
@@ -63,18 +73,8 @@ with open(saida, 'w') as output:
 '''
 
 if __name__ == '__main__':
-    arqRegistros, cabecalho = recebeRegistro()
-    for i in range(len(arqRegistros)):
-        j = 0
-        while j < len(arqRegistros[i]):
-            if arqRegistros[i][j] == '[':
-                    while arqRegistros[i][j] != ']':
-                        j+=1
-            else:
-                if arqRegistros[i][j] == ',':
-                    arqRegistros[i][j] = arqRegistros[i][j].replace(",","|")
-                j+=1
-    
-    print(arqRegistros)
+    with open(entrada, 'r') as file:
+        reader = csv.DictReader(file)
+        arqRegistros, cabecalho = recebeRegistro()
     #tem que fazer as tuplas pra mandar na pesquisa
-    #consultaRegistro(arqRegistros, cabecalho)
+        consultaRegistro(reader)
