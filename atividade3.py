@@ -1,4 +1,4 @@
-import sys, csv, re
+import sys, csv
 
 entrada = ''
 saida = ''
@@ -14,7 +14,7 @@ else:
 #recebe o arquivo de entrada com todos os registros e organiza-os
 def recebeRegistro():
     with open(entrada, 'r') as arq:
-        header = arq.readline()
+        arq.seek(len(arq.readline()))
         arquivo = arq.readlines()
 
         #organizando o arquivo para alinhar os registros para procura
@@ -33,50 +33,53 @@ def recebeRegistro():
                 arquivo[i] = arquivo[i] + "," + "*"*(maxRegistro-len(arquivo[i])-2) + "\n"
             else:
                 arquivo[i] = arquivo[i] + "\n"
-    return arquivo, header
+    return arquivo
 #----------------------------------------------------------------------------------------
 #recebe o arquivo com as condições de consulta e o registro que deseja procurar
 def consultaRegistro(reader):
     with open(consulta, 'r') as query:
-        #name, album, artists, track_number, disc_number, explicit, key, mode, year
         condicao = query.readline().strip("\n")
         valor = query.readline()
 
         if '&' not in condicao and '||' not in condicao:
-            i = 0
-            '''
-            encontrou = 0
-            for linha in reader:
-                i+=1
-                if valor in linha[f"{condicao}"]:
-                    print(i, linha[f"{condicao}"])
-                    encontrou+=1
-            
-            if encontrou ==0:
-                print("não encontramos o que deseja procurar")
-        '''
-            with open(saida, 'w') as output:
-                for linha in reader:
-                    i+=1
-                    if valor in linha[f"{condicao}"]:
-                        output.write(str(i) + " " + linha[f"{condicao}"] + "\n")
+            print(condicao)
 
-        else:
-            re.split("[& ||]", condicao)
+        if ('&' in condicao and '||' not in condicao) or ('&' not in condicao and '||' in condicao):
+            condicao = condicao.split()
             print(condicao)
                 
-
+        if '&' in condicao and '||' in condicao:
+            condicao = condicao.split()
+            print(condicao)
 #---------------------------------------------------------------------------------------
-#arquivo de saída com os registros pesquisados
-'''
-with open(saida, 'w') as output:
-    for i in range (len(arquivo)):
-        output.write(arquivo[i])
-'''
+def montaTupla(reader):
+    tuplaPrimaria = []
+    tuplaName = []
+    tuplaAlbum = []
+    tuplaArtists = []
+    tuplaTrack = []
+    tuplaDisc = []
+    tuplaExplict = []
+    tuplaKey = []
+    tuplaMode = []
+    tuplaYear = []
 
+    i = 0
+    for linha in reader:
+        i+=1
+        tuplaPrimaria.append((linha["id"], str(i)))
+        tuplaName.append((linha["id"], linha["name"]))
+        tuplaAlbum.append((linha["id"], linha["album"]))
+        tuplaArtists.append((linha["id"], linha["artists"]))
+
+    #name, album, artists, track_number, disc_number, explicit, key, mode, year    
+    print(tuplaAlbum)
+#---------------------------------------------------------------------------------------
 if __name__ == '__main__':
     with open(entrada, 'r') as file:
         reader = csv.DictReader(file)
-        arqRegistros, cabecalho = recebeRegistro()
+        arqRegistros = recebeRegistro()
+
+        montaTupla(reader)
     #tem que fazer as tuplas pra mandar na pesquisa
-        consultaRegistro(reader)
+        #consultaRegistro(reader)
