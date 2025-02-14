@@ -1,4 +1,4 @@
-import sys, csv
+import sys, csv, re
 
 entrada = ''
 saida = ''
@@ -42,11 +42,7 @@ def consultaRegistro(reader):
         condicao = query.readline().strip("\n")
         valor = query.readline()
 
-        if '&' in condicao:
-            print("consulta booleana com &")
-        elif '||' in condicao:
-            print("consulta booleana com ||")
-        else:
+        if '&' not in condicao and '||' not in condicao:
             i = 0
             '''
             encontrou = 0
@@ -59,10 +55,16 @@ def consultaRegistro(reader):
             if encontrou ==0:
                 print("não encontramos o que deseja procurar")
         '''
-        with open(saida, 'w') as output:
-            for linha in reader:
-                i+=1
-                output.write(str(i) + " " + linha[f"{condicao}"] + "\n")
+            with open(saida, 'w') as output:
+                for linha in reader:
+                    i+=1
+                    if valor in linha[f"{condicao}"]:
+                        output.write(str(i) + " " + linha[f"{condicao}"] + "\n")
+
+        else:
+            re.split("[& ||]", condicao)
+            print(condicao)
+                
 
 #---------------------------------------------------------------------------------------
 #arquivo de saída com os registros pesquisados
