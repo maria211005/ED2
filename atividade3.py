@@ -71,9 +71,15 @@ def montaTupla(reader):
         tuplaName.append((linha["id"], linha["name"]))
         tuplaAlbum.append((linha["id"], linha["album"]))
         tuplaArtists.append((linha["id"], linha["artists"]))
+        tuplaTrack.append((linha["id"], linha["track_number"]))
+        tuplaDisc.append((linha["id"], linha["disc_number"]))
+        tuplaExplict.append((linha["id"], linha["explicit"]))
+        tuplaKey.append((linha["id"], linha["key"]))
+        tuplaMode.append((linha["id"], linha["mode"]))
+        tuplaYear.append((linha["id"], linha["year"]))
 
     #name, album, artists, track_number, disc_number, explicit, key, mode, year    
-    print(tuplaAlbum)
+    print(tuplaYear)
 #---------------------------------------------------------------------------------------
 if __name__ == '__main__':
     with open(entrada, 'r') as file:
