@@ -10,9 +10,15 @@ else:
     entrada = sys.argv[1]
     consulta = sys.argv[2]
     saida = sys.argv[3]
-
+#-----------------------------------------------------------------------------------
+#recebe o arquivo de entrada com todos os registros e organiza-os
+def recebeRegistro():
+    with open(entrada, 'r') as arq:
+        arquivo = arq.readlines()
+    return arquivo
 #----------------------------------------------------------------------------------------
-def montaTupla(reader):
+#recebe o arquivo com as condições de consulta e o registro que deseja procurar
+def montaTupla(arquivo, reader):
     tuplaPrimaria = []
     tuplaSecundaria = []
 
@@ -25,10 +31,6 @@ def montaTupla(reader):
         tuplaPrimaria.append((linha["id"], str(RRN)))
         tuplaSecundaria.append((linha["id"], linha["name"], linha["album"], linha["artists"], linha["track_number"], linha["disc_number"], linha["explicit"], linha["key"], linha["mode"], linha["year"]))
 
-    return tuplaPrimaria, tuplaSecundaria
-#---------------------------------------------------------------------------------------
-#recebe o arquivo com as condições de consulta e o registro que deseja procurar
-def consultaTuplas(tuplaPrimaria, tuplaSecundaria, arquivo):
     with open(consulta, 'r') as query, open(saida, 'w') as output:
         condicao = query.readline().strip("\n")
         valor = query.readline()
@@ -75,27 +77,13 @@ def consultaTuplas(tuplaPrimaria, tuplaSecundaria, arquivo):
                         if tuplaSecundaria[linhasSelecionadas[i]][0] == tuplaPrimaria[j][0]:
                             output.write(arquivo[int(tuplaPrimaria[j][1])])
 
-        if '&' not in condicao and '||' in condicao:
-            condicao = condicao.split(" || ")
-            valor = valor.split(", ")
-
-            print(condicao, valor)
-
         if '&' in condicao and '||' in condicao:
             condicao = condicao.split()
 
 #---------------------------------------------------------------------------------------
-def verificaConsulta():
-    with open(consulta, 'r') as query:
-        print(query.readlines())
-
 if __name__ == '__main__':
-    verificaConsulta()
-    '''
     with open(entrada, 'r') as file:
         reader = csv.DictReader(file)
-        arqRegistros = file.readlines()
-
-        primaria, secundaria = montaTupla(reader)
-        consultaTuplas(primaria, secundaria, arqRegistros)
-    '''
+        arqRegistros = recebeRegistro()
+        montaTupla(arqRegistros, reader)
+    #tem que fazer as tuplas pra mandar na pesquisa
