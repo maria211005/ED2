@@ -86,6 +86,9 @@ def verificaConsulta():
     with open(consulta, 'r') as query:
         condicao = query.readline().strip("\n")
         valor = query.readline()
+        if condicao == " " and valor == "":
+            print("Arquivo vazio")
+            return False
         if condicao == "" or valor == "":
             print("Arquivo inválido para consulta")
             return False
