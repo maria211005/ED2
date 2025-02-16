@@ -1,7 +1,5 @@
 import sys, csv
 
-entrada = ''
-saida = ''
 #caso não tenha a quantidade de argumentos válida para execução do código
 if(len(sys.argv) != 4):
     print("Quantidade de argumentos inválida. Tente novamente")
@@ -10,8 +8,14 @@ else:
     entrada = sys.argv[1]
     consulta = sys.argv[2]
     saida = sys.argv[3]
-
+#-----------------------------------------------------------------------------------
+#recebe o arquivo de entrada com todos os registros e organiza-os
+def recebeRegistro():
+    with open(entrada, 'r') as arq:
+        arquivo = arq.readlines()
+    return arquivo
 #----------------------------------------------------------------------------------------
+#recebe o arquivo com as condições de consulta e o registro que deseja procurar
 def montaTupla(reader):
     tuplaPrimaria = []
     tuplaSecundaria = []
@@ -24,11 +28,10 @@ def montaTupla(reader):
 
         tuplaPrimaria.append((linha["id"], str(RRN)))
         tuplaSecundaria.append((linha["id"], linha["name"], linha["album"], linha["artists"], linha["track_number"], linha["disc_number"], linha["explicit"], linha["key"], linha["mode"], linha["year"]))
-
+    
     return tuplaPrimaria, tuplaSecundaria
-#---------------------------------------------------------------------------------------
-#recebe o arquivo com as condições de consulta e o registro que deseja procurar
-def consultaTuplas(tuplaPrimaria, tuplaSecundaria, arquivo):
+#-----------------------------------------------------------------------------------------------------
+def consultaTupla(arquivo, tuplaPrimaria, tuplaSecundaria):
     with open(consulta, 'r') as query, open(saida, 'w') as output:
         condicao = query.readline().strip("\n")
         valor = query.readline()
@@ -75,27 +78,25 @@ def consultaTuplas(tuplaPrimaria, tuplaSecundaria, arquivo):
                         if tuplaSecundaria[linhasSelecionadas[i]][0] == tuplaPrimaria[j][0]:
                             output.write(arquivo[int(tuplaPrimaria[j][1])])
 
-        if '&' not in condicao and '||' in condicao:
-            condicao = condicao.split(" || ")
-            valor = valor.split(", ")
-
-            print(condicao, valor)
-
         if '&' in condicao and '||' in condicao:
             condicao = condicao.split()
 
 #---------------------------------------------------------------------------------------
 def verificaConsulta():
     with open(consulta, 'r') as query:
-        print(query.readlines())
-
+        condicao = query.readline().strip("\n")
+        valor = query.readline()
+        if condicao == "" or valor == "":
+            print("Arquivo inválido para consulta")
+            return False
+        else:
+            return True
+#---------------------------------------------------------------------------------------
 if __name__ == '__main__':
-    verificaConsulta()
-    '''
-    with open(entrada, 'r') as file:
-        reader = csv.DictReader(file)
-        arqRegistros = file.readlines()
-
-        primaria, secundaria = montaTupla(reader)
-        consultaTuplas(primaria, secundaria, arqRegistros)
-    '''
+    if verificaConsulta():
+        with open(entrada, 'r') as file:
+            reader = csv.DictReader(file)
+            arqRegistros = recebeRegistro()
+            
+            primaria, secundaria = montaTupla(reader)
+            consultaTupla(arqRegistros, primaria, secundaria)

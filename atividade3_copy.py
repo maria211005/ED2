@@ -1,7 +1,5 @@
 import sys, csv
 
-entrada = ''
-saida = ''
 #caso não tenha a quantidade de argumentos válida para execução do código
 if(len(sys.argv) != 4):
     print("Quantidade de argumentos inválida. Tente novamente")
@@ -18,7 +16,7 @@ def recebeRegistro():
     return arquivo
 #----------------------------------------------------------------------------------------
 #recebe o arquivo com as condições de consulta e o registro que deseja procurar
-def montaTupla(arquivo, reader):
+def montaTupla(reader):
     tuplaPrimaria = []
     tuplaSecundaria = []
 
@@ -30,7 +28,10 @@ def montaTupla(arquivo, reader):
 
         tuplaPrimaria.append((linha["id"], str(RRN)))
         tuplaSecundaria.append((linha["id"], linha["name"], linha["album"], linha["artists"], linha["track_number"], linha["disc_number"], linha["explicit"], linha["key"], linha["mode"], linha["year"]))
-
+    
+    return tuplaPrimaria, tuplaSecundaria
+#-----------------------------------------------------------------------------------------------------
+def consultaTupla(arquivo, tuplaPrimaria, tuplaSecundaria):
     with open(consulta, 'r') as query, open(saida, 'w') as output:
         condicao = query.readline().strip("\n")
         valor = query.readline()
@@ -81,9 +82,21 @@ def montaTupla(arquivo, reader):
             condicao = condicao.split()
 
 #---------------------------------------------------------------------------------------
+def verificaConsulta():
+    with open(consulta, 'r') as query:
+        condicao = query.readline().strip("\n")
+        valor = query.readline()
+        if condicao == "" or valor == "":
+            print("Arquivo inválido para consulta")
+            return False
+        else:
+            return True
+#---------------------------------------------------------------------------------------
 if __name__ == '__main__':
-    with open(entrada, 'r') as file:
-        reader = csv.DictReader(file)
-        arqRegistros = recebeRegistro()
-        montaTupla(arqRegistros, reader)
-    #tem que fazer as tuplas pra mandar na pesquisa
+    if verificaConsulta():
+        with open(entrada, 'r') as file:
+            reader = csv.DictReader(file)
+            arqRegistros = recebeRegistro()
+            
+            primaria, secundaria = montaTupla(reader)
+            consultaTupla(arqRegistros, primaria, secundaria)
