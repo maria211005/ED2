@@ -1,2 +1,0 @@
-artist_name || artist_name & year
-The Strokes, Franz Ferdinand, 2005
