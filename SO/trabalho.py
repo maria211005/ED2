@@ -1,24 +1,23 @@
-def defineLetras():
-    letras =[]
 
-    for i in range(ord('A'), ord('Z')+1):
-        letras.append(chr(i))
-    
-    return letras
-
-
+#main
 if __name__ == '__main__':
-    alfabeto = defineLetras()
-    i = 0
+    
+    dict = {'Processo': 0, 'Tempo': 1, 'Chegada': 2, 'Prioridade': 3}
+    arq = []
+    with open('processos.csv', 'r') as arquivo:
+        for linha in arquivo:
+            processo = linha.strip().split(',')
+            tamanho = len(processo)
+            arq.append(processo)
 
     processo = []
-    while(i < len(alfabeto)):
-        nome = alfabeto[i]
-        horaChegada = input("Digite o horário de chegada: ")
-        quantCPU = input("Digite quanto de CPU vai precisar: ")
+    for i in range(1, tamanho):
+        processo.append([])
+        processo[i-1].append(arq[dict['Processo']][i])
+        processo[i-1].append(arq[dict['Tempo']][i])
+        processo[i-1].append(arq[dict['Chegada']][i])
+        processo[i-1].append(arq[dict['Prioridade']][i])
 
-        processo.append(f"{nome}, {horaChegada}, {quantCPU}")
 
-        i+=1
-    
-    print(processo)
+    for i in range(len(processo)):
+        print(processo[i])
