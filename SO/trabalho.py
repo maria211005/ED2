@@ -1,7 +1,24 @@
-
 #main
-if __name__ == '__main__':
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def enqueue(self, item):
+        self.items.insert(0,item)
+
+    def dequeue(self):
+        return self.items.pop()
+
+    def size(self):
+        return len(self.items)
     
+if __name__ == '__main__':
+    q = Queue()
+    qProcessados = []
+
     dict = {'Processo': 0, 'Tempo': 1, 'Chegada': 2, 'Prioridade': 3}
     arq = []
     with open('processos.csv', 'r') as arquivo:
@@ -20,4 +37,4 @@ if __name__ == '__main__':
 
 
     for i in range(len(processo)):
-        print(processo[i])
+        print(processo[i][dict['Processo']]+" ", end='')
