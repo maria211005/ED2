@@ -16,7 +16,9 @@ class Queue:
         return len(self.items)
     
 if __name__ == '__main__':
-    #print(processo[i-1][dict['Processo']]+" ", end='')
+    print("SIMULADOR DE GERENCIADOR DE PROCESSOS")
+    print("Política Round Robin (Quantum = 5)\n\n\n")
+    
     qProcessos = Queue()
     qTempos = Queue()
 
@@ -27,6 +29,7 @@ if __name__ == '__main__':
     duration = 0
     quantum = 5
     processando = False
+    time = 0
 
     dict = {'Processo': 0, 'Tempo': 1, 'Chegada': 2, 'Prioridade': 3}
     dict1 = {}
@@ -55,10 +58,24 @@ if __name__ == '__main__':
             print(f"Processo {processo[i-1][dict['Processo']]} tem prioridade {processo[i-1][dict['Prioridade']]}")
             dict1.update({processo[i-1][dict['Processo']]: processo[i-1][dict['Prioridade']]})
             iteration = 0
-
+            
+    print("Processos na fila do Round Robim:")
+    for i in range(len(processo)):
+        print(processo[i][dict['Processo']]+"  ", end='')
+    
+    print("\n\nTempo de CPU requerida pelos processos:")
+    for i in range(len(processo)):
+        print(processo[i][dict['Tempo']]+"  ", end='')
+    
+    print("\n\nTempo de Chegada dos processos:")
+    for i in range(len(processo)):
+        print(processo[i][dict['Chegada']]+"  ", end='')
+        
+    #---------------------------------------------------------------------------------------------------------------
     #comeca o processo propriamente dito    
     i = 0
-    while tempo < tempoTotal:
+    qTemposProcessados.append(time)
+    while tempo <= tempoTotal:
         if tempo < len(processo):
             if tempo == int(processo[i][dict['Chegada']]):
                 qProcessos.enqueue(processo[i][dict['Processo']])
@@ -92,9 +109,53 @@ if __name__ == '__main__':
                     processando = True
                     if int(time) > quantum:
                         duration += quantum
-                        time = str(int(time) - quantum)
-                    else: duration += int(time)
+                    else: 
+                        duration += int(time)
+                    time = str(int(time) - quantum)
+                        
         tempo+= 1
         i+= 1
+
+    #exibe o resultado do processo
+    print("\n\n\n\n\nLINHA DO TEMPO:\n")
+    print(f"|{qTemposProcessados[0]}|", end='')
+    for i in range(len(qProcessados)):
+        print(f"------{qProcessados[i]}------|{qTemposProcessados[i+1]}|", end='')
         
-    print(qTemposProcessados)
+
+    TME = []
+    TMR = []
+    for j in range(len(processo)):
+        tempoMedioEspera = 0
+        auxEspera = 0
+        apareceu = False
+        for i in range(len(qProcessados)):
+            if qProcessados[i] == processo[j][dict['Processo']]:
+                if apareceu == False:
+                    tempoMedioEspera += qTemposProcessados[i] - int(processo[j][dict['Chegada']])
+                    apareceu = True
+                else:
+                    tempoMedioEspera+= qTemposProcessados[i] - auxEspera
+                auxEspera = qTemposProcessados[i+1]
+        TME.append(tempoMedioEspera)
+        TMR.append(tempoMedioEspera + int(processo[j][dict['Tempo']]))
+    
+    print("\n\n\n\n\nTempo de Espera de cada processo:")
+    for i in range(len(processo)):
+        print(processo[i][dict['Processo']]+"  ", end='')
+    print("")
+    for i in range(len(TME)):
+        print(str(TME[i]) + " ", end='')
+        
+    print("\n\n\nTempo de Resposta de cada processo:")
+    for i in range(len(processo)):
+        print(processo[i][dict['Processo']]+"  ", end='')
+    print("")
+    for i in range(len(TMR)):
+        print(str(TMR[i]) + " ", end='')
+    
+    print("\n\n\n\n")    
+    print(f"Tempo Médio de Espera: {sum(TME)/len(processo)}")
+    
+    print(f"\nTempo Médio de Resposta: {sum(TMR)/len(processo)}")
+    
