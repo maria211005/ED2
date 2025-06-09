@@ -16,10 +16,12 @@ class Queue:
         return len(self.items)
     
 if __name__ == '__main__':
+    #print(processo[i-1][dict['Processo']]+" ", end='')
     qProcessos = Queue()
     qTempos = Queue()
 
     qProcessados = []
+    qTemposProcessados = []
     tempoTotal = 0
     tempo = 0
     duration = 0
@@ -53,52 +55,46 @@ if __name__ == '__main__':
             print(f"Processo {processo[i-1][dict['Processo']]} tem prioridade {processo[i-1][dict['Prioridade']]}")
             dict1.update({processo[i-1][dict['Processo']]: processo[i-1][dict['Prioridade']]})
             iteration = 0
+
+    #comeca o processo propriamente dito    
+    i = 0
+    while tempo < tempoTotal:
+        if tempo < len(processo):
+            if tempo == int(processo[i][dict['Chegada']]):
+                qProcessos.enqueue(processo[i][dict['Processo']])
+                qTempos.enqueue(processo[i][dict['Tempo']])
+            if processando == False:
+                valor = qProcessos.dequeue()
+                time = qTempos.dequeue()
+                qProcessados.append(valor)
+                processando = True
+                if int(time) > quantum:
+                    duration += quantum
+                    time = str(int(time) - quantum)
+                else: duration += int(time)
+            if tempo == duration:
+                qTemposProcessados.append(duration)
+                if int(time) > 0:
+                    qProcessos.enqueue(valor)
+                    qTempos.enqueue(time)
+                processando = False
+        else:
+            if tempo == duration:
+                qTemposProcessados.append(duration)
+                if int(time) > 0:
+                    qProcessos.enqueue(valor)
+                    qTempos.enqueue(time)
+                processando = False
+                if qProcessos.isEmpty() == False:
+                    valor = qProcessos.dequeue()
+                    time = qTempos.dequeue()
+                    qProcessados.append(valor)
+                    processando = True
+                    if int(time) > quantum:
+                        duration += quantum
+                        time = str(int(time) - quantum)
+                    else: duration += int(time)
+        tempo+= 1
+        i+= 1
         
-        #print(processo[i-1][dict['Processo']]+" ", end='')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-    if(iteration == 0):
-        while tempo < tempoTotal:
-            for i in range(len(processo)):
-                if tempo == int(processo[i][dict['Chegada']]):
-                    qProcessos.enqueue(processo[i][dict['Processo']])
-                    if processando == False:
-                        qProcessos.dequeue()
-                        qProcessados.append(processo[i][dict['Processo']])
-                        processando = True
-                        if int(processo[i][dict['Tempo']]) > quantum:
-                            duration += quantum
-                            processo[i][dict['Tempo']] = str(int(processo[i][dict['Tempo']]) - quantum)
-                        else: duration += int(processo[i][dict['Tempo']])
-                    if tempo == duration:
-                        if int(processo[i][dict['Tempo']]) > 0:
-                            qProcessos.enqueue(processo[i][dict['Processo']])
-                        processando = True
-                tempo += 1
-
-    print(qProcessos.items)
-'''
+    print(qTemposProcessados)
